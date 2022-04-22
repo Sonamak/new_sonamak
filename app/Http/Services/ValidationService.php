@@ -2,7 +2,7 @@
 
 namespace App\Http\Services;
 
-class ValidationService {
+trait ValidationService {
 
     public function result($result,$payload = []) 
     {
