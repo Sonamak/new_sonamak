@@ -1,0 +1,44 @@
+<?php 
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\$modelname;
+use Illuminate\Http\Request;
+use App\Models\$model;
+use App\Http\Requests\$modelRequest;
+
+
+class $controllername extends Controller {
+
+    public function index(Request $request)
+    {
+        return view('admin.$modlower.index',[
+            '$plural' => $model::filter($request)->paginate(10)
+        ]);
+    }
+
+    public function upsert($model $$modlower)
+    {
+        return  view('admin.modlower.upsert',[
+            '$modlower' => $$modlower ?? null
+        ]);
+    }
+
+    public function store($modelRequest $request )
+    {
+        $model::upsertInstance($request);
+    }
+
+    public function delete($model $$modlower)
+    {
+        $$modlower->deleteInstance();
+    }
+
+    public function get($model $$modlower)
+    {
+        return $$modlower;
+    }
+
+}
+
