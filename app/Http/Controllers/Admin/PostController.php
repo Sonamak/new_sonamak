@@ -21,7 +21,6 @@ class PostController extends Controller {
 
     public function upsert(Post $post)
     {
-        dd('here');
         return  view('admin.modlower.upsert',[
             'post' => $post ?? null
         ]);

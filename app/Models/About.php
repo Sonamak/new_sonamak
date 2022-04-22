@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Http\Services\ValidationService;
-class Post extends Authenticatable
+use App\Http\Service;
+
+class About extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable,ValidationService;
 
@@ -17,7 +18,7 @@ class Post extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['body'];
+    protected $fillable = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -28,12 +29,12 @@ class Post extends Authenticatable
 
     public function upsertInstance($request)
     {
-        $post = self::updateOrCreate(
-            ['id' => $request->id ?? null],
-            $request->all()
+        $about = self::updateOrCreate(
+            ['id' => $this->id],
+            [$request->all()]
         );
 
-        return $this->result($post,'success');
+        return $this->result($about,'success');
     }
 
     public function deleteInstance()

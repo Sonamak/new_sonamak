@@ -15,11 +15,6 @@ class RouteTest extends TestCase
             dump($route == 'event' );
 
             $single_route = strtolower($route);
-        
-
-            if( $route == 'event' ) {
-                dd('false');
-            }
 
             $this->get("/$single_route");
 

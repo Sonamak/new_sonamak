@@ -16,7 +16,5 @@ use App\Http\Admin\PostController;
 |
 */
 
-Route::get('/','testController@index');
-
 // Route::get('/test',[ App\Http\Controllers\testController::class,'index']);
 Sonamak::routes();

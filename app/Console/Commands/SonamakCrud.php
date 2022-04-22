@@ -54,7 +54,7 @@ class SonamakCrud extends Command
             'controller' =>  $controller_name,
             'model' => $capitalized_name,
             'request' => $request_name,
-            'migration' => "create".$plural."_table"
+            'migration' => "create_".$plural."_table"
         ];
     }
 
