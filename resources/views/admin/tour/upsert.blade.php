@@ -52,7 +52,7 @@ $route = array_shift($route) .'.store';
                     </div>
 
                     <input type="file" class="insert_gallary gallary_input d-none" data-container=".gallary_container" data-append=".gallary_files">
-                    <input type="file" class="gallary_files d-none" name="gallary['image']" multiple>
+                    <input type="file" class="gallary_files d-none" name="gallary[]" multiple>
                     <p class="gallary_empty w-100 text-center">No Image to display here</p>
                     <p class="error error_gallary"></p>
                 </div>

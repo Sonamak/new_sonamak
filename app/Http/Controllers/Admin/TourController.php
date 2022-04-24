@@ -27,7 +27,7 @@ class TourController extends Controller {
 
     public function store(TourRequest $request )
     {
-        Tour::upsertInstance($request);
+        return Tour::upsertInstance($request);
     }
 
     public function delete(Tour $tour)

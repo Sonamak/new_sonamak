@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\Sonamak;
+use App\Models\Tour;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/admin-panal','Admin\AdminController@index');
+Route::get('/test',function(){
+    $tour = Tour::find(1);
+    dd($tour->removeReleatedImage());
+});
 
 Sonamak::routes();

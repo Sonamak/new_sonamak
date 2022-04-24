@@ -54,12 +54,6 @@ $(document).on('submit','.ajax-form',function(e) {
         
         success: (e) => {
             
-
-            if( ! $(this).attr('reset') ) {
-                $(this).trigger("reset");
-            }
-
-            
             if($(this).attr('callback').length > 0)
                 window[$(this).attr('callback')](e);
         }
