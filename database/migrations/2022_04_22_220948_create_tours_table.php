@@ -16,10 +16,8 @@ class CreateToursTable extends Migration
         Schema::create('tours', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description');
-            $table->text('Itinerary');
-            $table->integer('interval');
-            $table->string('interval_unit');
+            $table->text('description_en');
+            $table->text('description_fr'); 
             $table->timestamps();
         });
     }

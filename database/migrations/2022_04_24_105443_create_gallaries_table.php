@@ -15,6 +15,9 @@ class CreateGallariesTable extends Migration
     {
         Schema::create('gallaries', function (Blueprint $table) {
             $table->id();
+            $table->morphs('imageable');
+            $table->string('name');
+            $table->string('use_for')->nullable();
             $table->timestamps();
         });
     }
