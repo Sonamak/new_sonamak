@@ -20,7 +20,7 @@ class $controllername extends Controller {
 
     public function upsert($model $$modlower)
     {
-        return  view('admin.modlower.upsert',[
+        return  view('admin.$modlower.upsert',[
             '$modlower' => $$modlower ?? null
         ]);
     }

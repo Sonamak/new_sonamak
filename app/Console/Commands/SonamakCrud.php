@@ -152,11 +152,13 @@ class SonamakCrud extends Command
         $this->info("Request Created Successfully");
 
         $group = $this->ask('What group you want?');
+        $icon_class = $this->ask('What is your icon class?');
 
         DB::table('routes')->insert([
             'name' => $this->argument('name'),
             'group' => $group,
-            'type'  => $this->option('type') 
+            'type'  => $this->option('type'),
+            'icon_class' => $icon_class
         ]);
     }
 }

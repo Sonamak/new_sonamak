@@ -19,6 +19,7 @@ class CreateRoutesTable extends Migration
             $table->string('group');
             $table->string('type');
             $table->boolean('activate')->default(true);
+            $table->string('icon_class')->nullable();
             $table->timestamps();
         });
     }

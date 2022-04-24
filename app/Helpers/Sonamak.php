@@ -24,11 +24,11 @@ class Sonamak {
                 $uppername = ucwords($name);
                 $controller = "Admin\\".$uppername."Controller";
 
-                Route::get("/","$controller@index")->name("$lowername.index");
-                Route::post("/store","$controller@store")->name('$lowername.store');
+                Route::get("/","$controller@index")->name("$lowername");
+                Route::post("/store","$controller@store")->name("$lowername.store");
 
                 if ( $type == 'multi' ) {
-                    Route::get("/upsert","$controller@upsert");
+                    Route::get('/upsert/'.'{'.$lowername.'?}',"$controller@upsert")->name("$lowername.create");
                 }
                 
             });

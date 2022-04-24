@@ -1,10 +1,7 @@
 <?php
 
 use App\Helpers\Sonamak;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-use App\Http\Admin\PostController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,5 +13,6 @@ use App\Http\Admin\PostController;
 |
 */
 
-// Route::get('/test',[ App\Http\Controllers\testController::class,'index']);
+Route::get('/admin-panal','Admin\AdminController@index');
+
 Sonamak::routes();
