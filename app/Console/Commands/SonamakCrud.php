@@ -93,6 +93,8 @@ class SonamakCrud extends Command
 
         $get_crud_array = $this->getCrudsArray();
 
+        $name = strtolower($this->argument('name'));
+
         if ( $value == 'controller' ) {
 
             $pluralName  = strtolower(strtolower($get_crud_array['model'])).'s';
@@ -131,7 +133,7 @@ class SonamakCrud extends Command
 
         if ( $value == 'index' ) {
 
-            $path = base_path('resources/views/admin/'.$this->argument('name'));
+            $path = base_path('resources/views/admin/'.$name);
 
             $name = $this->argument('name');
             $single = '$'.$name;
@@ -139,7 +141,7 @@ class SonamakCrud extends Command
 
             // dd($path);
 
-            $path = base_path('resources/views/admin/'.$this->argument('name'));
+            $path = base_path('resources/views/admin/'.strtolower($this->argument('name')));
 
             // dd($path);
 
@@ -149,9 +151,9 @@ class SonamakCrud extends Command
 
             $file = fopen($path.'/index.blade'.'.php','w');
 
-            $get_content = str_replace('$string',$name,$get_content);
+            $get_content = str_replace('$string',strtolower($name),$get_content);
             $get_content = str_replace('$single',strtolower($single),$get_content);
-            $get_content = str_replace('$plural',$plural,$get_content);
+            $get_content = str_replace('$plurals',strtolower($plural),$get_content);
 
             fwrite($file,$get_content);
 
@@ -159,7 +161,7 @@ class SonamakCrud extends Command
 
         if ( $value == 'upsert' ) {
 
-            $path = base_path('resources/views/admin/'.$this->argument('name'));
+            $path = base_path('resources/views/admin/'.$name);
 
             $name = '$'.$this->argument('name');
             $single = '$'.$name;
@@ -167,7 +169,7 @@ class SonamakCrud extends Command
 
             // dd($path);
 
-            $path = base_path('resources/views/admin/'.$this->argument('name'));
+            $path = base_path('resources/views/admin/'.strtolower($this->argument('name')));
 
             // dd($path);
 
@@ -177,7 +179,8 @@ class SonamakCrud extends Command
 
             $file = fopen($path.'/upsert.blade'.'.php','w');
 
-            $get_content = str_replace('$model',$name,$get_content);
+            $get_content = str_replace('$model',strtolower($name),$get_content);
+            $get_content = str_replace('$name',strtolower($this->argument('name')),$get_content);
 
 
             fwrite($file,$get_content);
