@@ -26,22 +26,25 @@ $.ajaxSetup({
     }
 });
 
-$(document).on('click','.delete_btn',function(e) {
+$(document).on('click','.delete-btn',function(e) {
 
     $('.modal .confirm_btn').attr('delete-route',$(this).attr('route'))
     $('.modal .confirm_btn').attr('callback',$(this).attr('callback'))
 
 });
 
-$(document).on('change','.feature_tour_check',function () {
+$(document).on('change','.switch',function () {
+
+    let route= $(this).attr('route');
+
     $.ajax({
-        url: 'tour/feature/'+$(this).attr('model_id'),
+        url: route,
         method: 'post'
     });
 })
 
 $(document).on('click','#deleteModel .confirm_btn',function () {
-    alert('asd');
+
     $.ajax({
         url: $(this).attr('delete-route'),
         method: 'post',
