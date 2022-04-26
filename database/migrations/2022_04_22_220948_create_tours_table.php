@@ -15,9 +15,11 @@ class CreateToursTable extends Migration
     {
         Schema::create('tours', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title_en');
+            $table->string('title_fr');
             $table->text('description_en');
-            $table->text('description_fr'); 
+            $table->text('description_fr');
+            $table->string('thumbnail')->nullable(); 
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateToursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_tours');
+        Schema::dropIfExists('tours');
     }
 }

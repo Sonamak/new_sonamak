@@ -15,6 +15,11 @@ class CreateItinerariesTable extends Migration
     {
         Schema::create('itineraries', function (Blueprint $table) {
             $table->id();
+            $table->string('title_en');
+            $table->string('title_fr');
+            $table->text('description')->nullable();
+            $table->foreignId('tour_id');
+            $table->integer('day');
             $table->timestamps();
         });
     }

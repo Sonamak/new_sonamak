@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTourPreferencesTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateTourPreferencesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tour_preferences', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
-            $table->string('value');
-            $table->foreignId('tour_id');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateTourPreferencesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tour_preferences');
+        Schema::dropIfExists('posts');
     }
 }

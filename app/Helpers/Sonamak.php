@@ -26,9 +26,12 @@ class Sonamak {
 
                 Route::get("/","$controller@index")->name("$lowername");
                 Route::post("/store","$controller@store")->name("$lowername.store");
+                Route::post("/more","$controller@more")->name("$lowername.more");
+                Route::post('/delete/'.'{'.$lowername.'}',"$controller@delete")->name("$lowername.delete");
+                
 
                 if ( $type == 'multi' ) {
-                    Route::get('/upsert/'.'{'.$lowername.'?}',"$controller@upsert")->name("$lowername.create");
+                    Route::get('/upsert/'.'{'.$lowername.'?}',"$controller@upsert")->name("$lowername.upsert");
                 }
                 
             });

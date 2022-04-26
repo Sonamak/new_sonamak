@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Http\Services\ValidationService;
 
-class $model extends Authenticatable
+class Post extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable,ValidationService;
 
@@ -18,7 +18,7 @@ class $model extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['id'];
+    protected $fillable = ['id','body','title'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -29,12 +29,12 @@ class $model extends Authenticatable
 
     public function upsertInstance($request)
     {
-        $$modlower = self::updateOrCreate(
+        $post = self::updateOrCreate(
             ['id' => $request->id],
             $request->all()
         );
 
-        return $this->result($$modlower,'success');
+        return  ['message' => 'success','payload' => $post];
     }
 
     public function deleteInstance()

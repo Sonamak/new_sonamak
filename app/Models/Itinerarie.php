@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Itinerarie extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+    
 }

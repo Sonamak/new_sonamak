@@ -79,5 +79,20 @@
 <script src="{{ asset('admin/plugins/summernote-editor/summernote1.js') }}"></script>
 <script src="{{ asset('admin/js/summernote.js') }}"></script>
 
+<!-- Internal Fileuploads js -->
+<script src="{{ asset('admin/plugins/fileuploads/js/fileupload.js') }}"></script>
+<script src="{{ asset('admin/plugins/fileuploads/js/file-upload.js') }}"></script>
+
+<!-- FF file upload -->
+<!--  INTERNAL File-Uploads Js -->
+<script src="{{ asset('admin/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
+<script src="{{ asset('admin/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
+<script src="{{ asset('admin/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
+<script src="{{ asset('admin/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
+<script src="{{ asset('admin/plugins/fancyuploder/fancy-uploader.js') }}"></script>
+
+@stack('component_script')
+
 <!-- custom js -->
 <script src="{{ asset('admin/js/custom.js') }}"></script>
+@livewireScripts

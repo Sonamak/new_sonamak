@@ -81,6 +81,22 @@
 					</div>
 				</div>
 			</div>
+			<!-- Start: Modals -->
+			<!-- Modal -->
+			<div class="modal fade" id="deleteModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content ">
+				<div class="modal-body d-flex justify-content-center flex-column align-items-center">
+				<img width="78px" src="{{ asset('storage/system/fixed/warn.png') }}" class="mb-2">
+					<p>Slow down howdy,We have to warn you that this action is irreverasble and this data will be permantly delete</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary confirm_btn">Confirm</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>
+				</div>
+			</div>
+			</div>
             <!-- Footer opened -->
             <div class="main-footer">
                 <div class="col-md-12 col-sm-12 text-center">
@@ -93,6 +109,8 @@
 		</div>
 		<!-- End Page -->
 
+		
+		
 		<!-- Back-to-top -->
 		<a href="#top" id="back-to-top"><i class="las la-arrow-up"></i></a>
         @include('admin.layouts.footer')

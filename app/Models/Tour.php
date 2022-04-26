@@ -37,9 +37,48 @@ class Tour extends Authenticatable
             $request->all()
         );
 
+
+        if ( $request->include )  {
+
+            $tour->tourPrefrences()->where('type','include')->delete();
+
+            foreach ( $request->include as $item )  {
+
+                $include['type'] = 'include';
+                $include['value'] = $item;
+
+                $tour->tourPrefrences()->create($include);
+                
+            }
+
+        }
+
+
+        if ( $request->exclude )  {
+
+            $tour->tourPrefrences()->where('type','exclude')->delete();
+
+            foreach ( $request->exclude as $item )  {
+
+                $exclude['type'] = 'exclude';
+                $exclude['value'] = $item;
+
+                $tour->tourPrefrences()->create($exclude);
+                
+            }
+
+        }
+
+
+        if ( $request->removed_gallary ) {
+
+            $tour->deleteImagesWithIdsBelongsToRelation([$request->removed_gallary],'storage/tour','gallaries');
+
+        }
+
         if( $request->gallary ) {
 
-            $tour->dimintions(['small' => '100x100','medium' => '200x200','large' => '300x300'])
+            $tour->dimintions(['small' => '261x164','medium' => '500x500','large' => '1200x720'])
                   ->fit()
                   ->files($request->gallary)
                   ->withSaveRelation('gallaries')
@@ -48,7 +87,33 @@ class Tour extends Authenticatable
 
         }
 
+        if ( $request->thumbnail ) {
+
+
+            if (  $request->thumbnail ) {
+
+                $tour->deleteImagesWithIdsBelongsToRelation([$tour->thumbnail->id],'storage/tour','gallaries');
+
+            }
+
+
+            $tour->dimintions(['small' => '261x164','medium' => '500x500','large' => '1200x720'])
+                  ->fit()
+                  ->files($request->thumbnail)
+                  ->withSaveRelation('gallaries')
+                  ->usefor('thumbnail')
+                  ->compile();
+
+
+        }
+
         return ['message' => 'success','payload' => $tour];
+    }
+
+    public function toggleFeature()
+    {
+        $this->feature = $this->feature ? false : true;
+        $this->save();
     }
 
     public function deleteInstance()
@@ -62,9 +127,31 @@ class Tour extends Authenticatable
         return $query;
     }
 
+    //Mutators 
+
+    public function getIncludesAttribute()
+    {
+        return $this->tourPrefrences()->where('type','include')->get();
+    }
+
+    public function getExcludesAttribute()
+    {
+        return $this->tourPrefrences()->where('type','exclude')->get();
+    }
+
+    public function getGallaryAttribute()
+    {
+        return $this->gallaries()->where('use_for','gallary')->get();
+    }
+
+    public function getThumbnailAttribute()
+    {
+        return $this->gallaries()->where('use_for','thumbnail')->first();
+    }
+
     //Relations
 
-    public function TourPrefrences()
+    public function tourPrefrences()
     {
         return $this->hasMany(TourPreference::class);
     }

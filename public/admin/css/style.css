@@ -1012,13 +1012,15 @@ btn-outline-primary:hover .bg-primary {
 a.btn.disabled, fieldset:disabled a.btn {
   pointer-events: none; }
 
-.btn-primary {
+.btn-primary,
+.btn-secondary{
   color: #fff;
   background-color: var(--primary-bg-color);
   border-color: var(--primary-bg-border); 
   font-size: 12px;
   border-radius: 20px;
   padding: 5px 17px;
+  border: 0;
 }
   .btn-primary:hover {
     color: #fff;

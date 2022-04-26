@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/test',function(){
     $tour = Tour::find(1);
-    dd($tour->removeReleatedImage());
+    $data = [['id' => 1,'title_en' => 'hello','title_fr' => 'aa','day' => 23],['title_en' => 'sad','title_fr' => 'qwe','day' => 24],['id' => 2,'title_en' => 'aaa','title_fr' => 'asdds2','day'=>'25']];
+    dd($tour->hasManySync('itinerarie',$data));
 });
 
 Sonamak::routes();

@@ -14,14 +14,14 @@ class TourController extends Controller {
     public function index(Request $request)
     {
         return view('admin.tour.index',[
-            'tours' => Tour::filter($request)->paginate(10)
+            'tours' => Tour::filter($request)->paginate(1)
         ]);
     }
 
     public function upsert(Tour $tour)
     {
         return  view('admin.tour.upsert',[
-            'model' => $tour ?? null
+            'tour' => $tour ?? null
         ]);
     }
 
@@ -32,8 +32,20 @@ class TourController extends Controller {
 
     public function delete(Tour $tour)
     {
-        $tour->deleteInstance();
+        return $tour->deleteInstance();
     }
+
+    public function more(Request $request)
+    {
+        $more = Tour::filter($request)->with('gallaries')->paginate(1);
+        return ['message' => 'sucess','payload' => $more];
+    }
+
+    public function feature(Tour $tour) 
+    {
+        $tour->toggleFeature();
+    }
+    
 
     public function get(Tour $tour)
     {

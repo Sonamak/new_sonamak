@@ -49,4 +49,14 @@
     <link href="{{ asset('admin/plugins/datatable/css/buttons.bootstrap5.min.css') }}"  rel="stylesheet">
     <link href="{{ asset('admin/plugins/datatable/responsive.bootstrap5.css') }}" rel="stylesheet" />
 
+    
+    <!---Internal Fileupload css-->
+    <link href="{{ asset('admin/plugins/fileuploads/css/fileupload.css') }}" rel="stylesheet" type="text/css"/>
+
+    <!---Internal Fancy uploader css-->
+    <link href="{{ asset('admin/plugins/fancyuploder/fancy_fileupload.css') }}" rel="stylesheet" />
+
+    <!-- Livewire -->
+    @livewireStyles
+
 </head>

@@ -15,4 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','Admin\AdminController@index');
 
+Route::post('tour/feature/{tour}','Admin\TourController@feature');
+
+
 Sonamak::routes();

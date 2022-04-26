@@ -44,7 +44,7 @@ class SonamakCrud extends Command
 
         $capitalized_name = ucwords($name);
 
-        $controller_name  = $name.'Controller';
+        $controller_name  = ucwords($name).'Controller';
 
         $request_name = $name.'Request';
 
@@ -54,7 +54,9 @@ class SonamakCrud extends Command
             'controller' =>  $controller_name,
             'model' => $capitalized_name,
             'request' => $request_name,
-            'migration' => "create_".$plural."_table"
+            'migration' => "create_".$plural."_table",
+            'index' => "index",
+            'upsert' => "upsert"
         ];
     }
 
@@ -67,6 +69,14 @@ class SonamakCrud extends Command
         if ( $value == 'controller' ) {
 
             $file_content = file_get_contents($main_directory.'SonamakController.stub');
+
+        } else if ( $value == 'index' ) {
+
+            $file_content = file_get_contents($main_directory.'index.stub');
+
+        } else if ( $value == 'upsert' ) {
+
+            $file_content = file_get_contents($main_directory.'upsert.stub');
 
         } else {
 
@@ -117,7 +127,62 @@ class SonamakCrud extends Command
             $this->info("Model Created Successfully");
 
         }
-        
+
+
+        if ( $value == 'index' ) {
+
+            $path = base_path('resources/views/admin/'.$this->argument('name'));
+
+            $name = $this->argument('name');
+            $single = '$'.$name;
+            $plural = '$'.$name.'s';
+
+            // dd($path);
+
+            $path = base_path('resources/views/admin/'.$this->argument('name'));
+
+            // dd($path);
+
+            if (!file_exists($path)) {
+                mkdir($path,0777, true);
+            }
+
+            $file = fopen($path.'/index.blade'.'.php','w');
+
+            $get_content = str_replace('$string',$name,$get_content);
+            $get_content = str_replace('$single',strtolower($single),$get_content);
+            $get_content = str_replace('$plural',$plural,$get_content);
+
+            fwrite($file,$get_content);
+
+        }
+
+        if ( $value == 'upsert' ) {
+
+            $path = base_path('resources/views/admin/'.$this->argument('name'));
+
+            $name = '$'.$this->argument('name');
+            $single = '$'.$name;
+            $plural = '$'.$name.'.'.'s';
+
+            // dd($path);
+
+            $path = base_path('resources/views/admin/'.$this->argument('name'));
+
+            // dd($path);
+
+            if (!file_exists($path)) {
+                mkdir($path,0777, true);
+            }
+
+            $file = fopen($path.'/upsert.blade'.'.php','w');
+
+            $get_content = str_replace('$model',$name,$get_content);
+
+
+            fwrite($file,$get_content);
+
+        }
 
 
         return $get_content;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
@@ -45,7 +46,12 @@ trait ImageService {
 
     public function files($files)
     {   
-        $this->files = $files;
+        if( is_array($files) ) {
+            $this->files = $files;
+        } else {
+            $this->files = [$files];
+        }
+
         return $this;
     }
 
@@ -74,6 +80,19 @@ trait ImageService {
 
                     $dimintion_explode = explode('x',$dimintion);
 
+                    $file_path->fit($dimintion_explode[0], $dimintion_explode[1], function ($constraint) {
+                        $constraint->upsize();
+                    })->save($root.'/'."$size/".$unique_name);
+                    
+                    
+                }
+
+            } else {
+
+                foreach( $this->dimintionsArray as $size => $dimintion ) {
+
+                    $dimintion_explode = explode('x',$dimintion);
+
                     $file_path->resize($dimintion_explode[0], $dimintion_explode[1], function ($constraint) {
                         $constraint->aspectRatio();
                     })->save($root.'/'."$size/".$unique_name);
@@ -94,6 +113,32 @@ trait ImageService {
         }
 
         return $names;
+    }
+
+    public function deleteImagesWithIdsBelongsToRelation($ids,$root = null,$relation = null) {
+
+        $root = public_path($root);
+
+        $files  = $this->$relation->whereIn('id',$ids);
+
+        
+        $dirictoris  = scandir($this->root);
+
+        foreach($dirictoris as $dirictory) {
+            if( is_dir(public_path($this->root.'/'.$dirictory) ) ) {
+
+                foreach($files as $file) {
+                    File::delete(public_path($this->root.'/'.$dirictory.'/'.$file->name));
+                }
+
+
+            }
+
+        }
+
+        $this->$relation()->whereIn('id',$ids)->delete();
+        
+
     }
 
     public function removeReleatedImage($relation = 'gallaries',$root = null)

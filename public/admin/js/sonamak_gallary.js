@@ -43,13 +43,22 @@ $('.insert_gallary').on({
 
 $(document).on('click','.remove_gallary_btn',function(){
 
-    let rel = $(this).attr('rel');
+    if( ! $(this).attr('model_id') ) {
+        let rel = $(this).attr('rel');
 
-    let index = Array.from(dataTransfere.files).findIndex(x => x.lastModified == rel);
+        let index = Array.from(dataTransfere.files).findIndex(x => x.lastModified == rel);
 
-    dataTransfere.items.remove(index);
+        dataTransfere.items.remove(index);
 
-    $(`${$(this).attr('data-append')}`)[0].files = dataTransfere.files;
+        $(`${$(this).attr('data-append')}`)[0].files = dataTransfere.files;
+
+    } else {
+        let model_id = $(this).attr('model_id');
+
+        $('.removed_gallary').append(`
+            <input type="hidden" value="${model_id}" name="removed_gallary[]">
+        `)
+    }
 
     $(this).closest('.gallary_image').remove();
 

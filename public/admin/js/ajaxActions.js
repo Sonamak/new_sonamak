@@ -26,6 +26,35 @@ $.ajaxSetup({
     }
 });
 
+$(document).on('click','.delete_btn',function(e) {
+
+    $('.modal .confirm_btn').attr('delete-route',$(this).attr('route'))
+    $('.modal .confirm_btn').attr('callback',$(this).attr('callback'))
+
+});
+
+$(document).on('change','.feature_tour_check',function () {
+    $.ajax({
+        url: 'tour/feature/'+$(this).attr('model_id'),
+        method: 'post'
+    });
+})
+
+$(document).on('click','#deleteModel .confirm_btn',function () {
+    alert('asd');
+    $.ajax({
+        url: $(this).attr('delete-route'),
+        method: 'post',
+        success:  (e) => {
+            console.log($(this).attr('callback'))
+            window[$(this).attr('callback')](e)
+
+        }
+
+    })
+
+});
+
 $(document).on('submit','.ajax-form',function(e) {
     e.preventDefault();
 
@@ -37,6 +66,18 @@ $(document).on('submit','.ajax-form',function(e) {
         formData = window[$(this).attr('methodAppend')]();
     } else {
         formData = new FormData(this);
+    }
+
+    if( $(this).attr('appendToData') ) {
+        
+        data = window[$(this).attr('appendToData')]();
+
+        for ( element in data ) {
+
+            formData.append(element,JSON.stringify(data[element]));
+
+        }
+
     }
 
 
@@ -54,9 +95,14 @@ $(document).on('submit','.ajax-form',function(e) {
         
         success: (e) => {
             
-            if($(this).attr('callback').length > 0)
+            if( $(this).attr('callback') )
                 window[$(this).attr('callback')](e);
+
+            if( $(this).attr('redirect') ) {
+                window.location.href = $(this).attr('redirect');
+            }
         }
 
     })
 });
+

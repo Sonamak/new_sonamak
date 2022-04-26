@@ -6,7 +6,7 @@ trait ValidationService {
 
     public function result($result,$payload = []) 
     {
-        return [$result,$payload];
+        return ['message' => $result,'payload' => $payload];
     }
 
 }
