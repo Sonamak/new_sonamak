@@ -48,7 +48,7 @@ class SonamakCrud extends Command
 
         $request_name = $name.'Request';
 
-        $plural = Pluralizer::plural($name, 2);
+        $plural = $name.'s';
 
         return [
             'controller' =>  $controller_name,
