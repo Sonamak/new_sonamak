@@ -17,7 +17,7 @@
                 @foreach($tours as $tour)
 
 
-                    <div class="row mt-4">
+                    <div class="row mt-4" id="tour_{{$tour->id}}">
                         <div class="col-md-3">
                             <img width="260px" height="161px" src="@if($tour->thumbnail) {{ asset('storage/tour/small/'.$tour->thumbnail->name) }} @else @endif" alt="{{ $tour->tite_en }}">
                         </div>
@@ -32,14 +32,14 @@
                                 <a href="{{ route('tour.upsert',['tour' => $tour->id]) }}">
                                     <button class="btn btn-primary">Edit</button>
                                 </a>
-                                <button class="btn-secondary mx-2" delete_message="Slow Down Howdy! We Have to warn you that this action is irrevesable and this data will be permenantly delete" route="" delete_id="">
+                                <button class="btn-secondary mx-2 delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModel"  route="{{ route('tour.delete',['tour'=>$tour->id]) }}" delete_id="{{ $tour->id }}" callback="deleteTour">
                                     Delete
                                 </button>
 
                                 <div class="switcher mb-0 d-flex ms-auto">
                                     <p class="sub-text m-0 feature-txt mx-2 mt-2"> Mark As Feature </p>
                                     <div class="checkbox">
-                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox feature feature_tour_check" model_id="{{ $tour->id }}" id="myonoffswitch_{{$tour->id}}" @if($tour->feature) checked @endif>
+                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox feature switch"  route="{{ route('tour.feature',['tour' => $tour->id]) }}" id="myonoffswitch_{{$tour->id}}" @if($tour->feature) checked @endif>
                                         <label class="onoffswitch-label mb-0" for="myonoffswitch_{{$tour->id}}">
                                         <span class="onoffswitch-inner"></span>
                                     </div>
@@ -51,7 +51,7 @@
 
                 @endforeach
 
-                <p class="empty_section  @if( $tours->total() )  d-none  @endif"> No Tours Avaliable to Display </p>
+                <p class="empty_section  @if( $tours->total() )  d-none  @endif  w-100 text-center"> No Tours Avaliable to Display </p>
                
             </div>
 
@@ -70,6 +70,7 @@
 
 
     function deleteTour(e) {
+
 
         $(`#tour_${e.payload.id}`).remove();
 
