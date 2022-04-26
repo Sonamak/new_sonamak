@@ -119,7 +119,7 @@ class Tour extends Authenticatable
     public function deleteInstance()
     {
         $this->delete();
-        return $this->result($this,'success');
+        return $this->result('success',$this);
     }
 
     public function scopeFilter($query,$request)
