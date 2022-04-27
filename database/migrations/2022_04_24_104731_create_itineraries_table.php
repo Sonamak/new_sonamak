@@ -15,11 +15,12 @@ class CreateItinerariesTable extends Migration
     {
         Schema::create('itineraries', function (Blueprint $table) {
             $table->id();
-            $table->string('title_en');
-            $table->string('title_fr');
-            $table->text('description')->nullable();
-            $table->foreignId('tour_id');
-            $table->integer('day');
+            $table->string('title_en')->nullable();
+            $table->string('title_fr')->nullable();
+            $table->text('description_en')->nullable();
+            $table->text('description_fr')->nullable();
+            $table->foreignId('tour_id')->nullable();
+            $table->integer('day')->nullable();
             $table->timestamps();
         });
     }

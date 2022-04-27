@@ -32,7 +32,7 @@ class $controllername extends Controller {
 
     public function delete($model $$modlower)
     {
-        $$modlower->deleteInstance();
+        return $$modlower->deleteInstance();
     }
 
     public function get($model $$modlower)

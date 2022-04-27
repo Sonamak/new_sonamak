@@ -41,7 +41,7 @@ function Dropify(element, options) {
         showErrors: true,
         errorTimeout: 3000,
         errorsPosition: 'overlay',
-        imgFileExtensions: ['png', 'jpg', 'jpeg', 'gif', 'bmp'],
+        imgFileExtensions: ['png', 'jpg', 'jpeg', 'gif', 'bmp','webp','svg'],
         maxFileSizePreview: "5M",
         allowedFormats: ['portrait', 'square', 'landscape'],
         allowedFileExtensions: ['*'],
@@ -197,6 +197,7 @@ Dropify.prototype.readFile = function(input)
         this.errorsEvent.errors = [];
         this.checkFileSize();
 		this.isFileExtensionAllowed();
+        console.log(file);
 
         if (this.isImage() && this.file.size < this.sizeToByte(this.settings.maxFileSizePreview)) {
             this.input.on('dropify.fileReady', this.onFileReady);
@@ -288,6 +289,8 @@ Dropify.prototype.setPreview = function(previewable, src)
     this.wrapper.removeClass('has-error').addClass('has-preview');
     this.filenameWrapper.children('.dropify-filename-inner').html(this.file.name);
     var render = this.preview.children('.dropify-render');
+
+    console.log( previewable)
 
     this.hideLoader();
 
@@ -412,9 +415,13 @@ Dropify.prototype.getFileType = function()
  */
 Dropify.prototype.isImage = function()
 {
-    if (this.settings.imgFileExtensions.indexOf(this.getFileType()) != "-1") {
+    console.log('sss');
+    if (this.settings.imgFileExtensions.indexOf(this.getFileType().replace(' ','')) != "-1") {
         return true;
     }
+    
+
+    console.log('asd');
 
     return false;
 };

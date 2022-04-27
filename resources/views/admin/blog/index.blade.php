@@ -1,10 +1,10 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="main-container container-fluid" route="{{ route('$string.more') }}">
+<div class="main-container container-fluid" route="{{ route('blog.more') }}">
     <div class="card mt-4 card-full">
         <div class="card-header w-100 d-flex">
-            <h4 class="card-title mb-1">$string List</h4>
+            <h4 class="card-title mb-1">blog List</h4>
             <a href="{{ route(request()->route()->getName().'.upsert') }}" class="d-block ms-auto">
                 <button class=" btn btn-primary ">
                     <i class="icon ion-ios-add"></i>
@@ -14,36 +14,27 @@
         </div>
         <div class="card-body">
             <div class="append-container">
-                @foreach($plurals as $single)
+                @foreach($blogs as $blog)
 
 
-                    <div class="row mt-4 $strings" id="$strings_{{$single->id}}">
+                    <div class="row mt-4 blogs" id="blog_{{$blog->id}}">
                         <div class="col-md-3">
-                            <img width="260px" height="161px" src="@if($single->thumbnail) {{ asset('storage/$string/small/'.$single->thumbnail->name) }} @else @endif" alt="{{ $single->tite_en }}">
+                            <img width="260px" height="161px" src="@if($blog->thumbnail) {{ asset('storage/blog/small/'.$blog->thumbnail->name) }} @else @endif" alt="{{ $blog->tite_en }}">
                         </div>
                         <div class="col-md-9">
                             <h3 class="section_title">
-                                {{ $single->title_en }}
+                                {{ $blog->title_en }}
                             </h3>
                             <p class="col-md-8 mx-0 px-0 sub-text">
-                                {{ substr(strip_tags($single->description_en),0,200).'...' }}
+                                {{ substr(strip_tags($blog->article_in_en),0,200).'...' }}
                             </p>
                             <div class="d-flex align-items-center col-md-8 p-0">
-                                <a href="{{ route('$string.upsert',['$string' => $single->id]) }}">
+                                <a href="{{ route('blog.upsert',['blog' => $blog->id]) }}">
                                     <button class="btn btn-primary">Edit</button>
                                 </a>
-                                <button class="btn-secondary mx-2 delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModel"  route="{{ route('$string.delete',['$string'=>$single->id]) }}" delete_id="{{ $single->id }}" callback="delete$string">
+                                <button class="btn-secondary mx-2 delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModel"  route="{{ route('blog.delete',['blog'=>$blog->id]) }}" delete_id="{{ $blog->id }}" callback="deleteblog">
                                     Delete
                                 </button>
-
-                                <div class="switcher mb-0 d-flex ms-auto">
-                                    <p class="sub-text m-0 feature-txt mx-2 mt-2"> Mark As Feature </p>
-                                    <div class="checkbox">
-                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox feature feature_$string_check" model_id="{{ $single->id }}" id="myonoffswitch_{{$single->id}}" @if($single->feature) checked @endif>
-                                        <label class="onoffswitch-label mb-0" for="myonoffswitch_{{$single->id}}">
-                                        <span class="onoffswitch-inner"></span>
-                                    </div>
-                                </div>
 
                             </div>
                         </div>
@@ -51,11 +42,11 @@
 
                 @endforeach
 
-                <p class="empty_section w-100 text-center @if( $plurals->total() )  d-none  @endif"> No $strings Avaliable to Display </p>
+                <p class="empty_section w-100 text-center @if( $blogs->total() )  d-none  @endif"> No blogs Avaliable to Display </p>
                
             </div>
 
-            @if ( $plurals->lastPage() != $plurals->currentPage() )
+            @if ( $blogs->lastPage() != $blogs->currentPage() )
             <div class="w-100 d-flex justify-content-center mt-2">
                 <button class="btn btn-primary mx-auto load_more">
                     Load More
@@ -69,11 +60,13 @@
 <script>
 
 
-    function delete$string(e) {
+    function deleteblog(e) {
 
-        $(`#$string_${e.payload.id}`).remove();
+        alert('asd');
 
-        if( ! $('.$strings').length ) {
+        $(`#blog_${e.payload.id}`).remove();
+
+        if( ! $('.blogs').length ) {
 
             $('.empty_section').removeClass('d-none')
 
@@ -88,7 +81,7 @@
 
     $('.load_more').on('click',function () {
         $.ajax({
-                url: `{{ route("$string.more") }}?page=${page}`,
+                url: `{{ route("blog.more") }}?page=${page}`,
                 type: 'post',
                 success: function (e) {
                     
@@ -113,7 +106,7 @@
 
                         <div class="row mt-4">
                                 <div class="col-md-3">
-                                    <img width="260px" height="161px" src="/storage/$string/small/${thumbnail.name}" alt="">
+                                    <img width="260px" height="161px" src="/storage/blog/small/${thumbnail.name}" alt="">
                                 </div>
                                 <div class="col-md-9">
                                     <h3 class="section_title">
@@ -123,17 +116,17 @@
                                         ${item.description_en.replace(/<[^>]*>?/gm, '').substring(0,200)}
                                     </p>
                                     <div class="d-flex align-items-center col-md-8 p-0">
-                                        <a href="$string/upsert/${item.id}">
+                                        <a href="blog/upsert/${item.id}">
                                             <button class="btn btn-primary">Edit</button>
                                         </a>
-                                        <button class="btn-secondary mx-2" delete_message="Slow Down Howdy! We Have to warn you that this action is irrevesable and this data will be permenantly delete" route="/$string/delete/${item.id}" delete_id="${item.id}">
+                                        <button class="btn-secondary mx-2" delete_message="Slow Down Howdy! We Have to warn you that this action is irrevesable and this data will be permenantly delete" route="/blog/delete/${item.id}" delete_id="${item.id}">
                                             Delete
                                         </button>
 
                                         <div class="switcher mb-0 d-flex ms-auto">
                                             <p class="sub-text m-0 feature-txt mx-2 mt-2"> Mark As Feature </p>
                                             <div class="checkbox">
-                                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox feature feature_$string_check" model_id="${item.id}" id="myonoffswitch_${item.id}" >
+                                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox feature feature_blog_check" model_id="${item.id}" id="myonoffswitch_${item.id}" >
                                                 <label class="onoffswitch-label mb-0" for="myonoffswitch_${item.id}">
                                                 <span class="onoffswitch-inner"></span>
                                             </div>

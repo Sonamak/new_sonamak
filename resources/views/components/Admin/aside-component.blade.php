@@ -13,6 +13,7 @@
             <li class="side-item side-item-category">Main</li>
             <li class="slide">
                 <a class="side-menu__item" data-bs-toggle="slide" href="">
+                    <i class="icon ion-md-stats me-2"></i>
                     <span class="side-menu__label">Dashboards</span>
                 </a>
             </li>

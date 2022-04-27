@@ -10,5 +10,6 @@ class Itinerarie extends Model
     use HasFactory;
 
     protected $guarded = [];
+
     
 }

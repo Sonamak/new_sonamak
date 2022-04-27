@@ -125,3 +125,24 @@
 .section_title {
     font-size: 13px;
 }
+
+/* Select 2 */
+
+.select2-container .select2-selection--single {
+    height: 40px !important;
+    display: flex !important;
+    align-items: center;
+}
+
+.select2-selection__rendered {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 33px !important;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 20px;
+}

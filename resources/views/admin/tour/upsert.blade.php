@@ -12,7 +12,8 @@ $route = array_shift($route) .'.store';
         <div class="card-header w-100 d-flex">
             <h4 class="card-title mb-1">{{ $tour ? 'Update Instance' : 'Add Instance' }}</h4>
         </div>
-        <form class="ajax-form" method="post" action="{{ route($route) }}" appendToData="mergeTourRefrences" redirect="{{ route('tour') }}">
+        <!-- appendToData="mergeTourRefrences" -->
+        <form class="ajax-form" method="post" action="{{ route($route) }}"  redirect="{{ route('tour') }}">
             <div class="card-body card-full">
 
                 <div class="row mb-4">
@@ -24,6 +25,7 @@ $route = array_shift($route) .'.store';
                         <p class="mt-2 sub-text">
                             Enter Beautiful thumbnail to the tour and please add image in aspect ratio to get the best performance
                         </p>
+                        <p class="error error_thumbnail"></p>
                     </div>
                 </div>
                 
@@ -68,8 +70,11 @@ $route = array_shift($route) .'.store';
                                     @foreach($tour->includes as $include)
                                     <div class="col-md-6 mb-2 d-flex align-items-center section">
                                         <p class="m-0">{{ $include->value }}</p>
-                                        <i class="fa fa-minus ms-auto remove_section" data-container=".insert_exclude"></i>
-                                        <input type="hidden" value="{{ $include->value }}" name="include[]"> 
+                                        <i class="fa fa-minus ms-auto remove_section" data-container=".insert_exclude" name="removed_include[]" id="{{ $include->id }}"></i>
+                                        <input type="hidden" value="{{ $include->value_en }}" name="include[{{$loop->index}}][value]"> 
+                                        <input type="hidden" value="{{ $include->value_fr }}" name="include[{{$loop->index}}][value]"> 
+                                        <input type="hidden" value="{{ $include->type }}" name="include[{{$loop->index}}][type]"> 
+                                        <input type="hidden" value="{{ $include->id }}" name="include[{{$loop->index}}][id]">
                                     </div>
                                     @endforeach
                                 @endif
@@ -89,7 +94,7 @@ $route = array_shift($route) .'.store';
                                         @foreach($tour->excludes as $exclude)
                                         <div class="col-md-6 mb-2 d-flex align-items-center section">
                                             <p class="m-0">{{ $exclude->value }}</p>
-                                            <i class="fa fa-minus ms-auto remove_section" data-container=".insert_exclude"></i>
+                                            <i class="fa fa-minus ms-auto remove_section" data-container=".insert_exclude" name="removed_exclude[]" id="{{  $exclude->id }}"></i>
                                             <input type="hidden" value="{{ $exclude->value }}" name="exclude[]"> 
                                         </div>
                                         @endforeach
@@ -98,6 +103,55 @@ $route = array_shift($route) .'.store';
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="form-group">
+                    
+                    <label>
+                        Itinerary Description In English
+                    </label>
+
+                    <textarea class="summernote mb-2" name="itinerary_description_fr">@if($tour->itinerary_description_fr) {{ $tour->itinerary_description_fr }} @endif</textarea>
+
+                    <label class="mt-2">
+                        Itinerary Description In French
+                    </label>
+
+                    <textarea class="summernote mb-2" name="itinerary_description_fr">@if($tour->itinerary_description_fr) {{ $tour->itinerary_description_fr }} @endif</textarea>
+
+
+
+                    <div class="d-flex mt-2">
+                        <label>
+                            Itinerary Details
+                        </label>
+                        <i class="fa fa-plus mx-2 mt-1 remove_section extra_section" data-insert=".insert_gallary" data-container=".itinerary_container" method-append="appendItinerary"></i>
+                    </div>
+
+                    <div class="itinerary_container">
+                        @foreach($tour->itinerarie as $itinerary) 
+                        <div class="itinerarires_form section">
+                            <input type="hidden" class="form-control w-100 my-2 title title_fr" name="itinerary[{{$loop->index}}][id]"  value="{{ $itinerary->id }}">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="Itineraries title english" class="form-control w-100 my-2 title title_en" name="itinerary[{{$loop->index}}][title_en]" value="{{ $itinerary->title_en }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="Itineraries title frensh" class="form-control w-100 my-2 title title_fr" name="itinerary[{{$loop->index}}][title_fr]"  value="{{ $itinerary->title_fr }}">
+                                </div>
+                                <div class="col-md-12">
+                                    <textarea class="form-control description description_en my-2" placeholder="English Description" name="itinerary[{{$loop->index}}][description_en]"  value="">{{ $itinerary->description_en }}</textarea>
+                                    <textarea class="form-control description description_fr my-2" placeholder="French Description" name="itinerary[{{$loop->index}}][description_fr]"   value="">{{ $itinerary->description_fr }}</textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" class="form-control" placeholder="Day" name="itinerary[{{$loop->index}}][day]" value="{{$itinerary->day}}">
+                                    <i class="fa fa-minus mx-2 remove_section" data-container=".itinerary_container" name="removed_itinerary[]" id="{{$itinerary->id}}"></i>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+
                 </div>
                 
 
@@ -133,6 +187,8 @@ $route = array_shift($route) .'.store';
                     <p class="error error_gallary"></p>
                 </div>
 
+                <div class="removed_section_container"></div>
+
                 
 
                 <input value="@if($tour->id) {{ $tour->id }} @endif" type="hidden" name="id">
@@ -149,58 +205,63 @@ $route = array_shift($route) .'.store';
 <script>
 
     function appendInclude (include) {
+        let index = $('.include_container').children().length;
         return `
             <div class="col-md-6 mb-2 d-flex align-items-center section">
                 <p class="m-0">${include}</p>
-                <i class="fa fa-minus ms-auto remove_section" data-container=".insert_exclude"></i>
-                <input type="hidden" value="${include}" name="include[]"> 
+                <i class="fa fa-minus ms-auto remove_section" data-container=".insert_exclude" name="removed_include[${index}]"></i>
+                <input type="hidden" value="${include}"> 
             </div>
         `
     }
 
     function appendExclude (exclude) {
+        let index = $('.exclude_container').children().length;
         return `
             <div class="col-md-6 mb-2 d-flex align-items-center section">
                 <p class="m-0">${exclude}</p>
-                <i class="fa fa-minus ms-auto remove_section" data-container=".insert_exclude"></i>
-                <input type="hidden" value="${exclude}" name="exclude[]"> 
+                <i class="fa fa-minus ms-auto remove_section" data-container=".insert_exclude"  name="removed_exclude[${index}]"></i>
+                <input type="hidden" value="${exclude}" > 
             </div>
         `
     }
 
     function storeIncludeInput (e) {
-        return `<input type="hidden" name="include[]" class="d-none" value="${e}">`;
+
+        return `<input type="hidden" name="include[value]" class="d-none" value="${e}"><input type="hidden" name="include[type]" class="d-none" value="${e}">`;
     }
 
-    function appendExclude (exclude) {
-        return `<div class="col-md-6 mb-2 d-flex align-items-center section">
-                    <p class="m-0">${exclude}</p>
-                    <i class="fa fa-minus mx-2 remove_section ms-auto remove_section" data-container=".insert_exclude"></i>
-                    <input type="hidden" value="${exclude}" name="exclude[]"> 
-                </div>`
-    }
+    // function appendExclude (exclude) {
+    //     return `<div class="col-md-6 mb-2 d-flex align-items-center section">
+    //                 <p class="m-0">${exclude}</p>
+    //                 <i class="fa fa-minus mx-2 remove_section ms-auto remove_section" data-container=".insert_exclude" name="removed_exclude[]"></i>
+    //                 <input type="hidden" value="${exclude}" name="exclude[]"> 
+    //             </div>`
+    // }
 
     function storeExcludeInput (e) {
         return `<input type="hidden" name="exlude[]" class="d-none" value="${e}">`;
     }
 
-    function appendItineraries () {
+    function appendItinerary () {
+        let index = $('.itinerary_container').children().length;
         return `
         <div class="itinerarires_form section">
+            <input type="hidden" class="form-control" placeholder="Day" name="itinerary[${index}][id]">
             <div class="row">
                 <div class="col-md-6">
-                    <input type="text" placeholder="Itineraries title english" class="form-control w-100 my-2 title title_en">
+                    <input type="text" placeholder="Itineraries title english" class="form-control w-100 my-2 title title_en" name="itinerary[${index}][title_en]">
                 </div>
                 <div class="col-md-6">
-                    <input type="text" placeholder="Itineraries title frensh" class="form-control w-100 my-2 title title_fr">
+                    <input type="text" placeholder="Itineraries title frensh" class="form-control w-100 my-2 title title_fr" name="itinerary[${index}][title_fr]">
                 </div>
                 <div class="col-md-12">
-                    <textarea class="form-control description description_en my-2" placeholder="English Description"></textarea>
-                    <textarea class="form-control description description_fr my-2" placeholder="French Description"></textarea>
+                    <textarea class="form-control description description_en my-2" placeholder="English Description" name="itinerary[${index}][description_en]"></textarea>
+                    <textarea class="form-control description description_fr my-2" placeholder="French Description" name="itinerary[${index}][description_fr]"></textarea>
                 </div>
                 <div class="col-md-6">
-                    <input type="number" class="form-control" placeholder="Day">
-                    <i class="fa fa-minus mx-2 remove_section" data-container=".insert_itineraries"></i>
+                    <input type="number" class="form-control" placeholder="Day" name="itinerary[${index}][day]">
+                    <i class="fa fa-minus mx-2 remove_section" data-container=".itinerary_container"></i>
                 </div>
             </div>
         </div>

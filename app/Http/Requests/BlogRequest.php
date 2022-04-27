@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TourRequest extends FormRequest
+class BlogRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,14 +23,11 @@ class TourRequest extends FormRequest
      */
     public function rules()
     {
-        // dd($this->all());
         return [
-            'title_en' => ['required'],
-            'title_fr' => ['required'],
-            'description_en' => ['required','min:2'],
-            'description_fr' => ['required','min:2'],
-            'itinerarires' => ['nullable'],
-            'thumbnail' => ['required_without:id']
+            'thumbnail' => ['required'],
+            'article_in_en' => ['required'],
+            'article_in_fr' => ['required'],
+            'language' => ['required']
         ];
     }
 }

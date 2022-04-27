@@ -22,7 +22,7 @@ $route = array_shift($route) .'.store';
                     <div class="mx-2 col-md-6">
                         <label for="Tumbnail">Tumbnail</label>
                         <p class="mt-2 sub-text">
-                            Enter Beautiful thumbnail to the tour and please add image in aspect ratio to get the best performance
+                            Enter Beautiful thumbnail to the destination and please add image in aspect ratio to get the best performance
                         </p>
                         <p class="error error_thumbnail"></p>
                     </div>

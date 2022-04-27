@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Services\ImageService;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -9,16 +10,17 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Http\Services\ValidationService;
 
-class $model extends Authenticatable
+class Blog extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,ValidationService;
+    use HasApiTokens, HasFactory, Notifiable,ValidationService,ImageService;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = ['id'];
+    protected $fillable = ['id','article_in_en','article_in_fr'];
+    protected $root = 'storage/blog';
 
     /**
      * The attributes that should be hidden for serialization.
@@ -29,12 +31,19 @@ class $model extends Authenticatable
 
     public function upsertInstance($request)
     {
-        $$modlower = self::updateOrCreate(
+        $blog = self::updateOrCreate(
             ['id' => $request->id],
             $request->all()
         );
 
-        return self::result($$modlower,'success');
+        $blog->dimintions(['small' => '261x164','medium' => '500x500','large' => '1200x720'])
+            ->fit()
+            ->files($request->thumbnail)
+            ->withSaveRelation('gallaries')
+            ->usefor('thumbnail')
+            ->compile();
+
+        return self::result($blog,'success');
     }
 
     public function deleteInstance()
@@ -48,5 +57,19 @@ class $model extends Authenticatable
         return $query;
     }
 
+    //Accessators
+
+
+    public function getThumbnailAttribute()
+    {
+        return $this->gallaries()->where('use_for','thumbnail')->first();
+    }
+
+    // Relations
+
+    public function gallaries()
+    {
+        return $this->morphMany(Gallary::class,'imageable');
+    }
 
 }

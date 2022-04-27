@@ -4,8 +4,9 @@ namespace {{ namespace }};
 
 use App\Http\Model\SonamakModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class {{ class }} extends SonamakModel
+class {{ class }} extends Model
 {
     use HasFactory;
 }

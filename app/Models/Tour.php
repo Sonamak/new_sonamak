@@ -20,7 +20,7 @@ class Tour extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['id','title','description_en','description_fr'];
+    protected $fillable = ['id','title','description_en','description_fr','itinerary_description_fr','itinerary_description_en'];
     protected $root = 'storage/tour';
 
     /**
@@ -40,18 +40,44 @@ class Tour extends Authenticatable
 
         if ( $request->include )  {
 
-            $tour->tourPrefrences()->where('type','include')->delete();
+            // dd(collect($request->include));
 
-            foreach ( $request->include as $item )  {
+            $includes = collect($request->include)->map(function($item) use ($tour){
+                $item['tour_id'] = $tour->id;
+                return $item;
+            })->all();
 
-                $include['type'] = 'include';
-                $include['value'] = $item;
+           
 
-                $tour->tourPrefrences()->create($include);
-                
-            }
+            $tour->tourPrefrences()->upsert(
+                $includes,
+                ['id', 'type'],
+                ['value']
+            );
+            
 
         }
+
+        if ( $request->removed_include ) { 
+
+            $tour->tourPrefrences()->where('type','include')->whereIn('id',$request->removed_include)->delete();
+
+        }
+
+
+        if ( $request->removed_exclude ) { 
+
+            $tour->tourPrefrences()->where('type','exclude')->whereIn('id',$request->removed_exclude)->delete();
+
+        }
+
+
+        if ( $request->removed_itinerary  )  {
+
+            $tour->itinerarie()->whereIn('id',$request->removed_itinerary)->delete();
+
+        }
+
 
 
         if ( $request->exclude )  {
@@ -107,6 +133,22 @@ class Tour extends Authenticatable
 
         }
 
+        if ( $request->itinerary ) {
+
+            $itinerary = collect($request->itinerary)->map(function($item) use ($tour){
+                $item['tour_id'] = $tour->id;
+                return $item;
+            })->all();
+           
+
+            $tour->itinerarie()->upsert(
+                $itinerary,
+                ['id'],
+                ['title_en','title_fr','description_en','description_fr','day']
+            );
+
+        }
+
         return ['message' => 'success','payload' => $tour];
     }
 
@@ -156,7 +198,7 @@ class Tour extends Authenticatable
         return $this->hasMany(TourPreference::class);
     }
 
-    public function Itinerarie()
+    public function itinerarie()
     {
         return $this->hasMany(Itinerarie::class);
     }

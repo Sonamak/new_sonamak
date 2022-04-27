@@ -29,8 +29,22 @@ $('.add_prefrence').on({
 
 $(document).on('click','.remove_section',function(){
     let container = $(this).attr('data-container');
+    let removed_name = $(this).attr('name');
 
     $(this).closest('.section').remove();
+
+    if ( removed_name )  {
+
+        let id = $(this).attr('id')
+
+        $('.removed_section_container').append(
+            `
+                <input type="hidden" name="${removed_name}" value="${id}">
+            `
+        )
+
+
+    }
 
     if( $(container).children().length == 1 ) {
 
