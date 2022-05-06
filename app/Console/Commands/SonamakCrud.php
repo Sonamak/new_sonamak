@@ -214,8 +214,6 @@ class SonamakCrud extends Command
         $migration_name = $get_crud_array['migration'];
         $request_name   = $get_crud_array['request'];
 
-        Artisan::call("make:migration $migration_name");
-        $this->info("Migration Created Successfully");
         Artisan::call("make:request $request_name");
         $this->info("Request Created Successfully");
 
@@ -228,5 +226,8 @@ class SonamakCrud extends Command
             'type'  => $this->option('type'),
             'icon_class' => $icon_class
         ]);
+
+        Artisan::call("make:migration $migration_name");
+        $this->info("Migration Created Successfully");
     }
 }

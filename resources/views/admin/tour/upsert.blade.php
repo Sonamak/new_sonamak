@@ -63,14 +63,14 @@ $route = array_shift($route) .'.store';
                             </label>
                             <div class="d-flex align-items-center">
                                 <input class="form-control include_form" placeholder="Enter Includes">
-                                <i class="fa fa-plus add_prefrence mx-2 d-block" data-container=".include_container" method-append="appendInclude" input=".include_form"></i>
+                                <i class="fa fa-plus add_prefrence mx-2 d-block" data-container=".add_container" method-append="appendInclude" input=".include_form"></i>
                             </div>
                             <div class="include_container mt-2">
                                 @if($tour->tourPrefrences)
                                     @foreach($tour->includes as $include)
                                     <div class="col-md-6 mb-2 d-flex align-items-center section">
                                         <p class="m-0">{{ $include->value }}</p>
-                                        <i class="fa fa-minus ms-auto remove_section" data-container=".insert_exclude" name="removed_include[]" id="{{ $include->id }}"></i>
+                                        <i class="fa fa-minus ms-auto remove_section" data-container=".add_container" name="removed_include[]" id="{{ $include->id }}"></i>
                                         <input type="hidden" value="{{ $include->value_en }}" name="include[{{$loop->index}}][value]"> 
                                         <input type="hidden" value="{{ $include->value_fr }}" name="include[{{$loop->index}}][value]"> 
                                         <input type="hidden" value="{{ $include->type }}" name="include[{{$loop->index}}][type]"> 
@@ -104,7 +104,8 @@ $route = array_shift($route) .'.store';
                         </div>
                     </div>
                 </div>
-
+                <div class="add_container"></div>
+                <div class="remove_section"></div>
                 <div class="form-group">
                     
                     <label>
@@ -210,7 +211,8 @@ $route = array_shift($route) .'.store';
             <div class="col-md-6 mb-2 d-flex align-items-center section">
                 <p class="m-0">${include}</p>
                 <i class="fa fa-minus ms-auto remove_section" data-container=".insert_exclude" name="removed_include[${index}]"></i>
-                <input type="hidden" value="${include}"> 
+                <input type="hidden" value="${include}" name="include[${include}]['value']"> 
+                <input type="hidden" value="${include}" name="include[${include}]['type']"> 
             </div>
         `
     }

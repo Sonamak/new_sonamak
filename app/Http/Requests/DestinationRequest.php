@@ -24,7 +24,7 @@ class DestinationRequest extends FormRequest
     public function rules()
     {
         return [
-            'thumbnail' => 'required',
+            'thumbnail' => ['required_without:id'],
             'country_name_fr' => 'required',
             'country_name_en' => 'required',
             'caption_in_en' => 'required',

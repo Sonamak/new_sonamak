@@ -4,6 +4,7 @@ namespace App\Http\Services;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 trait ImageService {
@@ -72,35 +73,44 @@ trait ImageService {
 
             array_push($names,$unique_name);
 
-            $file_path = Image::make($file->getRealPath());
+            if ( $file->extension() !== 'svg' )  {
 
-            if( $this->service == 'fit' ) {
+                $file_path = Image::make($file->getRealPath());
 
-               foreach( $this->dimintionsArray as $size => $dimintion ) {
-
-                    $dimintion_explode = explode('x',$dimintion);
-
-                    $file_path->fit($dimintion_explode[0], $dimintion_explode[1], function ($constraint) {
-                        $constraint->upsize();
-                    })->save($root.'/'."$size/".$unique_name);
-                    
-                    
-                }
-
-            } else {
+                if( $this->service == 'fit' ) {
 
                 foreach( $this->dimintionsArray as $size => $dimintion ) {
 
-                    $dimintion_explode = explode('x',$dimintion);
+                        $dimintion_explode = explode('x',$dimintion);
 
-                    $file_path->resize($dimintion_explode[0], $dimintion_explode[1], function ($constraint) {
-                        $constraint->aspectRatio();
-                    })->save($root.'/'."$size/".$unique_name);
-                    
-                    
+                        $file_path->fit($dimintion_explode[0], $dimintion_explode[1], function ($constraint) {
+                            $constraint->upsize();
+                        })->save($root.'/'."$size/".$unique_name);
+                        
+                        
+                    }
+
+                } else {
+
+                    foreach( $this->dimintionsArray as $size => $dimintion ) {
+
+                        $dimintion_explode = explode('x',$dimintion);
+
+                        $file_path->resize($dimintion_explode[0], $dimintion_explode[1], function ($constraint) {
+                            $constraint->aspectRatio();
+                        })->save($root.'/'."$size/".$unique_name);
+                        
+                        
+                    }
+
                 }
 
+            } else {
+                move_uploaded_file($file->getRealPath(),$root.'/small/'.$unique_name);
+                // $file->storeAs($root,$unique_name,'public');
             }
+
+            
 
             if( $this->relation ) {
 

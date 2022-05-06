@@ -19,8 +19,8 @@
 						<div class="main-header-left ">
 							<div class="responsive-logo">
 								<a href="index.html" class="header-logo">
-									<img src="{{ asset('admin/img/brand/logo.png') }}" class="mobile-logo logo-1" alt="logo">
-									<img src="{{ asset('admin/img/brand/logo-white.png') }}" class="mobile-logo dark-logo-1" alt="logo">
+									<img src="@if(app()->make('setup',['type' => 'header logo'])[0])  {{ asset('storage/system/small/'.app()->make('setup',['type' => 'header logo'])[0]) }} @else {{ asset('admin/img/brand/logo.png') }} @endif" class="mobile-logo logo-1" alt="logo">
+									<img src="@if(app()->make('setup',['type' => 'header logo'])[0])  {{ asset('storage/system/small/'.app()->make('setup',['type' => 'header logo'])[0]) }} @else {{ asset('admin/img/brand/logo.png') }} @endif" class="mobile-logo dark-logo-1" alt="logo">
 								</a>
 							</div>
 							<div class="app-sidebar__toggle" data-bs-toggle="sidebar">

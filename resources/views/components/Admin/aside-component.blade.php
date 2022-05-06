@@ -1,10 +1,10 @@
 <aside class="app-sidebar">
     <div class="main-sidebar-header active">
         <a class="header-logo active" href="index.html">
-            <img src="{{ asset('admin/img/brand/logo.png') }}" class="main-logo  desktop-logo" alt="logo">
-            <img src="{{ asset('admin/img/brand/logo-white.png') }}" class="main-logo  desktop-dark" alt="logo">
-            <img src="{{ asset('admin/img/brand/favicon.png') }}" class="main-logo  mobile-logo" alt="logo">
-            <img src="{{ asset('admin/img/brand/favicon-white.png') }}" class="main-logo  mobile-dark" alt="logo">
+            <img src="@if(app()->make('setup',['type' => 'header logo'])[0])  {{ asset('storage/system/small/'.app()->make('setup',['type' => 'header logo'])[0]) }} @else {{ asset('admin/img/brand/logo.png') }} @endif" class="main-logo  desktop-logo" alt="logo">
+            <img src="@if(app()->make('setup',['type' => 'header logo'])[0])  {{ asset('storage/system/small/'.app()->make('setup',['type' => 'header logo'])[0]) }} @else {{ asset('admin/img/brand/logo.png') }} @endif" class="main-logo  desktop-dark" alt="logo">
+            <img src="@if(app()->make('setup',['type' => 'header logo'])[0])  {{ asset('storage/system/small/'.app()->make('setup',['type' => 'short logo'])[0]) }} @else {{ asset('admin/img/brand/logo.png') }} @endif" class="main-logo  mobile-logo" alt="logo">
+            <img src="@if(app()->make('setup',['type' => 'header logo'])[0])  {{ asset('storage/system/small/'.app()->make('setup',['type' => 'short logo'])[0]) }} @else {{ asset('admin/img/brand/logo.png') }} @endif" class="main-logo  mobile-dark" alt="logo">
         </a>
     </div>
     <div class="main-sidemenu">
@@ -33,6 +33,22 @@
         </ul>
 
         @endforeach
+
+        <ul class="side-menu">
+            <li class="side-item side-item-category">Settings</li>
+            <li class="slide">
+                <a class="side-menu__item" data-bs-toggle="slide" href="{{ route('setup.index') }}">
+                    <i class="icon ion-md-settings me-2"></i>
+                    <span class="side-menu__label">Setup</span>
+                </a>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item" data-bs-toggle="slide" href="{{ route('setup.index') }}">
+                    <i class="icon ion-md-send me-2"></i>
+                    <span class="side-menu__label">Social</span>
+                </a>
+            </li>
+        </ul>
 
     </div>
 </aside>

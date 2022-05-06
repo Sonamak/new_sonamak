@@ -146,3 +146,11 @@
     right: 1px;
     width: 20px;
 }
+
+
+/* Details */
+
+.details_name {
+    font-size: 10px;
+    color: #ccc;
+}

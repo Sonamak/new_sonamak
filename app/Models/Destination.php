@@ -38,16 +38,20 @@ class Destination extends Authenticatable
 
         if (  $request->thumbnail ) {
 
-            $destination->deleteImagesWithIdsBelongsToRelation([$destination->thumbnail->id],'storage/destination','gallaries');
+            if( $request->id ) {
+                $destination->deleteImagesWithIdsBelongsToRelation([$destination->thumbnail->id],'storage/destination','gallaries');
+            }
+            
+            $destination->dimintions(['small' => '261x164','medium' => '500x500','large' => '1200x720'])
+                        ->fit()
+                        ->files($request->thumbnail)
+                        ->withSaveRelation('gallaries')
+                        ->usefor('thumbnail')
+                        ->compile();
 
         }
 
-        $destination->dimintions(['small' => '261x164','medium' => '500x500','large' => '1200x720'])
-                ->fit()
-                ->files($request->thumbnail)
-                ->withSaveRelation('gallaries')
-                ->usefor('thumbnail')
-                ->compile();
+       
 
 
         return self::result($destination,'success');

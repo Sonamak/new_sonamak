@@ -18,8 +18,9 @@ $.ajaxSetup({
         $('.ajax-btn').removeClass('active');
 
         for (error in errors ) {
-            console.log(error,$(`p.error_${error}`));
-            $(`p.error_${error}`).text(errors[error]);
+            error_remove_dot = error.replace('.','_');
+            $(`p.error_${error_remove_dot}`).text(errors[error]);
+            console.log($(`p.error_${error}`),`error_${error}`)
         }
         
         $('.form_submit').removeClass('active');
@@ -27,6 +28,8 @@ $.ajaxSetup({
 });
 
 $(document).on('click','.delete-btn',function(e) {
+
+    console.log($(this).attr('route'))
 
     $('.modal .confirm_btn').attr('delete-route',$(this).attr('route'))
     $('.modal .confirm_btn').attr('callback',$(this).attr('callback'))
@@ -83,7 +86,6 @@ $(document).on('submit','.ajax-form',function(e) {
 
     }
 
-
     $.ajax({
 
         url: $(this).attr('action'),
@@ -104,6 +106,8 @@ $(document).on('submit','.ajax-form',function(e) {
             if( $(this).attr('redirect') ) {
                 window.location.href = $(this).attr('redirect');
             }
+
+            if( $(this).attr('refreshAfterSend') != undefined) location.reload();
         }
 
     })

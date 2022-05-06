@@ -33,6 +33,8 @@ $(document).on('click','.remove_section',function(){
 
     $(this).closest('.section').remove();
 
+    console.log($(this).closest('.section'))
+
     if ( removed_name )  {
 
         let id = $(this).attr('id')

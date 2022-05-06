@@ -24,7 +24,7 @@ class BlogRequest extends FormRequest
     public function rules()
     {
         return [
-            'thumbnail' => ['required'],
+            'thumbnail' => ['required_without:id'],
             'article_in_en' => ['required'],
             'article_in_fr' => ['required'],
             'language' => ['required']

@@ -10,10 +10,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Title -->
-    <title> Sonamak -  Adminpanal </title>
+    <title> {{ app()->make('setup',['type' => 'website title'])[0]; }} -  Adminpanal </title>
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('admin/img/brand/favicon.png') }}" type="image/x-icon"/>
+    <link rel="icon" href="@if(app()->make('setup',['type' => 'short logo'])[0])  {{ asset('storage/system/small/'.app()->make('setup',['type' => 'short logo'])[0]) }} @else {{ asset('admin/img/brand/favicon.png') }} @endif " type="image/x-icon"/>
 
     <!-- Custom css -->
     <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet">

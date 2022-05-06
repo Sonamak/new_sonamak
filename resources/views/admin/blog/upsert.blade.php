@@ -17,7 +17,7 @@ $route = array_shift($route) .'.store';
 
         <div class="row mb-4">
             <div class="col-sm-12 col-md-4 mg-t-10 mg-sm-t-0">
-                <input type="file" class="dropify" data-default-file="@if($blog->thumbnail) {{ asset('storage/tour/small/'.$blog->thumbnail->name) }} @endif" data-height="200"  name="thumbnail"/>
+                <input type="file" class="dropify" data-default-file="@if($blog->thumbnail) {{ asset('storage/blog/small/'.$blog->thumbnail->name) }} @endif" data-height="200"  name="thumbnail"/>
             </div>
             <div class="mx-2 col-md-6">
                 <label for="Tumbnail">Tumbnail</label>
@@ -31,10 +31,10 @@ $route = array_shift($route) .'.store';
         <div class="row mb-4">
             <div class="col-sm-12">
                 <label>Article English</label>
-                <textarea class="summernote"  name="article_in_en"></textarea>
+                <textarea class="summernote"  name="article_in_en">{{$blog->article_in_en}}</textarea>
                 <p class="error error_article_in_en"></p>
                 <label>Article French</label>
-                <textarea class="summernote" name="article_in_fr"></textarea>
+                <textarea class="summernote" name="article_in_fr">{{$blog->article_in_fr}}</textarea>
                 <p class="error error_article_in_fr"></p>
             </div>
         </div>
@@ -42,9 +42,9 @@ $route = array_shift($route) .'.store';
         <div class="form-group col-sm-6 p-0">
             <label class="form-label">Blog Language</label>
             <select name="language" class="select2">
-                <option value="mixed" selected>Mixed</option>
-                <option value="english">English</option>
-                <option value="french">French</option>
+                <option value="mixed" @if($blog->language == 'mixed') selected @endif @if(!$blog) selected @endif>Mixed</option>
+                <option value="english"  @if($blog->language == 'english') selected @endif>English</option>
+                <option value="french"  @if($blog->language == 'french') selected @endif>French</option>
             </select>
             <p class="error error_language"></p>
         </div>

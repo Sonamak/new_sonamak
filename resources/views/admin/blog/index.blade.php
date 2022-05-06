@@ -62,8 +62,6 @@
 
     function deleteblog(e) {
 
-        alert('asd');
-
         $(`#blog_${e.payload.id}`).remove();
 
         if( ! $('.blogs').length ) {

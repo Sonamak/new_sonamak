@@ -20,7 +20,7 @@ class Tour extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['id','title','description_en','description_fr','itinerary_description_fr','itinerary_description_en'];
+    protected $fillable = ['id','title_en','title_fr','description_en','description_fr','itinerary_description_fr','itinerary_description_en'];
     protected $root = 'storage/tour';
 
     /**
@@ -47,7 +47,7 @@ class Tour extends Authenticatable
                 return $item;
             })->all();
 
-           
+            dd($request->include);
 
             $tour->tourPrefrences()->upsert(
                 $includes,
@@ -115,8 +115,7 @@ class Tour extends Authenticatable
 
         if ( $request->thumbnail ) {
 
-
-            if (  $request->thumbnail ) {
+            if (  $tour->thumbnail ) {
 
                 $tour->deleteImagesWithIdsBelongsToRelation([$tour->thumbnail->id],'storage/tour','gallaries');
 
@@ -156,6 +155,7 @@ class Tour extends Authenticatable
     {
         $this->feature = $this->feature ? false : true;
         $this->save();
+        return $this->result('success',$this);
     }
 
     public function deleteInstance()
@@ -189,6 +189,11 @@ class Tour extends Authenticatable
     public function getThumbnailAttribute()
     {
         return $this->gallaries()->where('use_for','thumbnail')->first();
+    }
+
+    public function getIncludeAttribute()
+    {
+        return $this->tourPrefrences()->where('type','include')->get();
     }
 
     //Relations

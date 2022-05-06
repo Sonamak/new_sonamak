@@ -36,12 +36,16 @@ class Blog extends Authenticatable
             $request->all()
         );
 
-        $blog->dimintions(['small' => '261x164','medium' => '500x500','large' => '1200x720'])
-            ->fit()
-            ->files($request->thumbnail)
-            ->withSaveRelation('gallaries')
-            ->usefor('thumbnail')
-            ->compile();
+        if ( $request->thumbnail )  {
+
+            $blog->dimintions(['small' => '261x164','medium' => '500x500','large' => '1200x720'])
+                ->fit()
+                ->files($request->thumbnail)
+                ->withSaveRelation('gallaries')
+                ->usefor('thumbnail')
+                ->compile();
+
+        }
 
         return self::result($blog,'success');
     }

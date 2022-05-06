@@ -39,7 +39,7 @@
                                 <div class="switcher mb-0 d-flex ms-auto">
                                     <p class="sub-text m-0 feature-txt mx-2 mt-2"> Mark As Feature </p>
                                     <div class="checkbox">
-                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox feature feature_$string_check" model_id="{{ $single->id }}" id="myonoffswitch_{{$single->id}}" @if($single->feature) checked @endif>
+                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox feature feature_$string_check" route="" model_id="{{ $single->id }}" id="myonoffswitch_{{$single->id}}" @if($single->feature) checked @endif>
                                         <label class="onoffswitch-label mb-0" for="myonoffswitch_{{$single->id}}">
                                         <span class="onoffswitch-inner"></span>
                                     </div>
