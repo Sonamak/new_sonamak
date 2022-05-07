@@ -10,14 +10,14 @@ $route = array_shift($route) .'.store';
 <div class="main-container container-fluid">
     <div class="card mt-4 card-full">
         <div class="card-header w-100 d-flex">
-            <h4 class="card-title mb-1">{{ $hotel ? 'Update Instance' : 'Add Instance' }}</h4>
+            <h4 class="card-title mb-1">{{ $hotel->id ? 'Update Instance' : 'Add Instance' }}</h4>
         </div>
         <form class="ajax-form" method="post" action="{{ route($route) }}" appendToData="mergeModelRefrences" redirect="{{ route('hotel') }}">
             <div class="card-body card-full">
 
                 <div class="row mb-4">
                     <div class="col-sm-12 col-md-4 mg-t-10 mg-sm-t-0">
-                        <input type="file" class="dropify" data-default-file="@if($hotel) {{ asset('storage/hotel/small/'.$hotel->thumbnail->name) }} @endif" data-height="200"  name="thumbnail"/>
+                        <input type="file" class="dropify" data-default-file="@if($hotel->thumbnail) {{ asset('storage/hotel/small/'.$hotel->thumbnail->name) }} @endif" data-height="200"  name="thumbnail"/>
                     </div>
                     <div class="mx-2 col-md-6">
                         <label for="Tumbnail">Tumbnail</label>

@@ -47,8 +47,6 @@ class Tour extends Authenticatable
                 return $item;
             })->all();
 
-            dd($request->include);
-
             $tour->tourPrefrences()->upsert(
                 $includes,
                 ['id', 'type'],

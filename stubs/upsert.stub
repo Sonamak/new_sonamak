@@ -10,7 +10,7 @@ $route = array_shift($route) .'.store';
 <div class="main-container container-fluid">
     <div class="card mt-4 card-full">
         <div class="card-header w-100 d-flex">
-            <h4 class="card-title mb-1">{{ $model ? 'Update Instance' : 'Add Instance' }}</h4>
+            <h4 class="card-title mb-1">{{ $model->id ? 'Update Instance' : 'Add Instance' }}</h4>
         </div>
         <form class="ajax-form" method="post" action="{{ route($route) }}" appendToData="mergeModelRefrences" redirect="{{ route('$name') }}">
             <div class="card-body card-full">

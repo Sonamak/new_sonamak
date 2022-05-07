@@ -114,7 +114,7 @@
 
                         <div class="row mt-4">
                                 <div class="col-md-3">
-                                    <img width="260px" height="161px" src="/storage/tour/small/${thumbnail.name}" alt="{{ $tour->tite_en }}">
+                                    <img width="260px" height="161px" src="/storage/tour/small/${thumbnail.name}" alt="tour">
                                 </div>
                                 <div class="col-md-9">
                                     <h3 class="section_title">
