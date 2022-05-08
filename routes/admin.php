@@ -55,9 +55,9 @@ Route::group(['prefix' => 'category'],function () {
     Route::post('/delete/{category}',[CategoryController::class,'delete'])->name('category.delete');
 });
 
-Route::group(['prefix' => 'category'],function () {
-    Route::get('/',[ScheduleController::class,'index'])->name('category.index');
-    Route::post('/store',[ScheduleController::class,'create'])->name('category.store');
+Route::group(['prefix' => 'schedule'],function () {
+    Route::get('/',[ScheduleController::class,'index'])->name('schedule.index');
+    Route::post('/store',[ScheduleController::class,'create'])->name('schedule.store');
 });
 
 
