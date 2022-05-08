@@ -15,12 +15,16 @@ class CreateBannersTable extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
+            $table->string('type');
             $table->string('header_text_in_english')->nullable();
             $table->string('header_text_in_french')->nullable();
             $table->string('upper_text_in_english')->nullable();
             $table->string('upper_text_in_french')->nullable();
             $table->string('sub_text')->nullable();
-            $table->string('button_text')->nullable();
+            $table->string('button_text_in_english')->nullable();
+            $table->string('button_text_in_french')->nullable();
+            $table->string('banners')->nullable();
+            $table->string('redirect')->nullable();
             $table->timestamps();
         });
     }
