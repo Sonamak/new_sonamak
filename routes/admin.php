@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\Sonamak;
+use App\Http\Controllers\Admin\ActiveLinkController;
 use App\Http\Controllers\Admin\SetupController;
 use App\Http\Controllers\Admin\SocialController;
 use App\Http\Controllers\Admin\BannerController;
@@ -58,6 +59,11 @@ Route::group(['prefix' => 'category'],function () {
 Route::group(['prefix' => 'schedule'],function () {
     Route::get('/',[ScheduleController::class,'index'])->name('schedule.index');
     Route::post('/store',[ScheduleController::class,'create'])->name('schedule.store');
+});
+
+Route::group(['prefix' => 'active_link'],function () {
+    Route::get('/',[ActiveLinkController::class,'index'])->name('active.index');
+    Route::post('/toggle/{activeLink}',[ActiveLinkController::class,'toggleActive'])->name('active.toggle');
 });
 
 
