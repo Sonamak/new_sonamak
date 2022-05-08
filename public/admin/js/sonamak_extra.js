@@ -39,11 +39,13 @@ $(document).on('click','.remove_section',function(){
 
         let id = $(this).attr('id')
 
-        $('.removed_section_container').append(
-            `
-                <input type="hidden" name="${removed_name}" value="${id}">
-            `
-        )
+        if ( id ) {
+            $('.removed_section_container').append(
+                `
+                    <input type="hidden" name="${removed_name}" value="${id}">
+                `
+            )
+        }
 
 
     }
