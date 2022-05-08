@@ -18,7 +18,6 @@ class BannerController extends Controller
 
     public function store(BannerRequest $request)
     {
-        dd($request);
         return Banners::storeBanner($request);
     }
 

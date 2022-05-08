@@ -43,9 +43,15 @@
                 </a>
             </li>
             <li class="slide">
-                <a class="side-menu__item" data-bs-toggle="slide" href="{{ route('setup.index') }}">
+                <a class="side-menu__item" data-bs-toggle="slide" href="{{ route('social.index') }}">
                     <i class="icon ion-md-send me-2"></i>
                     <span class="side-menu__label">Social</span>
+                </a>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item" data-bs-toggle="slide" href="{{ route('banner.index') }}">
+                    <i class="icon ion-md-laptop me-2"></i>
+                    <span class="side-menu__label">Banners</span>
                 </a>
             </li>
         </ul>

@@ -10,8 +10,51 @@ use Illuminate\Database\Eloquent\Model;
 
 class Banners extends Model
 {
-    use HasFactory,ImageService,ValidationService;
+    use HasFactory,ImageService,ValidationService,ImageService;
     
+    protected $fillable = [
+            'id',
+            'header_text_in_english',
+            'header_text_in_french',
+            'upper_text_in_english',
+            'upper_text_in_french',
+            'button_text_in_english',
+            'button_text_in_english',
+            'button_text_in_french',
+            'redirect',
+            'type'
+        ];
+
+    protected $root = 'storage/Banner';
+
+    public function storeBanner($request)
+    {
+        $banner = self::updateOrCreate(
+            ['type' => $request->type ],
+            $request->all()
+        );
+        
+       if ( $request->background ) {
+            $banner->dimintions(['large' => '1679x490'])
+            ->fit()
+            ->files($request->background)
+            ->withSaveRelation('gallaries')
+            ->usefor('background')
+            ->compile();
+        }
+    }
+    
+    public function getBackgroundAttribute()
+    {
+        return $this->gallaries()->where('use_for','background')->first();
+    }
+
+    // Relations
+
+    public function gallaries()
+    {
+        return $this->morphMany(Gallary::class,'imageable');
+    }
 
 
 }
