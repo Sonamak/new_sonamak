@@ -55,48 +55,116 @@ $route = array_shift($route) .'.store';
                 </div>
 
                 <div class="form-group">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                                <label for="country">
+                                    Country Text English
+                                </label>
+                                <input class="country_text_en form-control" name="country_text_in_en" value="@if($tour->country_text_in_en) {{ $tour->country_text_in_en }} @endif" placeholder="Country Text English">
+                                <p class="error error_country_text_en"></p>
+                        </div>
+                       <div class="col-md-6">
+                            <div class="row">
+                                <label for="country">
+                                    Country Text French
+                                </label>
+                            </div>
+
+                            <input class="country_text_en form-control" name="country_text_in_fr" value="@if($tour->country_text_in_en) {{ $tour->country_text_in_fr }} @endif" placeholder="Country Text English">
+                            <p class="error error_country_text_en"></p>
+                       </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="country">
+                            Duration Text English
+                        </label>
+                        <input class="duration_text_en form-control" name="duration_text_in_en" value="@if($tour->duration_text_in_en) {{ $tour->duration_text_in_en }} @endif" placeholder="Duration Text English">
+                        <p class="error error_country_text_english"></p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label for="country">
+                                Duration Text French
+                            </label>
+                        </div>
+
+                        <input class="duration_text_french form-control" name="duration_text_in_fr" value="@if($tour->duration_text_in_fr) {{ $tour->duration_text_in_fr }} @endif" placeholder="Duration Text English">
+                        <p class="error error_duration_text_french"></p>
+                    </div>
+                </div>
+
+               
+
+                </div>
+
+                <div class="form-group">
+
+               
+                </div>
+
+                <div class="form-group">
                    
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="title">
-                                Includes
-                            </label>
-                            <div class="d-flex align-items-center">
-                                <input class="form-control include_form" placeholder="Enter Includes">
-                                <i class="fa fa-plus add_prefrence mx-2 d-block" data-container=".add_container" method-append="appendInclude" input=".include_form"></i>
+                            <div class="d-flex">
+                                <label for="title">
+                                    Includes
+                                </label>
+                                <i class="fa fa-plus mx-2 mt-1 remove_section extra_section" data-insert=".insert_gallary" data-container=".include_container" method-append="appendInclude"></i>
                             </div>
                             <div class="include_container mt-2">
                                 @if($tour->tourPrefrences)
                                     @foreach($tour->includes as $include)
-                                    <div class="col-md-6 mb-2 d-flex align-items-center section">
-                                        <p class="m-0">{{ $include->value }}</p>
-                                        <i class="fa fa-minus ms-auto remove_section" data-container=".add_container" name="removed_include[]" id="{{ $include->id }}"></i>
-                                        <input type="hidden" value="{{ $include->value_en }}" name="include[{{$loop->index}}][value]"> 
-                                        <input type="hidden" value="{{ $include->value_fr }}" name="include[{{$loop->index}}][value]"> 
-                                        <input type="hidden" value="{{ $include->type }}" name="include[{{$loop->index}}][type]"> 
-                                        <input type="hidden" value="{{ $include->id }}" name="include[{{$loop->index}}][id]">
+
+                                    <div class="row section">
+                                        <div class="col-md-6 mb-2 d-flex align-items-center">
+                                            <input type="text" class="form-control" value="{{$include->value_en}}"  name="include[{{$loop->index}}][value_en]" placeholder="Include English">
+                                        </div>
+                                        <div class="col-md-6 mb-2 d-flex align-items-center">
+                                            <input type="text" class="form-control" value="{{$include->value_en}}" name="include[{{$loop->index}}][value_fr]" placeholder="Include French"> 
+                                        </div>
+                                        <input type="hidden" name="include[{{$loop->index}}][type]" value="include">
+                                        <input type="hidden" name="include[{{$loop->index}}][id]" value="{{$include->id}}">
+                                        <i class="fa fa-minus mx-2 remove_section mx-3" name="removed_include[]" id="{{$include->id}}" data-container=".include_container"></i>
                                     </div>
+                                    <p class="error error_include_{{$loop->index}} col-md-6"></p>
+                                    
                                     @endforeach
                                 @endif
                             </div>
                         </div>
                         <div class="col-md-6 mb-2">
-                            <label for="title">
-                                Exclude
-                            </label>
+                            <div class="d-flex">
+                                <label for="title">
+                                    Excludes
+                                </label>
+                                <i class="fa fa-plus mx-2 mt-1 remove_section extra_section" data-insert=".insert_gallary" data-container=".exclude_container" method-append="appendExclude"></i>
+                            </div>
                             <div class="align-items-center w-100">
-                                <div class="d-flex align-items-center w-100">
-                                    <input class="form-control exclude_form" placeholder="Enter excludes">
-                                    <i class="fa fa-plus add_prefrence mx-2" data-container=".exclude_container" method-append="appendExclude" input=".exclude_form"></i>
-                                </div>
                                 <div class="exclude_container mt-2">
                                     @if($tour->tourPrefrences)
                                         @foreach($tour->excludes as $exclude)
-                                        <div class="col-md-6 mb-2 d-flex align-items-center section">
-                                            <p class="m-0">{{ $exclude->value }}</p>
-                                            <i class="fa fa-minus ms-auto remove_section" data-container=".insert_exclude" name="removed_exclude[]" id="{{  $exclude->id }}"></i>
-                                            <input type="hidden" value="{{ $exclude->value }}" name="exclude[]"> 
-                                        </div>
+                                    
+                                            <div class="row section">
+                                                <div class="col-md-6 mb-2 d-flex align-items-center">
+                                                    <input type="text" class="form-control" value="{{$exclude->value_en}}"  name="exclude[{{$loop->index}}][value_en]" placeholder="Exclude English">
+                                                </div>
+                                                <div class="col-md-6 mb-2 d-flex align-items-center">
+                                                    <input type="text" class="form-control" value="{{$exclude->value_en}}" name="exclude[{{$loop->index}}][value_fr]" placeholder="Exclude French"> 
+                                                </div>
+                                                <input type="hidden" name="exclude[{{$loop->index}}][type]" value="exclude">
+                                                <input type="hidden" name="exclude[{{$loop->index}}][id]" value="{{$exclude->id}}">
+                                                <i class="fa fa-minus mx-2 remove_section mx-3" name="removed_exclude[]" id="{{$exclude->id}}" data-container=".exclude_container"></i>
+                                            </div>
+                                            <p class="error error_exclude_{{$loop->index}} col-md-6"></p>
+
                                         @endforeach
                                     @endif
                                 </div>
@@ -208,23 +276,35 @@ $route = array_shift($route) .'.store';
     function appendInclude (include) {
         let index = $('.include_container').children().length;
         return `
-            <div class="col-md-6 mb-2 d-flex align-items-center section">
-                <p class="m-0">${include}</p>
-                <i class="fa fa-minus ms-auto remove_section" data-container=".insert_exclude" name="removed_include[${index}]"></i>
-                <input type="hidden" value="${include}" name="include[${include}]['value']"> 
-                <input type="hidden" value="${include}" name="include[${include}]['type']"> 
-            </div>
+           <div class="row section">
+                <div class="col-md-6 mb-2 d-flex align-items-center section">
+                    <input type="text" class="form-control"  name="include[${index}][value_en]" placeholder="Include English"> 
+                </div>
+                <div class="col-md-6 mb-2 d-flex align-items-center section">
+                    <input type="text" class="form-control"  name="include[${index}][value_fr]" placeholder="Include French"> 
+                </div>
+                <input type="hidden" name="include[${index}][type]" value="include">
+                <i class="fa fa-minus mx-2 remove_section mx-3" name="removed_exclude[]"  data-container=".exclude_container"></i>
+           </div>
+           <p class="error error_exclude_${index} col-md-6"></p>
         `
     }
 
-    function appendExclude (exclude) {
+
+    function appendExclude (include) {
         let index = $('.exclude_container').children().length;
         return `
-            <div class="col-md-6 mb-2 d-flex align-items-center section">
-                <p class="m-0">${exclude}</p>
-                <i class="fa fa-minus ms-auto remove_section" data-container=".insert_exclude"  name="removed_exclude[${index}]"></i>
-                <input type="hidden" value="${exclude}" > 
-            </div>
+           <div class="row section">
+                <div class="col-md-6 mb-2 d-flex align-items-center section">
+                    <input type="text" class="form-control"  name="exclude[${index}][value_en]" placeholder="exclude English"> 
+                </div>
+                <div class="col-md-6 mb-2 d-flex align-items-center section">
+                    <input type="text" class="form-control"  name="exclude[${index}][value_fr]" placeholder="exclude French"> 
+                </div>
+                <input type="hidden" name="exclude[${index}][type]" value="exclude">
+                <i class="fa fa-minus mx-2 remove_section mx-3" name="removed_exclude[]"  data-container=".exclude_container"></i>
+           </div>
+           <p class="error error_exclude_${index} col-md-6"></p>
         `
     }
 

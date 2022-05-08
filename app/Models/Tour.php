@@ -20,7 +20,19 @@ class Tour extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['id','title_en','title_fr','description_en','description_fr','itinerary_description_fr','itinerary_description_en'];
+    protected $fillable = [
+        'id',
+        'title_en',
+        'title_fr',
+        'description_en',
+        'description_fr',
+        'itinerary_description_fr',
+        'itinerary_description_en',
+        'country_text_in_en',
+        'country_text_in_fr',
+        'duration_text_in_en',
+        'duration_text_in_fr'
+    ];
     protected $root = 'storage/tour';
 
     /**
@@ -31,12 +43,11 @@ class Tour extends Authenticatable
     protected $hidden = [];
 
     public function upsertInstance($request)
-    {   
+    { 
         $tour = self::updateOrCreate(
             ['id' => $request->id],
             $request->all()
         );
-
 
         if ( $request->include )  {
 
@@ -49,12 +60,13 @@ class Tour extends Authenticatable
 
             $tour->tourPrefrences()->upsert(
                 $includes,
-                ['id', 'type'],
-                ['value']
+                ['id'],
+                ['value_en','value_fr']
             );
             
 
         }
+
 
         if ( $request->removed_include ) { 
 
@@ -80,16 +92,16 @@ class Tour extends Authenticatable
 
         if ( $request->exclude )  {
 
-            $tour->tourPrefrences()->where('type','exclude')->delete();
+            $exclude = collect($request->exclude)->map(function($item) use ($tour){
+                $item['tour_id'] = $tour->id;
+                return $item;
+            })->all();
 
-            foreach ( $request->exclude as $item )  {
-
-                $exclude['type'] = 'exclude';
-                $exclude['value'] = $item;
-
-                $tour->tourPrefrences()->create($exclude);
-                
-            }
+            $tour->tourPrefrences()->upsert(
+                $exclude,
+                ['id'],
+                ['value_en','value_fr']
+            );
 
         }
 

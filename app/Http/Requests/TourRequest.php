@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use function PHPUnit\Framework\isEmpty;
+
 class TourRequest extends FormRequest
 {
     /**
@@ -30,7 +32,18 @@ class TourRequest extends FormRequest
             'description_en' => ['required','min:2'],
             'description_fr' => ['required','min:2'],
             'itinerarires' => ['nullable'],
-            'thumbnail' => ['required_without:id']
+            'thumbnail' => ['required_without:id'],
+            'include.*' => [function($attribute,$value,$fail){
+                if ( empty($value['value_en']) || empty($value['value_fr']) )  {
+                    return $fail('Fill all inputs');
+                }
+            }] ,
+
+            'exclude.*' => [function($attribute,$value,$fail){
+                if ( empty($value['value_en']) || empty($value['value_fr']) )  {
+                    return $fail('Fill all inputs');
+                }
+            }] 
         ];
     }
 }
