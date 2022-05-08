@@ -4,6 +4,7 @@ use App\Helpers\Sonamak;
 use App\Http\Controllers\Admin\SetupController;
 use App\Http\Controllers\Admin\SocialController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -45,4 +46,10 @@ Route::group(['prefix' => 'banner'],function () {
     Route::get('/',[BannerController::class,'index'])->name('banner.index');
     Route::post('/store',[BannerController::class,'store'])->name('banner.store');
 
+});
+
+Route::group(['prefix' => 'category'],function () {
+    Route::get('/',[CategoryController::class,'index'])->name('category.index');
+    Route::post('/store',[CategoryController::class,'create'])->name('category.store');
+    Route::post('/delete/{category}',[CategoryController::class,'delete'])->name('category.delete');
 });
