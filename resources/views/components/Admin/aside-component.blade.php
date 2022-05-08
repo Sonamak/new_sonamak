@@ -61,9 +61,15 @@
                 </a>
             </li>
             <li class="slide">
-                <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('banner.index') }}">
-                    <i class="icon ion-md-laptop me-2"></i>
+                <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('schedule.index') }}">
+                    <i class="far fa-calendar me-2" aria-hidden="true"></i>
                     <span class="side-menu__label">Schedule</span>
+                </a>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('active.index') }}">
+                    <i class="icon ion-ios-rocket me-2"></i>
+                    <span class="side-menu__label">Active Links</span>
                 </a>
             </li>
         </ul>
