@@ -16,7 +16,8 @@ class CreateTourPreferencesTable extends Migration
         Schema::create('tour_preferences', function (Blueprint $table) {
             $table->id();
             $table->string('type');
-            $table->string('value');
+            $table->string('value_en');
+            $table->string('value_fr');
             $table->foreignId('tour_id');
             $table->timestamps();
         });
