@@ -60,6 +60,12 @@
                     <span class="side-menu__label">Banners</span>
                 </a>
             </li>
+            <li class="slide">
+                <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('banner.index') }}">
+                    <i class="icon ion-md-laptop me-2"></i>
+                    <span class="side-menu__label">Schedule</span>
+                </a>
+            </li>
         </ul>
 
     </div>

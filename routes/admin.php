@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\SetupController;
 use App\Http\Controllers\Admin\SocialController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ScheduleController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +54,10 @@ Route::group(['prefix' => 'category'],function () {
     Route::post('/store',[CategoryController::class,'create'])->name('category.store');
     Route::post('/delete/{category}',[CategoryController::class,'delete'])->name('category.delete');
 });
+
+Route::group(['prefix' => 'category'],function () {
+    Route::get('/',[ScheduleController::class,'index'])->name('category.index');
+    Route::post('/store',[ScheduleController::class,'create'])->name('category.store');
+});
+
+
