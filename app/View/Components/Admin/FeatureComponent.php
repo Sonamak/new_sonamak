@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Admin;
 
+use App\Models\Banners;
 use Illuminate\View\Component;
 
 class FeatureComponent extends Component
@@ -23,6 +24,9 @@ class FeatureComponent extends Component
      */
     public function render()
     {
-        return view('components.admin.feature-component');
+        $banner = Banners::where('type','feature')->first();
+        return view('components.admin.feature-component',[
+            'banner' => $banner
+        ]);
     }
 }
