@@ -19,7 +19,7 @@ class Blog extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['id','article_in_en','article_in_fr'];
+    protected $fillable = ['id','article_in_en','article_in_fr','language'];
     protected $root = 'storage/blog';
 
     /**
