@@ -23,33 +23,39 @@
         <ul class="side-menu">
             <li class="side-item side-item-category">{{ $menu_key }}</li>
             @foreach($menu as $item)
-            <li class="slide">
+            <li class="slide ">
                 <a class="side-menu__item" data-bs-toggle="slide" href="{{ route(strtolower($item->name)) }}">
                     <i class="{{ $item->icon_class }} me-2"></i>
                     <span class="side-menu__label">{{ ucwords($item->name) }}</span>
                 </a>
             </li>
             @endforeach
+            <li class="slide ">
+                <a class="side-menu__item" data-bs-toggle="slide" href="">
+                    <i class="icon ion-md-pricetags me-2"></i>
+                    <span class="side-menu__label">Category</span>
+                </a>
+            </li>
         </ul>
 
         @endforeach
 
         <ul class="side-menu">
-            <li class="side-item side-item-category">Settings</li>
+            <li class="side-item side-item-category ">Settings</li>
             <li class="slide">
-                <a class="side-menu__item" data-bs-toggle="slide" href="{{ route('setup.index') }}">
+                <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('setup.index') }}">
                     <i class="icon ion-md-settings me-2"></i>
                     <span class="side-menu__label">Setup</span>
                 </a>
             </li>
             <li class="slide">
-                <a class="side-menu__item" data-bs-toggle="slide" href="{{ route('social.index') }}">
+                <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('social.index') }}">
                     <i class="icon ion-md-send me-2"></i>
                     <span class="side-menu__label">Social</span>
                 </a>
             </li>
             <li class="slide">
-                <a class="side-menu__item" data-bs-toggle="slide" href="{{ route('banner.index') }}">
+                <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('banner.index') }}">
                     <i class="icon ion-md-laptop me-2"></i>
                     <span class="side-menu__label">Banners</span>
                 </a>
