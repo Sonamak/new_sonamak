@@ -1,8 +1,8 @@
 <?php
 
 use App\Helpers\Sonamak;
+use App\Http\Controllers\CookieController;
 use App\Http\Controllers\FrontController;
-use App\Models\Chart;
 use App\Models\Tour;
 use Illuminate\Support\Facades\Route;
 /*
@@ -19,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/',[FrontController::class,'home']);
+
+Route::group(['prefix' => 'cookie'],function(){
+    Route::get('/language/{language}',[CookieController::class,'language']);
+    Route::get('/currency/{currency}',[CookieController::class,'currency']);
+});

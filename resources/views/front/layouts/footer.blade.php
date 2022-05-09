@@ -223,6 +223,7 @@ $(function() {
 
 <!-- SPECIFIC SCRIPTS -->
 <script src="{{ asset('front/js/tabs.js') }}"></script>
+<script src="{{ asset('front/js/cookie.js') }}"></script>
 <script>new CBPFWTabs( document.getElementById( 'tabs' ) );</script>
 
 <!-- elseif page is Contacts Page -->  
