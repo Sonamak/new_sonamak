@@ -56,7 +56,7 @@
     </div>
 
     <div class="main-signin-footer text-center mt-3">
-        <p><a href="" class="mb-3">Forgot password?</a></p>
+        <p><a href="{{ route('password.request') }}" class="mb-3">Forgot password?</a></p>
     </div>
 </div>
 @endsection

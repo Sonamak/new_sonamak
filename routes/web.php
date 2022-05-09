@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 //     dd($tour->hasManySync('itinerarie',$data));
 // });
 
-// Auth::routes();
+Auth::routes();
 
 // Sonamak::routes();
 
