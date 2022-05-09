@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\InfoController;
 use App\Http\Controllers\Admin\ScheduleController;
+use App\Http\Controllers\ChartController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','Admin\AdminController@index');
+Route::get('/','Admin\AdminController@index')->name('dashboard');
 
 Sonamak::routes();
 
@@ -71,5 +72,7 @@ Route::group(['prefix' => 'info'],function () {
     Route::get('/',[InfoController::class,'index'])->name('info.index');
     Route::post('/store',[InfoController::class,'store'])->name('info.store');
 });
+
+Route::get('/chart/{model}',[ChartController::class,'chart'])->name('chart');
 
 

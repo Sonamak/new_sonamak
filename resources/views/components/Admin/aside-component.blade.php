@@ -12,7 +12,7 @@
         <ul class="side-menu">
             <li class="side-item side-item-category">Main</li>
             <li class="slide">
-                <a class="side-menu__item" data-bs-toggle="slide" href="">
+                <a class="side-menu__item" data-bs-toggle="slide" href="{{ route('dashboard') }}">
                     <i class="icon ion-md-stats me-2"></i>
                     <span class="side-menu__label">Dashboards</span>
                 </a>

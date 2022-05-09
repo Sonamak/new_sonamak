@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\Sonamak;
+use App\Models\Chart;
 use App\Models\Tour;
 use Illuminate\Support\Facades\Route;
 /*
@@ -21,6 +22,10 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Auth::routes();
+
+Route::get('/test',function(){
+    dd(Chart::getModelReport('Tour'));
+});
 
 // Sonamak::routes();
 
