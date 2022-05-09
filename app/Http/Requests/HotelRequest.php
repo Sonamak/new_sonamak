@@ -29,6 +29,7 @@ class HotelRequest extends FormRequest
             'description_fr' => 'required',
             'title_en' => 'required',
             'title_fr' => 'required',
+            'price_id' => 'required'
         ];
     }
 }

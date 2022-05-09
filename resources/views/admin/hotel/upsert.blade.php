@@ -41,6 +41,20 @@ $route = array_shift($route) .'.store';
                     </div>
                </div>
 
+               <div class="row mb-4">
+                    <div class="col-md-12">
+                        <label>
+                            Price Quote
+                        </label>
+                        <select class="select2" name="price_id">
+                            @foreach($prices as $price)
+                                <option value="{{$price->id}}">{{ $price->name_en }}</option>
+                            @endforeach
+                        </select>
+                        <p class="error error_price_id"></p>
+                    </div>
+               </div>
+
                 <div class="mb-4">
                     <label>
                         Hotel Description In English

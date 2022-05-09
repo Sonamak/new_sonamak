@@ -19,7 +19,15 @@ class Hotel extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['id','description_en','description_fr','title_en','title_fr'];
+    protected $fillable = [
+        'id',
+        'description_en',
+        'description_fr',
+        'price_id',
+        'title_en',
+        'title_fr'
+    ];
+
     protected $root = 'storage/hotel';
 
     /**

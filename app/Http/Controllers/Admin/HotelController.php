@@ -7,7 +7,7 @@ use App\Models\Hotelname;
 use Illuminate\Http\Request;
 use App\Models\Hotel;
 use App\Http\Requests\HotelRequest;
-
+use App\Models\Price;
 
 class HotelController extends Controller {
 
@@ -21,7 +21,8 @@ class HotelController extends Controller {
     public function upsert(Hotel $hotel)
     {
         return  view('admin.hotel.upsert',[
-            'hotel' => $hotel ?? null
+            'hotel' => $hotel ?? null,
+            'prices' => Price::all()
         ]);
     }
 
