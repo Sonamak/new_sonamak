@@ -55,8 +55,4 @@
 
     <!---Internal Fancy uploader css-->
     <link href="{{ asset('admin/plugins/fancyuploder/fancy_fileupload.css') }}" rel="stylesheet" />
-
-    <!-- Livewire -->
-    @livewireStyles
-
 </head>

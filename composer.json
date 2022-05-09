@@ -15,7 +15,6 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
-        "livewire/livewire": "^2.10",
         "sentry/sentry-laravel": "^2.12",
         "spatie/laravel-analytics": "^3.11"
     },

@@ -83,7 +83,6 @@
 <script src="{{ asset('admin/plugins/fileuploads/js/fileupload.js') }}"></script>
 <script src="{{ asset('admin/plugins/fileuploads/js/file-upload.js') }}"></script>
 
-<!-- FF file upload -->
 <!--  INTERNAL File-Uploads Js -->
 <script src="{{ asset('admin/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
 <script src="{{ asset('admin/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
@@ -95,4 +94,3 @@
 
 <!-- custom js -->
 <script src="{{ asset('admin/js/custom.js') }}"></script>
-@livewireScripts
