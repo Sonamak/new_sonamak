@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Setup;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\ServiceProvider;
 
 class SetupProivder extends ServiceProvider
@@ -37,6 +38,10 @@ class SetupProivder extends ServiceProvider
                  return Setup::getSetting($params['type']);
             else 
                 return [0 => null];
+        });
+
+        app()->bind('saved_cookie',function ($app,$params) {
+            return Cookie::get($params['type']);
         });
     }
 }
