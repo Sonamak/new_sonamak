@@ -31,7 +31,9 @@ class Tour extends Authenticatable
         'country_text_in_en',
         'country_text_in_fr',
         'duration_text_in_en',
-        'duration_text_in_fr'
+        'duration_text_in_fr',
+        'destination_id',
+        'category_id'
     ];
     protected $root = 'storage/tour';
 
@@ -44,6 +46,13 @@ class Tour extends Authenticatable
 
     public function upsertInstance($request)
     { 
+        $request->merge([
+            'destination_id' => ($request->destination_id != 'Null') ? $request->destination_id : null,
+            'category_id' => ($request->category_id != 'Null') ? $request->category_id : null
+        ]);
+
+        // dd($request->all());
+
         $tour = self::updateOrCreate(
             ['id' => $request->id],
             $request->all()

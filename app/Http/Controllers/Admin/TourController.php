@@ -7,7 +7,8 @@ use App\Models\Tourname;
 use Illuminate\Http\Request;
 use App\Models\Tour;
 use App\Http\Requests\TourRequest;
-
+use App\Models\Category;
+use App\Models\Destination;
 
 class TourController extends Controller {
 
@@ -21,7 +22,9 @@ class TourController extends Controller {
     public function upsert(Tour $tour)
     {
         return  view('admin.tour.upsert',[
-            'tour' => $tour ?? null
+            'tour' => $tour ?? null,
+            'destinations' => Destination::all(),
+            'categories' => Category::where('type','tour_type')->get()
         ]);
     }
 

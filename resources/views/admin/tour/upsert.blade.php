@@ -175,6 +175,32 @@ $route = array_shift($route) .'.store';
                 <div class="add_container"></div>
                 <div class="remove_section"></div>
                 <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Tour Destination</label>
+                            <select class="select2" name="destination_id">
+                                <option class="d-none"selected value="Null">Extra </option>
+                                @foreach($destinations as $destination)
+                                <option value="{{$destination->id}}">
+                                    {{$destination->country_name_en}}
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Tour Category</label>
+                            <select class="select2" name="category_id">
+                                <option class="d-none"  value="Null">No Category </option>
+                                @foreach($categories as $category)
+                                <option value="{{$category->id}}" @if($tour->category_id) @if($tour->category_id == $category->id) selected @endif @endif>
+                                    {{$category->name_en}}
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
                     
                     <label>
                         Itinerary Description In English
