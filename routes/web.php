@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\Sonamak;
+use App\Http\Controllers\FrontController;
 use App\Models\Chart;
 use App\Models\Tour;
 use Illuminate\Support\Facades\Route;
@@ -15,19 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/test',function(){
-//     $tour = Tour::find(1);
-//     $data = [['id' => 1,'title_en' => 'hello','title_fr' => 'aa','day' => 23],['title_en' => 'sad','title_fr' => 'qwe','day' => 24],['id' => 2,'title_en' => 'aaa','title_fr' => 'asdds2','day'=>'25']];
-//     dd($tour->hasManySync('itinerarie',$data));
-// });
-
 Auth::routes();
 
-Route::get('/test',function(){
-    dd(Chart::getModelReport('Tour'));
-});
-
-// Sonamak::routes();
-
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/',[FrontController::class,'home']);
