@@ -60,7 +60,7 @@ $route = array_shift($route) .'.store';
                         Hotel Description In English
                     </label>
 
-                    <textarea class="summernote mb-2" name="description_en">@if($hotel) {{ $hotel->description_en }} @endif</textarea>
+                    <textarea class="mb-2" name="description_en">@if($hotel) {{ $hotel->description_en }} @endif</textarea>
                     <p class="error error_description_en"></p>
                 </div>
 
@@ -69,7 +69,7 @@ $route = array_shift($route) .'.store';
                         Hotel Description In French
                     </label>
                     
-                    <textarea class="summernote mb-2" name="description_fr">@if($hotel) {{ $hotel->description_fr }} @endif</textarea>
+                    <textarea class="mb-2" name="description_fr">@if($hotel) {{ $hotel->description_fr }} @endif</textarea>
                     <p class="error error_description_fr"></p>
                 </div>
 
