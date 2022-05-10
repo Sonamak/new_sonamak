@@ -160,7 +160,7 @@ class Setup extends Model
         }
     }
 
-    public function getSetting( $type ) 
+    static function getSetting( $type ) 
     {
         return self::where('type',$type)->pluck('value')->toArray();
     }
