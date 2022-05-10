@@ -19,4 +19,9 @@ class ActiveLinkController extends Controller
     {
         return $activeLink->toggleActive();
     }
+
+    public function appearOn(Request $request,ActiveLink $activeLink) 
+    {
+        return $activeLink->appearOn($request);
+    }
 }

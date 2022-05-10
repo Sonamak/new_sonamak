@@ -38,13 +38,16 @@ $(document).on('click','.delete-btn',function(e) {
 
 $(document).on('change','.switch',function () {
 
-    let route= $(this).attr('route');
+    let route = $(this).attr('route');
+    let val = $(this).val();
 
     $.ajax({
         url: route,
-        method: 'post'
+        method: 'post',
+        data: {value:$(this).val()}
     });
-})
+});
+
 
 $(document).on('click','#deleteModel .confirm_btn',function () {
 

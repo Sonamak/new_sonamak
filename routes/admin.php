@@ -66,7 +66,9 @@ Route::group(['prefix' => 'schedule'],function () {
 Route::group(['prefix' => 'active_link'],function () {
     Route::get('/',[ActiveLinkController::class,'index'])->name('active.index');
     Route::post('/toggle/{activeLink}',[ActiveLinkController::class,'toggleActive'])->name('active.toggle');
+    Route::post('/appear/{activeLink}',[ActiveLinkController::class,'appearOn'])->name('active.appear_on');
 });
+
 
 Route::group(['prefix' => 'info'],function () {
     Route::get('/',[InfoController::class,'index'])->name('info.index');

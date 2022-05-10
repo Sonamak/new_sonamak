@@ -22,4 +22,10 @@ class ActiveLink extends Model
 
         return $this;
     }
+
+    public function appearOn($request)
+    {
+        $this->appear_on = $request->value;
+        $this->save();
+    }
 }

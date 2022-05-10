@@ -17,10 +17,10 @@
                                 <option value="email">Email</option> 
                                 <option value="location">Location</option>
                                 <option value="whatsapp">Whatsapp</option> 
-                                <option value="whatsapp">Facebook</option>                   
-                                <option value="whatsapp">Twitter</option>                   
-                                <option value="whatsapp">Instgram</option>                   
-                                <option value="whatsapp">Pintrest</option>                   
+                                <option value="facebook">Facebook</option>                   
+                                <option value="twitter">Twitter</option>                   
+                                <option value="instagram">Instgram</option>                   
+                                <option value="pintrest">Pintrest</option>                   
                             </select>
                             <p class="error error_type pt-2"></p>
                         </div>
