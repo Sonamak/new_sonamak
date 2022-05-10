@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Request;
 
 class Sonamak {
 
-    public function routes()
+    static function routes()
     {
         $routes = DB::table('routes')->get();
 
