@@ -22,8 +22,9 @@ $route = array_shift($route) .'.store';
                     <div class="mx-2 col-md-6">
                         <label for="Tumbnail">Tumbnail</label>
                         <p class="mt-2 sub-text">
-                            Enter Beautiful thumbnail to the destination and please add image in aspect ratio to get the best performance
+                            Enter Beautiful thumbnail to the slider and please add image in aspect ratio to get the best performance
                         </p>
+                        <span>(Note: To prevent any pixilation during resize please make the image in this size: 1602x1067 wxh )</span>
                         <p class="error error_thumbnail"></p>
                     </div>
                 </div>

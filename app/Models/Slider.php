@@ -36,12 +36,21 @@ class Slider extends Authenticatable
             $request->all()
         );
 
-        $slider->dimintions(['small' => '261x164','large' => '1660x940'])
-                ->fit()
+        if (  $slider->thumbnail && $request->thumbnail) {
+
+            $slider->deleteImagesWithIdsBelongsToRelation([$slider->thumbnail->id],'storage/slider','gallaries');
+
+        }
+
+        if ( $request->thumbnail ) {
+            $slider->dimintions(['large' => '1602x1067','small' => '261x164'])
+                ->resize()
                 ->files($request->thumbnail)
                 ->withSaveRelation('gallaries')
                 ->usefor('thumbnail')
                 ->compile();
+        }
+       
 
         return self::result($slider,'success');
     }
