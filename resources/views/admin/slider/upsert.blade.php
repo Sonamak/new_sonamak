@@ -46,7 +46,7 @@ $route = array_shift($route) .'.store';
                         Text Description In English
                     </label>
 
-                    <textarea class="summernote mb-2" name="description_en">@if($slider) {{ $slider->description_en }} @endif</textarea>
+                    <textarea class="form-control mb-2" name="description_en">@if($slider) {{ $slider->description_en }} @endif</textarea>
                     <p class="error error_description_en"></p>
                 </div>
 
@@ -55,7 +55,7 @@ $route = array_shift($route) .'.store';
                         Text Description In French
                     </label>
                     
-                    <textarea class="summernote mb-2" name="description_fr">@if($slider) {{ $slider->description_fr }} @endif</textarea>
+                    <textarea class="form-control mb-2" name="description_fr">@if($slider) {{ $slider->description_fr }} @endif</textarea>
                     <p class="error error_description_fr"></p>
                 </div>
 
