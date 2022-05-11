@@ -22,7 +22,7 @@ class Cookie extends Model
 
     static function currency($currency)
     {
-        if (in_array($currency,['dollor','cad','eur']) ) {
+        if (in_array($currency,['usd','cad','eur']) ) {
             return FacadesCookie::make('currency',$currency,20000);
         }
     }
