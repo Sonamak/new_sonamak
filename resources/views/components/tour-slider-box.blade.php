@@ -1,9 +1,8 @@
 <div class="item">
     <div class="box_grid">
         <figure>
-            <a href="#0" class="wish_bt"></a>
             <a href="tour-details.php">
-                <img src="{{ asset('storage/tour/small/'.$tour->thumbnail->name) }}" class="img-fluid" alt="" width="800" height="533">
+                <img src="{{ asset('storage/tour/medium/'.$tour->thumbnail->name) }}" class="img-fluid" alt="" width="800" height="533">
                 <div class="read_more">
                     <span>Read more</span>
                 </div>
@@ -24,7 +23,7 @@
             <h3>
                 <a href="tour-details.php">
                     @if(Config::get('app.locale') == 'en')
-                    {{ $tour->title_en }}
+                    {{ substr(strip_tags($tour->description_en),0,40).'...'; }}
                     @else 
                     {{ $tour->title_fr }}
                     @endif
@@ -32,15 +31,15 @@
             </h3>
             <p>
                 @if(Config::get('app.locale') == 'en')
-                {{ substr(strip_tags($tour->description_en),0,200).'...'; }}
+                {{ substr(strip_tags($tour->description_en),0,100).'...'; }}
                 @else 
-                {{ substr(strip_tags($tour->description_fr),0,200).'...'; }}
+                {{ substr(strip_tags($tour->description_fr),0,100).'...'; }}
                 @endif
             </p>
-            <span class="price">From <strong>$54</strong> /per person</span>
+            <span class="price">From <strong>@if($tour->lowest_price_package) {{ $tour->lowest_price_package_currency }} {{ currency_sympol() }} @endif</strong> /{{ $tour->lowest_price_package_room }}</span>
         </div>
         <ul class="d-flex">
-            <li><i class="icon_clock_alt"></i> 1h 30min</li>
+            <li><i class="icon_clock_alt mx-2"></i>{{$tour->duration_text_in_en}}</li>
         </ul>
     </div>
 </div>
