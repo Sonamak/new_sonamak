@@ -100,7 +100,7 @@
                         <div class="styled-select" id="currency-selector">
                             <select class="currency_dropdown cookie_dropdown" data="currency">
                                 <option value="cad"    @if(app()->make('saved_cookie',['type' => 'currency']) == 'cad') selected @endif>Candian Dollars</option>
-                                <option value="dollor" @if(app()->make('saved_cookie',['type' => 'currency']) == 'dollor') selected @endif>US Dollars</option>
+                                <option value="usd" @if(app()->make('saved_cookie',['type' => 'currency']) == 'usd') selected @endif @if(!app()->make('saved_cookie',['type' => 'currency']) == 'usd') selected @endif>US Dollars</option>
                                 <option value="eur"    @if(app()->make('saved_cookie',['type' => 'currency']) == 'eur') selected @endif>Euro</option>
                             </select>
                         </div>
