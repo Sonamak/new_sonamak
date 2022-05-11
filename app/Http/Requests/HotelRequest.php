@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class HotelRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class HotelRequest extends FormRequest
     public function rules()
     {
         return [
-            'thumbnail' => 'required',
+            'thumbnail' => ['required_without:id'],
             'description_en' => 'required',
             'description_fr' => 'required',
             'title_en' => 'required',

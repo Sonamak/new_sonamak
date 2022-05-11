@@ -32,7 +32,11 @@
                                             Tour: 
                                         </span>
                                         <span>
+                                            @if($price->tour)
                                             {{ $price->tour->title_en }}
+                                            @else
+                                            Unattached
+                                            @endif
                                         </span>
                                     </p>
                                </div>

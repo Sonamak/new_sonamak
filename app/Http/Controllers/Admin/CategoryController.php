@@ -24,8 +24,8 @@ class CategoryController extends Controller
 
     }
 
-    public function delete(Category $social)
+    public function delete(Category $category)
     {
-        return $social->deleteInstance();
+        return $category->deleteInstance();
     }
 }

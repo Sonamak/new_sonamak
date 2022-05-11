@@ -21,7 +21,6 @@ class Tour extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'id',
         'title_en',
         'title_fr',
         'description_en',
@@ -67,10 +66,12 @@ class Tour extends Authenticatable
                 return $item;
             })->all();
 
+            // dd($includes);
+
             $tour->tourPrefrences()->upsert(
                 $includes,
                 ['id'],
-                ['value_en','value_fr']
+                ['value_en','value_fr','type']
             );
             
 
@@ -101,15 +102,15 @@ class Tour extends Authenticatable
 
         if ( $request->exclude )  {
 
-            $exclude = collect($request->exclude)->map(function($item) use ($tour){
+            $excludes = collect($request->exclude)->map(function($item) use ($tour){
                 $item['tour_id'] = $tour->id;
                 return $item;
             })->all();
 
             $tour->tourPrefrences()->upsert(
-                $exclude,
+                $excludes,
                 ['id'],
-                ['value_en','value_fr']
+                ['value_en','value_fr','type']
             );
 
         }
@@ -180,6 +181,8 @@ class Tour extends Authenticatable
     public function deleteInstance()
     {
         $this->delete();
+        $this->tourPrefrences()->delete();
+        $this->deleteImagesWithIdsBelongsToRelation($this->gallaries->pluck('id'),$this->root,'gallaries');
         return $this->result('success',$this);
     }
 
@@ -241,6 +244,11 @@ class Tour extends Authenticatable
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function prices()
+    {
+        return $this->belongsTo(Price::class);
     }
 
     public function packages()

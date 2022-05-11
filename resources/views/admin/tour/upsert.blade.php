@@ -311,9 +311,10 @@ $route = array_shift($route) .'.store';
                     <input type="text" class="form-control"  name="include[${index}][value_fr]" placeholder="Include French"> 
                 </div>
                 <input type="hidden" name="include[${index}][type]" value="include">
+                <input type="hidden" name="include[${index}][id]" value="">
                 <i class="fa fa-minus mx-2 remove_section mx-3" name="removed_exclude[]"  data-container=".exclude_container"></i>
            </div>
-           <p class="error error_exclude_${index} col-md-6"></p>
+           <p class="error error_include_${index} col-md-6"></p>
         `
     }
 
@@ -329,6 +330,7 @@ $route = array_shift($route) .'.store';
                     <input type="text" class="form-control"  name="exclude[${index}][value_fr]" placeholder="exclude French"> 
                 </div>
                 <input type="hidden" name="exclude[${index}][type]" value="exclude">
+                <input type="hidden" name="exclude[${index}][id]" value="">
                 <i class="fa fa-minus mx-2 remove_section mx-3" name="removed_exclude[]"  data-container=".exclude_container"></i>
            </div>
            <p class="error error_exclude_${index} col-md-6"></p>
@@ -337,7 +339,10 @@ $route = array_shift($route) .'.store';
 
     function storeIncludeInput (e) {
 
-        return `<input type="hidden" name="include[value]" class="d-none" value="${e}"><input type="hidden" name="include[type]" class="d-none" value="${e}">`;
+        return `
+            <input type="hidden" name="include[value]" class="d-none" value="${e}">
+            <input type="hidden" name="include[type]" class="d-none" value="${e}">
+        `;
     }
 
     // function appendExclude (exclude) {

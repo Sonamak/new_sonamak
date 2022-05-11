@@ -31,7 +31,7 @@
             </li>
             @endforeach
             <li class="slide ">
-                <a class="side-menu__item" data-bs-toggle="slide" href="">
+                <a class="side-menu__item" data-bs-toggle="slide" href="{{ route('category.index') }}">
                     <i class="icon ion-md-pricetags me-2"></i>
                     <span class="side-menu__label">Category</span>
                 </a>

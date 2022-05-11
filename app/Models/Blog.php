@@ -57,6 +57,7 @@ class Blog extends Authenticatable
     public function deleteInstance()
     {
         $this->delete();
+        $this->deleteImagesWithIdsBelongsToRelation($this->gallaries->pluck('id'),$this->root,'gallaries');
         return $this->result('success',$this);
     }
 
