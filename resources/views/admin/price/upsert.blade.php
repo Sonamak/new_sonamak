@@ -35,7 +35,7 @@ $route = array_shift($route) .'.store';
                     <label>
                         Price Desciption In English
                     </label>
-                    <textarea class="form-control" name="description_en">@if($price->description_en)@endif</textarea>
+                    <textarea class="form-control" name="description_en">@if($price->description_en){{$price->description_en}}@endif</textarea>
                     <p class="error error_descriotion_en m-0"></p>
                 </div>
 
@@ -43,7 +43,7 @@ $route = array_shift($route) .'.store';
                     <label>
                         Price Desciption In French
                     </label>
-                    <textarea class="form-control" name="description_fr">@if($price->description_fr)@endif</textarea>
+                    <textarea class="form-control" name="description_fr">@if($price->description_fr){{$price->description_fr}}@endif</textarea>
                     <p class="error error_descriotion_fr m-0"></p>
                 </div>
 

@@ -17,7 +17,7 @@
                 @foreach($prices as $price)
 
 
-                    <div class="row mt-4 prices" id="prices_{{$price->id}}">
+                    <div class="row mt-4 prices" id="price_{{$price->id}}">
                         <div class="col-md-9">
                             <h3 class="section_title">
                                 {{ $price->name_en }}
@@ -28,12 +28,12 @@
                             <div class="details row">
                                <div class="col-md-6">
                                     <p class="details_name w-25">
-                                            <span class="">
-                                                Tour: 
-                                            </span>
-                                            <span>
-                                                {{ $price->tour->title_en }}
-                                            </span>
+                                        <span class="">
+                                            Tour: 
+                                        </span>
+                                        <span>
+                                            {{ $price->tour->title_en }}
+                                        </span>
                                     </p>
                                </div>
                                <div class="col-md-6">
