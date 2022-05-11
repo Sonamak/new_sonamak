@@ -44,12 +44,20 @@ class Hotel extends Authenticatable
             $request->all()
         );
 
-        $hotel->dimintions(['small' => '261x164','medium' => '500x500','large' => '1200x720'])
-                ->fit()
+        if (  $hotel->thumbnail && $request->thumbnail) {
+
+            $hotel->deleteImagesWithIdsBelongsToRelation([$hotel->thumbnail->id],'storage/hotel','gallaries');
+
+        }
+
+        if ( $request->thumbnail ) {
+            $hotel->dimintions(['large' => '1602x1067','small' => '261x164'])
+                ->resize()
                 ->files($request->thumbnail)
                 ->withSaveRelation('gallaries')
                 ->usefor('thumbnail')
                 ->compile();
+        }
 
         return (new self)->result($hotel,'success');
     }

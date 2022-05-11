@@ -42,7 +42,7 @@ class Destination extends Authenticatable
                 $destination->deleteImagesWithIdsBelongsToRelation([$destination->thumbnail->id],'storage/destination','gallaries');
             }
             
-            $destination->dimintions(['small' => '261x164','medium' => '500x500','large' => '1200x720'])
+            $destination->dimintions(['large' => '1200x720','medium' => '500x500','small' => '261x164'])
                         ->fit()
                         ->files($request->thumbnail)
                         ->withSaveRelation('gallaries')
