@@ -124,8 +124,8 @@ class Tour extends Authenticatable
 
         if( $request->gallary ) {
 
-            $tour->dimintions(['small' => '261x164','medium' => '500x500','large' => '1200x720'])
-                  ->fit()
+            $tour->dimintions(['large' => '1200x720','medium' => '500x500','small' => '261x164'])
+                  ->resize()
                   ->files($request->gallary)
                   ->withSaveRelation('gallaries')
                   ->usefor('gallary')
@@ -142,7 +142,7 @@ class Tour extends Authenticatable
             }
 
 
-            $tour->dimintions(['small' => '261x164','medium' => '500x500','large' => '1200x720'])
+            $tour->dimintions(['large' => '1200x720','medium' => '500x500','small' => '261x164'])
                   ->fit()
                   ->files($request->thumbnail)
                   ->withSaveRelation('gallaries')
@@ -220,8 +220,21 @@ class Tour extends Authenticatable
 
     public function getLowestPricePackageAttribute()
     {
-        $default_currency = app()->make('saved_cookie',['type' => 'currency']);
+        $default_currency = app()->make('saved_cookie',['type' => 'currency']) ?? 'usd';
         return $this->packages()->orderBy($default_currency.'_price')->first();
+    }
+
+    public function getLowestPricePackageCurrencyAttribute()
+    {
+        $default_currency = app()->make('saved_cookie',['type' => 'currency']) ?? 'usd';
+        $currency ="$default_currency".'_price';
+        return $this->packages()->orderBy($default_currency.'_price')->first()->$currency;
+    }
+
+    public function getLowestPricePackageRoomAttribute()
+    {
+        $default_currency = app()->make('saved_cookie',['type' => 'currency']) ?? 'usd';
+        return $this->packages()->orderBy($default_currency.'_price')->first()->room_type;
     }
 
     //Relations
