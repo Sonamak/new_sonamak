@@ -17,7 +17,7 @@
                 @foreach($hotels as $hotel)
 
 
-                    <div class="row mt-4 hotels" id="hotels_{{$hotel->id}}">
+                    <div class="row mt-4 hotels" id="hotel_{{$hotel->id}}">
                         <div class="col-md-3">
                             <img width="260px" height="161px" src="@if($hotel->thumbnail) {{ asset('storage/hotel/small/'.$hotel->thumbnail->name) }} @else @endif" alt="{{ $hotel->tite_en }}">
                         </div>
