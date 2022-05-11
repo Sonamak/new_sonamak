@@ -44,7 +44,7 @@ class Tour extends Authenticatable
      */
     protected $hidden = [];
 
-    public function upsertInstance($request)
+    static function upsertInstance($request)
     { 
         $request->merge([
             'destination_id' => ($request->destination_id != 'Null') ? $request->destination_id : null,
@@ -215,6 +215,12 @@ class Tour extends Authenticatable
         return $this->tourPrefrences()->where('type','include')->get();
     }
 
+    public function getLowestPricePackageAttribute()
+    {
+        $default_currency = app()->make('saved_cookie',['type' => 'currency']);
+        return $this->packages()->orderBy($default_currency.'_price')->first();
+    }
+
     //Relations
 
     public function tourPrefrences()
@@ -230,6 +236,16 @@ class Tour extends Authenticatable
     public function gallaries()
     {
         return $this->morphMany(Gallary::class,'imageable');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function packages()
+    {
+        return $this->hasManyThrough(Package::class,Price::class);
     }
 }
 

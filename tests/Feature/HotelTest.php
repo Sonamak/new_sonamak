@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
@@ -21,15 +22,17 @@ class HotelTest extends TestCase
         $this->withExceptionHandling();
 
         $thumbnail = UploadedFile::fake()->image('thumbnail.jpg');
+        $user = User::find(1);
         
-        $response = $this->post('hotel/store',[
+        $response = $this->actingAs($user)->post('admin-panal/hotel/store',[
             'thumbnail' => $thumbnail,
             'title_en' => 'Egyptos',
             'title_fr' => 'Egypt',
+            'price_id' => 1,
             'description_en' => 'asdasda',
             'description_fr' => 'assss'
         ]);
 
-        $response->assertStatus(200);
+        $response->assertOk();
     }
 }

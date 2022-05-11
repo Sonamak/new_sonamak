@@ -29,7 +29,7 @@ class Blog extends Authenticatable
      */
     protected $hidden = [];
 
-    public function upsertInstance($request)
+    static function upsertInstance($request)
     {
         $blog = self::updateOrCreate(
             ['id' => $request->id],

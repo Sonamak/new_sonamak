@@ -29,7 +29,7 @@ class Destination extends Authenticatable
     protected $hidden = [];
     protected $root = 'storage/destination';
 
-    public function upsertInstance($request)
+    static function upsertInstance($request)
     {
         $destination = self::updateOrCreate(
             ['id' => $request->id],

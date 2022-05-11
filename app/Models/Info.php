@@ -13,7 +13,7 @@ class Info extends Model
 
     protected $guarded = [];
 
-    public function store($request)
+    static function store($request)
     {
         $info = self::updateOrCreate(
             ['type' => $request->type],

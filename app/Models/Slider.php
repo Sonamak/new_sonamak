@@ -29,7 +29,7 @@ class Slider extends Authenticatable
      */
     protected $hidden = [];
 
-    public function upsertInstance($request)
+    static function upsertInstance($request)
     {
         $slider = self::updateOrCreate(
             ['id' => $request->id],

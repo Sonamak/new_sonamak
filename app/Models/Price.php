@@ -27,7 +27,7 @@ class Price extends Authenticatable
      */
     protected $hidden = [];
 
-    public function upsertInstance($request)
+    static function upsertInstance($request)
     {
         $price = self::updateOrCreate(
             ['id' => $request->id],

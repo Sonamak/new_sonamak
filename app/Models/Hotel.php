@@ -37,7 +37,7 @@ class Hotel extends Authenticatable
      */
     protected $hidden = [];
 
-    public function upsertInstance($request)
+    static function upsertInstance($request)
     {
         $hotel = self::updateOrCreate(
             ['id' => $request->id],

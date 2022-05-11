@@ -24,3 +24,8 @@ Route::group(['prefix' => 'cookie'],function(){
     Route::get('/language/{language}',[CookieController::class,'language']);
     Route::get('/currency/{currency}',[CookieController::class,'currency']);
 });
+
+Route::get('test',function(){
+    $tour = Tour::find(5);
+    dd($tour->lowest_price_package);
+});

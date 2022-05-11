@@ -27,7 +27,7 @@ class Banners extends Model
 
     protected $root = 'storage/Banner';
 
-    public function storeBanner($request)
+    static function storeBanner($request)
     {
         $banner = self::updateOrCreate(
             ['type' => $request->type ],

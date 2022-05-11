@@ -12,7 +12,7 @@ class Schedule extends Model
 
     protected $guarded = [];
 
-    public function upsertInstance($request)
+    static function upsertInstance($request)
     {
        foreach($request['schedule'] as $day) {
             

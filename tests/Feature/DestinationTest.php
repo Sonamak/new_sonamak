@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
@@ -21,8 +22,10 @@ class DestinationTest extends TestCase
         $this->withExceptionHandling();
 
         $thumbnail = UploadedFile::fake()->image('thumbnail.jpg');
+
+        $user = User::find(1);
         
-        $response = $this->post('destination/store',[
+        $response = $this->actingAs($user)->post('admin-panal/destination/store',[
             'thumbnail' => $thumbnail,
             'country_name_fr' => 'Egyptos',
             'country_name_en' => 'Egypt',
@@ -30,6 +33,6 @@ class DestinationTest extends TestCase
             'caption_in_fr' => 'assss'
         ]);
 
-        $response->assertStatus(200);
+        $response->assertOk();
     }
 }

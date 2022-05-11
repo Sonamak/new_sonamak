@@ -13,7 +13,7 @@ class Social extends Model
 
     protected $guarded = [];
 
-    public function createInstance($request)
+    static function createInstance($request)
     {
         $social = self::create(
             [

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
@@ -21,8 +22,9 @@ class BlogTest extends TestCase
         $this->withExceptionHandling();
 
         $thumbnail = UploadedFile::fake()->image('thumbnail.jpg');
+        $user = User::find(1);
         
-        $response = $this->post('blog/store',[
+        $response = $this->actingAs($user)->post('admin-panal/blog/store',[
             'thumbnail' => $thumbnail,
             'article_in_fr' => 'article_in_fr',
             'article_in_en' => 'article_in_en',

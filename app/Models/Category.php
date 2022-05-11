@@ -12,7 +12,7 @@ class Category extends Model
 
     protected $guarded = [];
 
-    public function createInstance($request)
+    static function createInstance($request)
     {
         $category = self::create(
             [
