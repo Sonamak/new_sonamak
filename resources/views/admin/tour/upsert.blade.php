@@ -34,8 +34,9 @@ $route = array_shift($route) .'.store';
                         Title
                     </label>
                     <input class="form-control" type="text" placeholder="Title" id="title" name="title_en" value="@if($tour->title_en) {{ $tour->title_en }} @endif">
-                    <input class="form-control mt-2" type="text" placeholder="Title" id="title" name="title_fr" value="@if($tour->title_en) {{ $tour->title_fr }} @endif">
-                    <p class="error error_title"></p>
+                    <p class="error error_title_en"></p>
+                    <input class="form-control mt-2" type="text" placeholder="Title" id="title" name="title_fr" value="@if($tour->title_fr) {{ $tour->title_fr }} @endif">
+                    <p class="error error_title_fr"></p>
                 </div>
 
                 <div class="form-group">
