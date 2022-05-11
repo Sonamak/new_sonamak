@@ -54,7 +54,7 @@ class Destination extends Authenticatable
        
 
 
-        return self::result($destination,'success');
+        return (new self)->result($destination,'success');
     }
 
     public function deleteInstance()

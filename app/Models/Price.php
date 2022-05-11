@@ -49,7 +49,7 @@ class Price extends Authenticatable
 
         }
 
-        return self::result($price,'success');
+        return (new self)->result($price,'success');
     }
 
     public function deleteInstance()

@@ -52,7 +52,7 @@ class Slider extends Authenticatable
         }
        
 
-        return self::result($slider,'success');
+        return (new self)->result($slider,'success');
     }
 
     public function deleteInstance()

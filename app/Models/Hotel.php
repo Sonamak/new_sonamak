@@ -51,7 +51,7 @@ class Hotel extends Authenticatable
                 ->usefor('thumbnail')
                 ->compile();
 
-        return self::result($hotel,'success');
+        return (new self)->result($hotel,'success');
     }
 
     public function deleteInstance()

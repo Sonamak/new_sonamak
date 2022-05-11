@@ -47,7 +47,7 @@ class Blog extends Authenticatable
 
         }
 
-        return self::result($blog,'success');
+        return (new self)->result($blog,'success');
     }
 
     public function deleteInstance()

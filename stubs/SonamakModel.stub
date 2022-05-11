@@ -34,7 +34,7 @@ class $model extends Authenticatable
             $request->all()
         );
 
-        return self::result($$modlower,'success');
+        return (new self)->result($$modlower,'success');
     }
 
     public function deleteInstance()

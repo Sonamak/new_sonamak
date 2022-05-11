@@ -34,7 +34,7 @@ class Post extends Authenticatable
             $request->all()
         );
 
-        return self::result($post,'success');
+        return (new self)->result($post,'success');
     }
 
     public function deleteInstance()
