@@ -11,5 +11,22 @@ return [
     'about' => 'About',
     'terms' => 'Terms and conditions',
     'faq' => 'FAQ',
-    'privacy' => 'Privacy'
+    'privacy' => 'Privacy',
+    'from' => 'From',
+    'single_room' => 'Single Room',
+    'double_room' => 'Double Room',
+    'trible_room' => 'Triple Room',
+    'feature_tours' => 'Feature Tours',
+    'choose_from_our_best_tours' => 'Choose from our best tours',
+    'description' => 'Description',
+    'inclusions' => 'Inclusions',
+    'packages' => 'Packages',
+    'tour_gallery' => 'Tour Gallary',
+    'countries' => 'Countries',
+    'duration' => 'Durée',
+    'itinerary' => 'Itinerary',
+    'exclution' => 'Exclution',
+    'starting_from' => 'starting from',
+    'no_hotel_to_display' => 'No Hotel To Display',
+    'hotels' => 'Hotels'
 ];

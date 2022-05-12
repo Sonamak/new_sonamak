@@ -18,7 +18,16 @@ class Price extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['id','name_en','name_fr','tour_id','description_en','description_fr'];
+    protected $fillable = [
+        'id'
+        ,'name_en'
+        ,'name_fr'
+        ,'tour_id'
+        ,'description_lower_season_en'
+        ,'description_lower_season_fr'
+        ,'description_upper_season_en'
+        ,'description_upper_season_fr'
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -35,16 +44,16 @@ class Price extends Authenticatable
         );
 
         if ( $request->package ) {
-
             $packages = collect($request->package)->map(function($item) use ($price){
                 $item['price_id'] = $price->id;
+                $item['top_selling'] =  isset($item->top_selling) ? true : false;
                 return $item;
             })->all();
 
             $price->packages()->upsert(
                 $packages,
                 ['id'],
-                ['season','room_type','usd_price','cad_price','eur_price']
+                ['season','room_type','usd_price','cad_price','eur_price','top_selling']
             );
 
         }
@@ -69,6 +78,15 @@ class Price extends Authenticatable
         $this->save();
     }
 
+    public function getLowestSeasonsPackagesAttr()
+    {
+        $this->packages()->where('season','Lower Season')->get();
+    }
+
+    public function getPeakSeasonsPackagesAttr()
+    {
+        $this->packages()->where('season','Lower Season')->get();
+    }
     // Relations
     
     public function tour()

@@ -1,6 +1,5 @@
 <?php 
 
-
 return [
     'explore' => 'Explorer',
     'home' => 'Accueil',
@@ -12,5 +11,22 @@ return [
     'about' => 'À Propos De Nous',
     'terms' => 'Termes et conditions',
     'faq' => 'FAQ',
-    'privacy' => 'Politique de Confidentialité'
+    'privacy' => 'Politique de Confidentialité',
+    'from' => 'Depuis',
+    'single_room' => 'Chambre simple',
+    'double_room' => 'Chambre double',
+    'trible_room' => 'Chambre triple',
+    'feature_tours' => 'Visites guidées',
+    'choose_from_our_best_tours' => 'Choisissez parmi nos meilleurs circuits',
+    'description' => 'La description',
+    'inclusions' => 'Inclusions',
+    'packages' => 'Paquets',
+    'tour_gallery' => 'Galerie de visites',
+    'countries' => 'Des pays',
+    'duration' => 'Durée',
+    'itinerary' => 'Itinéraire',
+    'exclution' => 'Exclure',
+    'starting_from' => 'partant de',
+    'no_hotel_to_display' => 'Aucun hôtel à afficher',
+    'hotels' => 'Hôtels'
 ];
