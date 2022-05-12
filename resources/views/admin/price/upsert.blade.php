@@ -33,18 +33,34 @@ $route = array_shift($route) .'.store';
 
                 <div class="form-group">
                     <label>
-                        Price Desciption In English
+                        Price Desciption Lower Season In English
                     </label>
-                    <textarea class="form-control" name="description_en">@if($price->description_en){{$price->description_en}}@endif</textarea>
+                    <textarea class="form-control" name="description_lower_season_en">@if($price->description_lower_season_en){{$price->description_lower_season_en}}@endif</textarea>
                     <p class="error error_descriotion_en m-0"></p>
                 </div>
 
                 <div class="form-group">
                     <label>
-                        Price Desciption In French
+                        Price Desciption Lower Season In French
                     </label>
-                    <textarea class="form-control" name="description_fr">@if($price->description_fr){{$price->description_fr}}@endif</textarea>
-                    <p class="error error_descriotion_fr m-0"></p>
+                    <textarea class="form-control" name="description_lower_season_fr">@if($price->description_lower_season_fr){{$price->description_lower_season_fr}}@endif</textarea>
+                    <p class="error error_descriotion_en m-0"></p>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        Price Desciption Upper Season In English
+                    </label>
+                    <textarea class="form-control" name="description_upper_season_en">@if($price->description_upper_season_en){{$price->description_upper_season_en}}@endif</textarea>
+                    <p class="error error_descriotion_en m-0"></p>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        Price Desciption Upper Season In French
+                    </label>
+                    <textarea class="form-control" name="description_upper_season_fr">@if($price->description_upper_season_fr){{$price->description_upper_season_fr}}@endif</textarea>
+                    <p class="error error_descriotion_en m-0"></p>
                 </div>
 
                 <div class="form-group col-md-6 px-0">

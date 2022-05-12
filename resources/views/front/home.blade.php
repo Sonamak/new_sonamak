@@ -4,5 +4,5 @@
 
 @section('content')
     <x-slider-component></x-slider-component>
-    <x-tour-slider :feature="true"></x-tour-slider>
+    <x-tour-slider :feature="true" :subtitle="__('main.choose_from_our_best_tours')" title="feature_tours" ></x-tour-slider>
 @endsection

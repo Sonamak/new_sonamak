@@ -1,3 +1,15 @@
 /*============================================================================================*/
-/* Your custom styles below */
+/* Secoundry Nav */
 /*============================================================================================*/
+.secondary_nav {
+    position: sticky;
+    top: 80px;
+    background: #fff;
+    z-index: 100;
+}
+.price_tab {
+    display: flex !important;
+}
+.price_tab li a {
+    padding: 20px 10px !important;
+}

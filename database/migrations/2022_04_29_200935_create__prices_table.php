@@ -18,8 +18,11 @@ class CreatePricesTable extends Migration
             $table->string('name_en');
             $table->string('name_fr');
             $table->foreignId('tour_id');
-            $table->text('description_en')->nullable();
-            $table->text('description_fr')->nullable();
+            $table->text('description_lower_season_en')->nullable();
+            $table->text('description_lower_season_fr')->nullable();
+            $table->text('description_upper_season_en')->nullable();
+            $table->text('description_upper_season_fr')->nullable();
+            $table->boolean('top_selling')->default(false);
             $table->timestamps();
         });
     }

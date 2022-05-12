@@ -21,6 +21,7 @@ class CreatePackagesTable extends Migration
             $table->integer('eur_price');
             $table->integer('cad_price');
             $table->foreignId('price_id');
+            $table->boolean('top_selling')->default(false);
             $table->timestamps();
         });
     }

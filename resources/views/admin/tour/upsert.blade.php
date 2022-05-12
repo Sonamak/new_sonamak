@@ -28,6 +28,23 @@ $route = array_shift($route) .'.store';
                         <p class="error error_thumbnail"></p>
                     </div>
                 </div>
+
+                <div class="form-group">
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 mg-t-10 mg-sm-t-0">
+                            <input type="file" class="dropify" data-default-file="@if($tour->location) {{ asset('storage/tour/small/'.$tour->location->name) }} @endif" data-height="200"  name="location"/>
+                        </div>
+                        <div class="mx-2 col-md-6">
+                            <label for="Location">Location</label>
+                            <p class="mt-2 sub-text">
+                                Enter Location of the tour and please add image in aspect ratio to get the best performance
+                            </p>
+                            <p class="error error_location"></p>
+                        </div>
+                    </div>
+
+                </div>
                 
                 <div class="form-group">
                     <label for="title">
@@ -105,10 +122,7 @@ $route = array_shift($route) .'.store';
 
                 </div>
 
-                <div class="form-group">
-
-               
-                </div>
+             
 
                 <div class="form-group">
                    
@@ -248,6 +262,10 @@ $route = array_shift($route) .'.store';
                         @endforeach
                     </div>
 
+                </div>
+
+                <div class="form-group">
+                    
                 </div>
                 
 

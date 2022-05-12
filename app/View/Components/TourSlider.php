@@ -14,10 +14,14 @@ class TourSlider extends Component
      */
     
     public $feature;
+    public $title;
+    public $subtitle;
 
-    public function __construct($feature = false)
+    public function __construct($feature = false,$title = null,$subtitle)
     {
         $this->feature = $feature;
+        $this->title = $title;
+        $this->subtitle = $subtitle;
     }
 
     /**
@@ -36,10 +40,12 @@ class TourSlider extends Component
 
         })->with('packages')->get();
 
-
+        
         
         return view('components.tour-slider',[
-            'tours' => $tours
+            'tours' => $tours,
+            'title' => $this->title,
+            'subtitle' => 'dasd'
         ]);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\Sonamak;
+use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\FrontController;
 use App\Models\Tour;
@@ -21,11 +22,16 @@ Auth::routes();
 Route::get('/',[FrontController::class,'home']);
 
 Route::group(['prefix' => 'cookie'],function(){
-    Route::get('/language/{language}',[CookieController::class,'language']);
-    Route::get('/currency/{currency}',[CookieController::class,'currency']);
+    Route::get('/language/{language}',[CookieController::class,'language'])->name('language');
+    Route::get('/currency/{currency}',[CookieController::class,'currency'])->name('currency');
 });
 
+//Front Pages
+Route::get('tour/{tour}',[FrontController::class,'tour']);
+
 Route::get('test',function(){
-    $tour = Tour::find(5);
-    dd($tour->lowest_price_package);
+    $tour = Tour::find(7);
+    dd($tour->prices);
 });
+
+Route::get('share/{provider}',[FrontController::class,'share'])->name('share');

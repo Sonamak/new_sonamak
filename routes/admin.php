@@ -61,6 +61,7 @@ Route::group(['prefix' => 'category'],function () {
 Route::group(['prefix' => 'schedule'],function () {
     Route::get('/',[ScheduleController::class,'index'])->name('schedule.index');
     Route::post('/store',[ScheduleController::class,'create'])->name('schedule.store');
+    Route::post('/holiday/{schedule}',[ScheduleController::class,'holiday'])->name('schedule.holiday');
 });
 
 Route::group(['prefix' => 'active_link'],function () {

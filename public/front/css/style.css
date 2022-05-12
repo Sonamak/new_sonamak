@@ -1167,7 +1167,7 @@ header.sticky .hamburger-inner, header.sticky .hamburger-inner::before, header.s
     height: 500px;
   }
 }
-.hero_in.tours_detail:before {
+.hero_in.tours_detail {
   background: url(../img/hero_in_tours_detail.jpg) center center no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -3980,6 +3980,7 @@ a.boxed_list:hover i {
   z-index: 99;
   width: 100% !important;
   left: 0;
+  position: sticky !important;
 }
 .secondary_nav ul {
   margin-bottom: 0;
