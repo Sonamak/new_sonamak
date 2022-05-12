@@ -78,6 +78,26 @@ class Tour extends Authenticatable
         }
 
 
+        if ( $request->location ) {
+
+            if (  $tour->location ) {
+
+                $tour->deleteImagesWithIdsBelongsToRelation([$tour->location->id],'storage/tour','gallaries');
+
+            }
+
+
+            $tour->dimintions(['medium' => '334x210','small' => '261x164'])
+                  ->resize()
+                  ->files($request->location)
+                  ->withSaveRelation('gallaries')
+                  ->usefor('location')
+                  ->compile();
+
+
+        }
+
+
         if ( $request->removed_include ) { 
 
             $tour->tourPrefrences()->where('type','include')->whereIn('id',$request->removed_include)->delete();
@@ -118,7 +138,7 @@ class Tour extends Authenticatable
 
         if ( $request->removed_gallary ) {
 
-            $tour->deleteImagesWithIdsBelongsToRelation([$request->removed_gallary],'storage/tour','gallaries');
+            $tour->deleteImagesWithIdsBelongsToRelation($request->removed_gallary,'storage/tour','gallaries');
 
         }
 
@@ -142,7 +162,7 @@ class Tour extends Authenticatable
             }
 
 
-            $tour->dimintions(['large' => '1200x720','medium' => '500x500','small' => '261x164'])
+            $tour->dimintions(['large' => '1870x556','medium' => '334x210','small' => '261x164'])
                   ->fit()
                   ->files($request->thumbnail)
                   ->withSaveRelation('gallaries')
@@ -213,6 +233,11 @@ class Tour extends Authenticatable
         return $this->gallaries()->where('use_for','thumbnail')->first();
     }
 
+    public function getLocationAttribute()
+    {
+        return $this->gallaries()->where('use_for','location')->first();
+    }
+
     public function getIncludeAttribute()
     {
         return $this->tourPrefrences()->where('type','include')->get();
@@ -234,7 +259,8 @@ class Tour extends Authenticatable
     public function getLowestPricePackageRoomAttribute()
     {
         $default_currency = app()->make('saved_cookie',['type' => 'currency']) ?? 'usd';
-        return $this->packages()->orderBy($default_currency.'_price')->first()->room_type;
+        $room = $this->packages()->orderBy($default_currency.'_price')->first()->room_type;
+        return str_replace(' ','_',strtolower($room));
     }
 
     //Relations
@@ -246,7 +272,7 @@ class Tour extends Authenticatable
 
     public function itinerarie()
     {
-        return $this->hasMany(Itinerarie::class);
+        return $this->hasMany(Itinerarie::class)->orderBy('day');
     }
 
     public function gallaries()
@@ -261,7 +287,7 @@ class Tour extends Authenticatable
 
     public function prices()
     {
-        return $this->belongsTo(Price::class);
+        return $this->hasMany(Price::class);
     }
 
     public function packages()
