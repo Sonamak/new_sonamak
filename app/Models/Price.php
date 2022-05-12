@@ -72,20 +72,14 @@ class Price extends Authenticatable
         return $query;
     }
 
-    public function toggleBestSelling()
+    public function getLowestSeasonPackagesAttribute()
     {
-        $this->best_selling = $this->best_selling ? false : true;
-        $this->save();
+        return $this->packages()->where('season','Lower Season')->get();
     }
 
-    public function getLowestSeasonsPackagesAttr()
+    public function getPeakSeasonPackagesAttribute()
     {
-        $this->packages()->where('season','Lower Season')->get();
-    }
-
-    public function getPeakSeasonsPackagesAttr()
-    {
-        $this->packages()->where('season','Lower Season')->get();
+        return $this->packages()->where('season','Peak Season')->get();
     }
     // Relations
     
@@ -97,6 +91,11 @@ class Price extends Authenticatable
     public function packages()
     {
         return $this->hasMany(Package::class);
+    }
+
+    public function hotels()
+    {
+        return $this->hasMany(Hotel::class);
     }
 
 
