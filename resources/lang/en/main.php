@@ -28,5 +28,8 @@ return [
     'exclution' => 'Exclution',
     'starting_from' => 'starting from',
     'no_hotel_to_display' => 'No Hotel To Display',
-    'hotels' => 'Hotels'
+    'hotels' => 'Hotels',
+    'popular_destination' => 'Popular Destinations',
+    'find_your_next_adventure' => 'Find your next destination',
+    'discover_country_tours' => 'Discover :country tours'
 ];

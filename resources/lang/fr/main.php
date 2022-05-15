@@ -28,5 +28,8 @@ return [
     'exclution' => 'Exclure',
     'starting_from' => 'partant de',
     'no_hotel_to_display' => 'Aucun hôtel à afficher',
-    'hotels' => 'Hôtels'
+    'hotels' => 'Hôtels',
+    'popular_destination' => 'Destinations populaires',
+    'find_your_next_adventure' => 'Trouvez votre prochaine destination',
+    'discover_country_tours' => 'Découvrir :country visites',
 ];
