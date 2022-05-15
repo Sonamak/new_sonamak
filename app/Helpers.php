@@ -13,6 +13,17 @@ function currency_sympol()
     }
 }
 
+function get_currency()
+{
+    if ( app()->make('saved_cookie',['type' => 'currency']) == 'cad' ) {
+        return 'cad';
+    } else if ( app()->make('saved_cookie',['type' => 'currency']) == 'eur' ) {
+        return 'eur';
+    } else {
+        return 'usd';
+    }
+}
+
 function currency_value($package)
 {
     if ( app()->make('saved_cookie',['type' => 'currency']) == 'cad' ) {
