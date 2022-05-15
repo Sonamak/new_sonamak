@@ -100,6 +100,16 @@ $(document).on('submit','.ajax-form',function(e) {
         contentType: false,
 
         data: formData,
+
+        beforeSend: () => {
+
+            if( $(this).attr('beforeSend') )
+                window[$(this).attr('beforeSend')](e);
+
+            if ( $(this).attr('emptyContainer') )
+                $($(this).attr('emptyContainer')).html('');
+
+        },
         
         success: (e) => {
             
