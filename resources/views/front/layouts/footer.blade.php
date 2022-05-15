@@ -1,4 +1,5 @@
 <!-- COMMON SCRIPTS -->
+<script src="{{ asset('front/js/localization.js') }}"></script>
 <script src="{{ asset('front/js/common_scripts.js') }}"></script>
 <script src="{{ asset('front/js/main.js') }}"></script>
 <script src="{{ asset('front/assets/validate.js') }}"></script>
@@ -146,22 +147,22 @@
 <!-- elseif page is Destinations Page -->
 
 <!-- SPECIFIC SCRIPTS -->
-<script src="{{ asset('front/js/video_header.js') }}"></script>
-<script>
+<!-- <script src="{{ asset('front/js/video_header.js') }}"></script> -->
+<!-- <script>
     HeaderVideo.init({
         container: $('.header-video'),
         header: $('.header-video--media'),
         videoTrigger: $("#video-trigger"),
         autoPlayVideo: true
     });
-</script>
+</script> -->
 
 <!-- elseif page is Tours Page -->   
 
 <!-- Map -->
 <script src="{{ asset('front/js/markerclusterer.js') }}"></script>
 <script src="{{ asset('front/js/map_tours.js') }}"></script>
-<script src="{{ asset('front/js/infobox.js') }}"></script>
+<!-- <script src="{{ asset('front/js/infobox.js') }}"></script> -->
 
 <!-- Masonry Filtering -->
 <script src="{{ asset('front/js/isotope.min.js') }}"></script>
@@ -195,7 +196,7 @@ $('.filters_listing').on( 'click', 'input', 'change', function(){
 <!-- elseif page is Tour-details Page -->  
 
 <!-- Map -->
-<script src="{{ asset('front/js/infobox.js') }}"></script>
+<!-- <script src="{{ asset('front/js/infobox.js') }}"></script> -->
 
 <!-- DATEPICKER  -->
 <script>
@@ -219,13 +220,12 @@ $(function() {
 </script>
 
 <!-- INPUT QUANTITY  -->
-<script src="{{ asset('front/js/input_qty.js') }}"></script>
+<!-- <script src="{{ asset('front/js/input_qty.js') }}"></script> -->
 
 <!-- SPECIFIC SCRIPTS -->
-<script src="{{ asset('front/js/tabs.js') }}"></script>
 <script src="{{ asset('front/js/cookie.js') }}"></script>
-<script>new CBPFWTabs( document.getElementById( 'tabs' ) );</script>
 <script src="{{ asset('js/share.js') }}"></script>
+<script src="{{ asset('admin/js/ajaxActions.js') }}"></script>
 
 <!-- elseif page is Contacts Page -->  
 
