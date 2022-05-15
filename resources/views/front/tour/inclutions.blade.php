@@ -1,5 +1,8 @@
+@if(count($tour->includes) || count($tour->excludes))
+<hr>
 <div id="inclusions">
     <div class="row">
+        @if(count($tour->includes))
         <div class="col-lg-6">
             <ul class="">
                 <h3>
@@ -13,6 +16,8 @@
                 @endforeach
             </ul>
         </div>
+        @endif
+        @if(count($tour->excludes))
         <div class="col-lg-6">
             <h3>
             {{ __('main.exclution') }}
@@ -26,5 +31,7 @@
                 @endforeach
             </ul>
         </div>
+        @endif
     </div>
 </div>
+@endif

@@ -1,3 +1,4 @@
+@if(count($tour->itinerarie))
 <div id="itinerary">
     <h3>{{__('main.itinerary')}}</h3>
     <p>
@@ -20,5 +21,5 @@
         </li>
         @endforeach
     </ul>
-    <hr>
 </div>
+@endif

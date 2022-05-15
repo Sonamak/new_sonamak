@@ -221,7 +221,7 @@ $route = array_shift($route) .'.store';
                         Itinerary Description In English
                     </label>
 
-                    <textarea class="summernote mb-2" name="itinerary_description_fr">@if($tour->itinerary_description_fr) {{ $tour->itinerary_description_fr }} @endif</textarea>
+                    <textarea class="summernote mb-2" name="itinerary_description_en">@if($tour->itinerary_description_fr) {{ $tour->itinerary_description_en }} @endif</textarea>
 
                     <label class="mt-2">
                         Itinerary Description In French

@@ -6,7 +6,9 @@
     </div>
     <div id="reccomended" class="owl-carousel owl-theme">
         @foreach($tours as $tour)
-        <x-tour-slider-box :tour="$tour"></x-tour-slider-box>
+        <div class="item">
+            <x-tour-slider-box :tour="$tour"></x-tour-slider-box>
+        </div>
         @endforeach
     </div>
     <!-- /carousel -->

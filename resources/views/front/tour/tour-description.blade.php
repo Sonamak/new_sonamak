@@ -2,6 +2,7 @@
     <h2>{{__('main.description')}}</h2>
     {!! get_local($tour->description_en,$tour->description_fr) !!}
     <div class="row mt-3">
+        @if($tour->country_text_in_en)
         <div class="col-lg-6 col-md-6">
             <a class="box_topic" href="#0">
                 <span><i class="pe-7s-world"></i></span>
@@ -9,6 +10,8 @@
                 <p>{{ get_local($tour->country_text_in_en,$tour->country_text_in_fr) }}</p>
             </a>
         </div>
+        @endif
+        @if($tour->duration_text_in_en)
         <div class="col-lg-6 col-md-6">
             <a class="box_topic" href="#0">
                 <i class="pe-7s-timer"></i>
@@ -16,5 +19,6 @@
                 <p>{{ get_local($tour->duration_text_in_en,$tour->duration_text_in_fr) }}</p>
             </a>
         </div>
+        @endif
     </div>
 </div>

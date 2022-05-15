@@ -34,7 +34,6 @@
 							@include('front.tour.tour-description')
 							@include('front.tour.gallary')
 							<!-- /pictures -->
-							<hr>
 							@include('front.tour.itinerary')
 							@include('front.tour.inclutions')
 							<!-- /row -->
@@ -101,4 +100,9 @@
 			<!-- /container -->
 		</div>
 		<!-- /bg_color_1 -->
+@endsection
+
+@section('js')
+<script src="{{ asset('front/js/tabs.js') }}"></script>
+<script>new CBPFWTabs( document.getElementById( 'tabs' ) );</script>
 @endsection

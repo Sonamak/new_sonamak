@@ -17,7 +17,7 @@
                 @foreach($tours as $tour)
 
 
-                    <div class="row mt-4" id="tour_{{$tour->id}}">
+                    <div class="row mt-4 tour" id="tour_{{$tour->id}}">
                         <div class="col-md-3">
                             <img width="260px" height="161px" src="@if($tour->thumbnail) {{ asset('storage/tour/small/'.$tour->thumbnail->name) }} @else @endif" alt="{{ $tour->tite_en }}">
                         </div>
@@ -74,7 +74,7 @@
 
         $(`#tour_${e.payload.id}`).remove();
 
-        if( ! $('.tours').length ) {
+        if( ! $('.tour').length ) {
 
             $('.empty_section').removeClass('d-none')
 
@@ -93,26 +93,27 @@
                 type: 'post',
                 success: function (e) {
                     
-                    let payload = e.payload.data;
+                    let payload = e.data;
 
-                    console.log(e.payload.current_page , e.payload.total)
+                    console.log(e.current_page , e.total)
 
-                    if ( e.payload.current_page < e.payload.total ) 
+                    if ( e.current_page < e.total ) 
                         page++
                     else 
                         $('.load_more').addClass('d-none');
 
 
-                    console.log(page)
+                    console.log(payload)
 
                     payload.forEach((item) => {
                         
                         let thumbnail = item.gallaries.find(x => x.use_for == 'thumbnail');
+                        console.log(thumbnail,item.gallaries,item)
 
                         $('.append-container').append(`
                         
 
-                        <div class="row mt-4">
+                        <div class="row mt-4 tour">
                                 <div class="col-md-3">
                                     <img width="260px" height="161px" src="/storage/tour/small/${thumbnail.name}" alt="tour">
                                 </div>
@@ -149,10 +150,6 @@
                         `);
 
                         if( item.feature ) $(`#myonoffswitch_${item.id}`).attr('checked','checked')
-;
-
-                        console.log($(`#myonoffswitch_${item.id}`),item.feature)
-
                     })
 
                 }   

@@ -34,6 +34,9 @@ class Tour extends Authenticatable
         'destination_id',
         'category_id'
     ];
+
+    protected $appends = ['lowest_price_package'];
+    
     protected $root = 'storage/tour';
 
     /**
@@ -208,6 +211,24 @@ class Tour extends Authenticatable
 
     public function scopeFilter($query,$request)
     {
+        if ( $request->name ) {
+            
+            if ( app()->make('saved_cookie',['type' => 'language']) == 'en' ) {
+                $query->where('title_en','like',"%$request->name%");
+            } else {
+                $query->where('title_fr','like',"%$request->name%");
+            }
+
+        }
+        
+        if ( $request->destination_id ) {
+            $query->where('destination_id',$request->destination_id);
+        }
+
+        if ( $request->category ) {
+            $query->where('category_id',$request->category);
+        }
+
         return $query;
     }
 
@@ -246,21 +267,27 @@ class Tour extends Authenticatable
     public function getLowestPricePackageAttribute()
     {
         $default_currency = app()->make('saved_cookie',['type' => 'currency']) ?? 'usd';
-        return $this->packages()->orderBy($default_currency.'_price')->first();
+        if($default_currency)
+            return $this->packages()->orderBy($default_currency.'_price')->first();
     }
 
     public function getLowestPricePackageCurrencyAttribute()
     {
         $default_currency = app()->make('saved_cookie',['type' => 'currency']) ?? 'usd';
         $currency ="$default_currency".'_price';
-        return $this->packages()->orderBy($default_currency.'_price')->first()->$currency;
+        if($default_currency)
+            return $this->packages()->orderBy($default_currency.'_price')->first()->$currency;
     }
 
     public function getLowestPricePackageRoomAttribute()
     {
         $default_currency = app()->make('saved_cookie',['type' => 'currency']) ?? 'usd';
-        $room = $this->packages()->orderBy($default_currency.'_price')->first()->room_type;
-        return str_replace(' ','_',strtolower($room));
+        $package = $this->packages()->orderBy($default_currency.'_price')->first();
+        if($package) {
+            $room = $this->packages()->orderBy($default_currency.'_price')->first()->room_type;
+            return str_replace(' ','_',strtolower($room));
+        }
+       
     }
 
     //Relations
@@ -295,4 +322,5 @@ class Tour extends Authenticatable
         return $this->hasManyThrough(Package::class,Price::class);
     }
 }
+
 
