@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{app()->make('saved_cookie',['type' => 'language'])}}" currency="{{app()->make('saved_cookie',['type' => 'currency'])}}">
 @include('front.layouts.header')
 <body>
     <!-- header -->
-    <header class="header menu_fixed">
+    <header class="header menu_fixed" html="{{app()->make('saved_cookie',['type' => 'language'])}}">
         <x-navbar-component></x-navbar-component>
     </header>
     <!-- /header -->
