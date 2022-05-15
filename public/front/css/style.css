@@ -326,6 +326,11 @@ Author URI: http://themeforest.net/user/Ansonika/
   border-radius: 100%;
 }
 
+.h_half {
+  height: 50vh !important;
+}
+
+
 @-webkit-keyframes circle {
   0% {
     -webkit-transform: rotate(0);
