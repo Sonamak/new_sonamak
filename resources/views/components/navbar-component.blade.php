@@ -18,7 +18,7 @@
         @foreach($navbar_links as $navbar_link)
         <li>
             <span>
-                <a href="index.php">{{ __('main.'.$navbar_link->page) }}</a>
+                <a href='{{ route("$navbar_link->page") }}'>{{ __('main.'.$navbar_link->page) }}</a>
             </span>
         </li>
         @endforeach
