@@ -20,6 +20,13 @@ class FrontController extends Controller
         ]);
     }
 
+    public function destinationTours(Destination $destination)
+    {
+        return view('front.destination.index',[
+            'destination' => $destination
+        ]);
+    }
+
     public function share($provider)
     {
         if ( $provider == 'facebook' ) 
