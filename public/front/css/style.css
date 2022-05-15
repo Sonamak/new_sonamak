@@ -52,7 +52,7 @@ Author URI: http://themeforest.net/user/Ansonika/
 /* All styles for screen size over 992px*/
 @media only screen and (min-width: 992px) {
   nav#menu.main-menu {
-    display: block !important;
+    display: block ;
   }
 
   #mm-menu.main-menu {
@@ -104,9 +104,42 @@ Author URI: http://themeforest.net/user/Ansonika/
     font-weight: 500;
   }
 
+  header.sticky .dark {
+    display: block;
+  }
+
+  header.sticky .light {
+    display: none;
+  }
+
+  header:not(.sticky) .light {
+    display: block;
+  }
+
+  header:not(.sticky) .dark {
+    display: none;
+  }
+  
   header.sticky .main-menu > ul > li span > a {
     color: #444;
   }
+
+  header.menu_fixed.sticky .info_menu {
+    margin: 0 -12px;
+  }
+  header.menu_fixed.sticky .info_menu li {
+    color: #444;
+  }
+
+  .info_menu {
+    position: relative;
+    top: 12px;
+  }
+
+  .info_menu li {
+    color: #fff;
+  }
+
   header.sticky .main-menu > ul > li span:hover > a {
     opacity: 1;
     color: #fc5b62;

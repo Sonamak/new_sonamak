@@ -50,3 +50,73 @@
 .load_text {
     transition: all .3s linear !important;
 }
+
+/* Navbar */
+.local_title {
+    display: block;
+    top: -8px;
+    right: -3px;
+    margin: -8px 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.currency_symbol {
+    width: 20px;
+    color: #fff;
+}
+
+.sub_menu {
+    position: absolute;
+    top: 31px;
+    background: #fff;
+    color: wi;
+    width: 100px;
+    left: -23px;
+    border-radius: 3px;
+    padding: 10px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.sub_menu:before {
+    bottom: 100%;
+    left: 15%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: #fff;
+    border-width: 7px;
+    margin-left: 19px;
+}
+
+.dropdown_nav {
+    height: 44px;
+}
+
+.dropdown_nav:hover .sub_menu,
+.sub_menu:hover {
+    visibility: visible;
+    opacity: 1;
+}
+
+.sub_menu li {
+    margin: 7px 0 !important;
+}
+
+.sub_menu li .flag {
+    width: 15px;
+    height: 15px;
+    margin-right: 3px;
+}
+
+.sub_menu a {
+    color: #333 !important;
+    padding: 5 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
