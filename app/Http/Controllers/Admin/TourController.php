@@ -43,6 +43,11 @@ class TourController extends Controller {
         return $tour->deleteInstance();
     }
 
+    public function more(Request $request)
+    {
+        return Tour::filter($request)->with('gallaries')->paginate(10);
+    }
+
     public function get(Tour $tour)
     {
         return $tour;
