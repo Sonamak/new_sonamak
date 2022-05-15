@@ -17,5 +17,8 @@
    <div class="card mt-4">
       <x-admin.contact-component></x-admin.about-component>
    </div>
+   <div class="card mt-4">
+      <x-admin.search-tour-component></x-admin.search-tour-component>
+   </div>
 </div>
 @endsection
