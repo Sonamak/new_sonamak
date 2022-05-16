@@ -38,6 +38,7 @@ $('.load_more').on('click',function(){
 
 function searchLoading()
 {
+	page = 1;
 	$('.main_search_container').html('');
 	$('.search_more').css('display','block');
 	$('.load_more').css('display','none !important');
