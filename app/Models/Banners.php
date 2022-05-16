@@ -35,7 +35,12 @@ class Banners extends Model
         );
         
        if ( $request->background ) {
-            $banner->dimintions(['large' => '1679x490'])
+
+            if ( $banner->background ) {
+                $banner->deleteImagesWithIdsBelongsToRelation([$banner->background->id],'storage/banner','gallaries');
+            }
+
+            $banner->dimintions(['large' => '1865x844'])
             ->fit()
             ->files($request->background)
             ->withSaveRelation('gallaries')
