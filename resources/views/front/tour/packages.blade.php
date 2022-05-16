@@ -7,7 +7,15 @@
                 @foreach($tour->prices as $price)
                 <li class="col-md-4">
                     <a href="#section-{{$loop->index}}">
+                        @if($price->price_type == 'regular')
+                        <i class="pe-7s-paper-plane"></i>
+                        @elseif($price->price_type == 'luxory')
+                        <i class="pe-7s-plane"></i>
+                        @elseif($price->price_type == 'ultra')
+                        <i class="pe-7s-rocket"></i>
+                        @endif
                         {{ get_local($price->name_en,$price->name_fr) }}
+                        <em>{{get_local($price->caption_en,$price->caption_fr)}}</em>
                     </a>
                 </li>
                 @endforeach
@@ -70,7 +78,9 @@
                                         <img src="{{ asset('storage/hotel/small/'.$hotel->thumbnail->name) }}" class="img-fluid" alt="" width="800" height="533">
                                     </figure>
                                     <div class="wrapper">
-                                        <h3>{{ get_local($hotel->title_en,$hotel->title_fr) }}</h3>
+                                        <h3>
+                                            <a style="color:#fd7e14">{{ get_local($hotel->title_en,$hotel->title_fr) }}</a>
+                                        </h3>
                                         <p>{{ get_local($hotel->description_en,$hotel->description_fr) }}</p>
                                     </div>
                                 </div>

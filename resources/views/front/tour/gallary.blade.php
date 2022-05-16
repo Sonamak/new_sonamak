@@ -1,5 +1,6 @@
+@if(count($tour->gallary))
 <div id="gallary">
-    <h3></h3>
+    <h3>{{ __('main.tour_gallary') }}</h3>
     <div class="pictures_grid magnific-gallery clearfix">
         @foreach($tour->gallary as $gallary)
         <figure>
@@ -10,3 +11,4 @@
         @endforeach
     </div>
 </div>
+@endif

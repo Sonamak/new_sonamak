@@ -27,6 +27,9 @@ class Price extends Authenticatable
         ,'description_lower_season_fr'
         ,'description_upper_season_en'
         ,'description_upper_season_fr'
+        ,'price_type'
+        ,'caption_en'
+        ,'caption_fr'
     ];
 
     /**

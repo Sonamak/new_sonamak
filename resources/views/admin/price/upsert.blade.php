@@ -63,20 +63,54 @@ $route = array_shift($route) .'.store';
                     <p class="error error_descriotion_en m-0"></p>
                 </div>
 
-                <div class="form-group col-md-6 px-0">
-                    <label>
-                        Tour
-                    </label>
-                    <select class="select2" name="tour_id">
-                        @if(! $price->tour_id)
-                        <option>-- Select Tour --</option>
-                        @endif
-                        @foreach($tours as $tour)
-                            <option @if($price) @if($price->tour_id == $tour->id) selected @endif @endif value="{{$tour->id}}">{{$tour->title_en}}</option>
-                        @endforeach
+                <div class="row px-2">
+                    <div class="form-group col-md-6 px-0">
+                        <label>
+                            Tour
+                        </label>
+                        <select class="select2" name="tour_id">
+                            @if(! $price->tour_id)
+                            <option>-- Select Tour --</option>
+                            @endif
+                            @foreach($tours as $tour)
+                                <option @if($price) @if($price->tour_id == $tour->id) selected @endif @endif value="{{$tour->id}}">{{$tour->title_en}}</option>
+                            @endforeach
 
-                    </select>
-                    <p class="error error_tour m-0"></p>
+                        </select>
+                        <p class="error error_tour m-0"></p>
+                    </div>
+
+                    <div class="form-group col-md-6 px-0 ps-2">
+                        <label>
+                            Price Type
+                        </label>
+                        <select class="select2" name="price_type">
+                            <option value="regular" @if($price) @if($price->price_type == 'regular') selected @endif @endif>
+                            Regular
+                            </option>
+                            <option value="luxory" @if($price) @if($price->price_type == 'luxory') selected @endif @endif>
+                            Luxory
+                            </option>
+                            <option value="ultra" @if($price) @if($price->price_type == 'ultra') selected @endif @endif>
+                            Ultra
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row px-2">
+                    <div class="col-md-6 px-0">
+                        <label>
+                            Caption English
+                        </label>
+                        <input type="text" name="caption_en" class="form-control" value="@if($price) {{$price->caption_en}} @endif">
+                    </div>
+                    <div class="col-md-6 ps-2">
+                        <label>
+                            Caption
+                        </label>
+                        <input type="text" name="caption_fr" class="form-control" value="@if($price) {{$price->caption_fr}} @endif">
+                    </div>
                 </div>
 
                <div class="form-group">
