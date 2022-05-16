@@ -20,6 +20,6 @@
             @endforeach
         </div>
         <!-- /row -->
-        <a href="tours-grid-isotope.php"><strong>View all  <i class="arrow_carrot-right"></i></strong></a>
+        <a href="{{ route('destinations') }}"><strong>View all  <i class="arrow_carrot-right"></i></strong></a>
     </section>
 </div>
