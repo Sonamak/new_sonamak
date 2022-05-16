@@ -229,6 +229,10 @@ class Tour extends Authenticatable
             $query->where('category_id',$request->category);
         }
 
+        if ( $request->extra ) {
+            $query->where('destination_id',null);
+        }
+
         return $query;
     }
 
