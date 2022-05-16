@@ -20,5 +20,8 @@
    <div class="card mt-4">
       <x-admin.search-tour-component></x-admin.search-tour-component>
    </div>
+   <div class="card mt-4">
+      <x-admin.destiantion-video></x-admin.destiantion-video>
+   </div>
 </div>
 @endsection

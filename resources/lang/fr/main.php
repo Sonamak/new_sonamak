@@ -32,4 +32,9 @@ return [
     'popular_destination' => 'Destinations populaires',
     'find_your_next_adventure' => 'Trouvez votre prochaine destination',
     'discover_country_tours' => 'Découvrir :country visites',
+    'contact_us' => 'Nous contacter',
+    'discover_our_destinations' => 'Découvrez nos destinations',
+    'point_your_next_great_adventure_with_us' => 'Pointez votre prochaine grande aventure avec nous',
+    'view_details' => 'Voir les détails',
+    'discover' => 'Découvrez'
 ];

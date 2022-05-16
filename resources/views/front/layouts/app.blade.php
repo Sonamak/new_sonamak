@@ -8,6 +8,7 @@
     </header>
     <!-- /header -->
     @yield('content')
+    <x-trip-advisor></x-trip-advisor>
     <div id="toTop"></div><!-- Back to top button -->
     <x-footer-componenet></x-footer-componenet>
     @include('front.layouts.footer')

@@ -60,7 +60,7 @@
 
         <div class="row mb-4">
             <div class="col-sm-12 col-md-4 mg-t-10 mg-sm-t-0">
-                <input type="file" class="dropify" data-default-file="@if($banner->background) {{ asset('storage/banner/large/'.$banner->background->name) }} @endif" data-height="200"  name="background"/>
+            <input type="file" class="dropify" data-default-file="@if($banner->background) {{ asset('storage/banner/large/'.$banner->background->name) }} @endif" data-height="200"  name="background"/>
             </div>
             <div class="mx-2 col-md-6">
                 <label for="Tumbnail">Background</label>

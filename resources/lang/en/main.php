@@ -31,5 +31,10 @@ return [
     'hotels' => 'Hotels',
     'popular_destination' => 'Popular Destinations',
     'find_your_next_adventure' => 'Find your next destination',
-    'discover_country_tours' => 'Discover :country tours'
+    'discover_country_tours' => 'Discover :country tours',
+    'contact_us' => 'Contact Us',
+    'discover_our_destinations' => 'Discover Our Destinations',
+    'point_your_next_great_adventure_with_us' => 'Point your next great adventure with us',
+    'view_details' => 'View Details',
+    'discover' => 'Discover'
 ];

@@ -43,7 +43,7 @@
 				<div class="main_search_container">
 				@foreach($tours as $tour)
 				<div class="box_list isotope-item popular">
-				<div class="row no-gutters">
+					<div class="row no-gutters">
 						<div class="col-lg-5">
 							<figure>
 								@if($tour->category)
@@ -78,8 +78,11 @@
 						</div>
 					</div>
 				</div>
-               
                 @endforeach
+
+				@if( ! count($tours) )
+				<p class="w-100 text-center font-bold empty_text">No tours found</p>
+				@endif
 				</div>
 			</div>
 			<!-- /row -->

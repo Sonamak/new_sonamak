@@ -1,5 +1,7 @@
 <!-- COMMON SCRIPTS -->
 <script src="{{ asset('front/js/localization.js') }}"></script>
+<script src="{{ asset('front/js/currency.js') }}"></script>
+<script src="{{ asset('front/js/build.js') }}"></script>
 <script src="{{ asset('front/js/common_scripts.js') }}"></script>
 <script src="{{ asset('front/js/main.js') }}"></script>
 <script src="{{ asset('front/assets/validate.js') }}"></script>
@@ -226,6 +228,14 @@ $(function() {
 <script src="{{ asset('front/js/cookie.js') }}"></script>
 <script src="{{ asset('js/share.js') }}"></script>
 <script src="{{ asset('admin/js/ajaxActions.js') }}"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+    setTimeout(function(){
+        $('.ButtonBase__Ellipsis-sc-p43e7i-5').text(get_local('write_review'))
+    });
+</script>
+<script src="https://apps.elfsight.com/p/platform.js" defer></script>
 
 <!-- elseif page is Contacts Page -->  
 

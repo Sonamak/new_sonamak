@@ -3,13 +3,15 @@
         <a href="{{ route('tour.details',['tour'=>$tour->id]) }}">
             <img src="{{ asset('storage/tour/medium/'.$tour->thumbnail->name) }}" class="img-fluid" alt="" width="800" height="533">
             <div class="read_more">
-                <span>Read more</span>
+                <span>{{__('main.view_details')}}</span>
             </div>
         </a>
         @if($tour->category)
-        <small>
-            {{ get_local($tour->category->name_en,$tour->category->name_fr) }}
-        </small>
+        <a href="{{ route('discover',['category' => $tour->category_id]) }}">
+            <small>
+                {{ get_local($tour->category->name_en,$tour->category->name_fr) }}
+            </small>
+        </a>
         @endif
     </figure>
     <div class="wrapper">

@@ -8,7 +8,7 @@
         <div class="row">
             @foreach($destinations as $destination)
             <div class="col-xl-3 col-lg-6 col-md-6">
-                <a href="tour-details.php" class="grid_item">
+                <a href="{{route('destinations.tours',['destination' => $destination->id])}}" class="grid_item">
                     <figure>
                         <img src="{{ asset('storage/destination/medium/'.$destination->thumbnail->name) }}" class="img-fluid" alt="">
                         <div class="info">
