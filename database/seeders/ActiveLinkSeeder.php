@@ -25,7 +25,7 @@ class ActiveLinkSeeder extends Seeder
         ActiveLink::updateOrCreate(
             ['id' => 2],
             [
-                'page' => 'Destinations',
+                'page' => 'destinations',
                 'active' => false
             ]
         );
@@ -33,7 +33,7 @@ class ActiveLinkSeeder extends Seeder
         ActiveLink::updateOrCreate(
             ['id' => 3],
             [
-                'page' => 'Extra Tours',
+                'page' => 'extra',
                 'active' => false
             ]
         );
@@ -41,7 +41,7 @@ class ActiveLinkSeeder extends Seeder
         ActiveLink::updateOrCreate(
             ['id' => 4],
             [
-                'page' => 'About',
+                'page' => 'about',
                 'active' => false
             ]
         );
@@ -49,7 +49,7 @@ class ActiveLinkSeeder extends Seeder
         ActiveLink::updateOrCreate(
             ['id' => 5],
             [
-                'page' => 'Privacy',
+                'page' => 'privacy',
                 'active' => false
             ]
         );
@@ -57,7 +57,7 @@ class ActiveLinkSeeder extends Seeder
         ActiveLink::updateOrCreate(
             ['id' => 6],
             [
-                'page' => 'FAQ',
+                'page' => 'faq',
                 'active' => false
             ]
         );
@@ -65,7 +65,7 @@ class ActiveLinkSeeder extends Seeder
         ActiveLink::updateOrCreate(
             ['id' => 7],
             [
-                'page' => 'Terms and conditions',
+                'page' => 'terms',
                 'active' => false
             ]
         );
@@ -73,7 +73,15 @@ class ActiveLinkSeeder extends Seeder
         ActiveLink::updateOrCreate(
             ['id' => 8],
             [
-                'page' => 'Terms and conditions',
+                'page' => 'discover',
+                'active' => false
+            ]
+        );
+
+        ActiveLink::updateOrCreate(
+            ['id' => 9],
+            [
+                'page' => 'blog',
                 'active' => false
             ]
         );

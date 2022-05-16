@@ -14,13 +14,7 @@ class CreateAppearOnCol extends Migration
     public function up()
     {
         Schema::table('active_links', function (Blueprint $table) {
-            $table->enum('appear_on',[
-                'navbar only',
-                'footer usefull only',
-                'footer helpers only',
-                'navbar & footer usefull',
-                'navbar & footer helper','none'
-            ]);
+            $table->string('appear_on')->default('navbar only');
         });
     }
 
