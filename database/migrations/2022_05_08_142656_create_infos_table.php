@@ -16,8 +16,8 @@ class CreateInfosTable extends Migration
         Schema::create('infos', function (Blueprint $table) {
             $table->id();
             $table->string('type');
-            $table->text('value_en')->nullable();
-            $table->text('value_fr')->nullable();
+            $table->longText('value_en')->nullable();
+            $table->longText('value_fr')->nullable();
             $table->timestamps();
         });
     }

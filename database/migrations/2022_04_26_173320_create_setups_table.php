@@ -16,7 +16,7 @@ class CreateSetupsTable extends Migration
         Schema::create('setups', function (Blueprint $table) {
             $table->id();
             $table->string('type');
-            $table->text('value')->nullable();
+            $table->longText('value')->nullable();
             $table->timestamps();
         });
     }

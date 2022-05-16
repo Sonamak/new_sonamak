@@ -17,8 +17,8 @@ class CreateItinerariesTable extends Migration
             $table->id();
             $table->string('title_en')->nullable();
             $table->string('title_fr')->nullable();
-            $table->text('description_en')->nullable();
-            $table->text('description_fr')->nullable();
+            $table->longText('description_en')->nullable();
+            $table->longText('description_fr')->nullable();
             $table->foreignId('tour_id')->nullable();
             $table->integer('day')->nullable();
             $table->timestamps();

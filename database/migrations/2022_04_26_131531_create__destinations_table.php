@@ -17,8 +17,8 @@ class CreateDestinationsTable extends Migration
             $table->id();
             $table->string('country_name_en');
             $table->string('country_name_fr');
-            $table->text('caption_in_en');
-            $table->text('caption_in_fr');
+            $table->longText('caption_in_en');
+            $table->longText('caption_in_fr');
             $table->timestamps();
         });
     }

@@ -14,8 +14,8 @@ class CreateItineraryDescriptionTable extends Migration
     public function up()
     {
         Schema::table('tours', function (Blueprint $table) {
-            $table->text('itinerary_description_fr')->nullable();
-            $table->text('itinerary_description_en')->nullable();
+            $table->longText('itinerary_description_fr')->nullable();
+            $table->longText('itinerary_description_en')->nullable();
         });
     }
 
