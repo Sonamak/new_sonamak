@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBlogsTable extends Migration
+class CreateBlogCategoryCol extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateBlogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('blogs', function (Blueprint $table) {
-            $table->id();
-            $table->longText('article_in_en');
-            $table->longText('article_in_fr');
-            $table->enum('language',['mixed','english','french']);
-            $table->timestamps();
+        Schema::table('blogs', function (Blueprint $table) {
+            $table->foreignId('category_id')->nullable();
         });
     }
 
@@ -29,6 +25,8 @@ class CreateBlogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blogs');
+        Schema::table('blogs', function (Blueprint $table) {
+            $table->dropColumn('category_id');
+        });
     }
 }

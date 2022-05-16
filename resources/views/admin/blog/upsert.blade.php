@@ -30,12 +30,37 @@ $route = array_shift($route) .'.store';
 
         <div class="row mb-4">
             <div class="col-sm-12">
+                <label>Title English</label>
+                <input class="form-control"  name="title_en" value="{{$blog->title_en}}">
+                <p class="error error_title_en"></p>
+                <label>Title French</label>
+                <input class="form-control" name="title_fr" value="{{$blog->title_fr}}">
+                <p class="error error_title_fr"></p>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-sm-12">
                 <label>Article English</label>
                 <textarea class="summernote"  name="article_in_en">{{$blog->article_in_en}}</textarea>
                 <p class="error error_article_in_en"></p>
                 <label>Article French</label>
                 <textarea class="summernote" name="article_in_fr">{{$blog->article_in_fr}}</textarea>
                 <p class="error error_article_in_fr"></p>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-sm-6">
+                <label>Category</label>
+                <select class="select2" name="category_id">
+                    <option class="d-none" @if(!$blog->category_id) selected @endif value="Null">No Category</option>
+                    @foreach($categories as $category)
+                    <option value="{{$category->id}}" @if($blog->category_id == $category->id) selected {{$category->name}}  @endif>
+                        {{$category->name_en}}
+                    </option>
+                    @endforeach
+                </select>
             </div>
         </div>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banners;
+use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Destination;
 use App\Models\Tour;
@@ -60,6 +61,13 @@ class FrontController extends Controller
             'categories' => Category::all(),
             'destinations' => Destination::all(),
             'banner' => Banners::where('type','search-tour')->first()
+        ]);
+    }
+
+    public function blog(Blog $blog)
+    {
+        return view('front.blog.index',[
+            'blog' => $blog
         ]);
     }
 

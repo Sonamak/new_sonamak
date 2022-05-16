@@ -19,7 +19,15 @@ class Blog extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['id','article_in_en','article_in_fr','language'];
+    protected $fillable = [
+        'id',
+        'article_in_en',
+        'article_in_fr',
+        'language',
+        'title_en',
+        'title_fr',
+        'category_id'
+    ];
     protected $root = 'storage/blog';
 
     /**
@@ -74,11 +82,14 @@ class Blog extends Authenticatable
         return $this->gallaries()->where('use_for','thumbnail')->first();
     }
 
-    // Relations
-
     public function gallaries()
     {
         return $this->morphMany(Gallary::class,'imageable');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 
 }

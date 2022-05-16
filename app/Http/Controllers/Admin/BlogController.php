@@ -7,7 +7,7 @@ use App\Models\Blogname;
 use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Http\Requests\BlogRequest;
-
+use App\Models\Category;
 
 class BlogController extends Controller {
 
@@ -21,7 +21,8 @@ class BlogController extends Controller {
     public function upsert(Blog $blog)
     {
         return  view('admin.blog.upsert',[
-            'blog' => $blog ?? null
+            'blog' => $blog ?? null,
+            'categories' => Category::where('type','blog_type')->get()
         ]);
     }
 
