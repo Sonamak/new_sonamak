@@ -22,7 +22,9 @@ Auth::routes();
 Route::get('/',[FrontController::class,'home'])->name('home');
 Route::get('/terms',[FrontController::class,'terms'])->name('terms');
 Route::get('/extra',[FrontController::class,'terms'])->name('terms');
-Route::get('/destinations',[FrontController::class,'terms'])->name('destinations');
+Route::get('/about',[FrontController::class,'about'])->name('about');
+Route::get('/privacy',[FrontController::class,'privacy'])->name('privacy');
+Route::get('/faq',[FrontController::class,'faq'])->name('faq');
 
 
 
@@ -33,12 +35,14 @@ Route::group(['prefix' => 'cookie'],function(){
 
 //Front Pages
 Route::group(['prefix' => 'tour'],function(){
-    Route::get('/search',[FrontController::class,'tourSearch'])->name('extra');
+    Route::get('/search',[FrontController::class,'tourSearchExtra'])->name('extra');
+    Route::get('/discover',[FrontController::class,'discover'])->name('discover');
     Route::post('/filter',[FrontController::class,'tourFilter'])->name('tour.filter');
     Route::get('/{tour}',[FrontController::class,'tour'])->name('tour.details');
 });
 
 Route::group(['prefix' => 'destination'],function(){
+    Route::get('/all',[FrontController::class,'destinationAll'])->name('destinations');
     Route::get('/{destination}',[FrontController::class,'destinationTours'])->name('destinations.tours');
 });
 
