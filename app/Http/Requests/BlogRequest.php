@@ -27,6 +27,8 @@ class BlogRequest extends FormRequest
             'thumbnail' => ['required_without:id'],
             'article_in_en' => ['required'],
             'article_in_fr' => ['required'],
+            'title_en' => ['required'],
+            'title_fr' => ['required'],
             'language' => ['required']
         ];
     }
