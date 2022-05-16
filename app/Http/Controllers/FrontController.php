@@ -44,12 +44,29 @@ class FrontController extends Controller
         return Tour::filter($request)->with('category','gallaries')->paginate(10);
     }
 
-    public function tourSearch(Request $request)
+    public function tourSearchExtra(Request $request)
     {
         return view('front.tour.search',[
-            'tours' => Tour::filter($request)->paginate(10),
+            'tours' => Tour::filter($request)->where('destination_id',null)->paginate(10),
             'categories' => Category::all(),
             'banner' => Banners::where('type','search-tour')->first()
+        ]);
+    }
+
+    public function discover(Request $request)
+    {
+        return view('front.tour.discover',[
+            'tours' => Tour::filter($request)->paginate(10),
+            'categories' => Category::all(),
+            'destinations' => Destination::all(),
+            'banner' => Banners::where('type','search-tour')->first()
+        ]);
+    }
+
+    public function destinationAll()
+    {
+        return view('front.destination.destinations',[
+            'destinations' => Destination::all()
         ]);
     }
 
