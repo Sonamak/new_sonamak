@@ -85,22 +85,22 @@
                         </div>
                         <div class="row w-100 py-3">
                             <div class="col-md-6">
-                                <p class="h6">Blog</p>
+                                <p class="h6">blogs</p>
                             </div>
                             <div class="col-md-4">
                                 <select class="select2 switch" route="{{ route('active.appear_on',['activeLink' => 9]) }}" name="appear_on">
-                                    <option value="navbar_only" @if($active->where('page','blog')->first()->appear_on == 'navbar_only') selected @endif>Navbar only</option>
-                                    <option value="footer_usefull_only" @if($active->where('page','blog')->first()->appear_on == 'footer_usefull_only') selected @endif>Footer usefull only</option>
-                                    <option value="footer_helpers_only" @if($active->where('page','blog')->first()->appear_on == 'footer_helpers_only') selected @endif>Footer helpers only</option>
-                                    <option value="navbar_footer_usefull" @if($active->where('page','blog')->first()->appear_on == 'navbar_footer_usefull') selected @endif>Navbar footer usefull</option>
-                                    <option value="navbar_footer_helper" @if($active->where('page','blog')->first()->appear_on == 'navbar_footer_helper') selected @endif>Navbar footer helper</option>
+                                    <option value="navbar_only" @if($active->where('page','blogs')->first()->appear_on == 'navbar_only') selected @endif>Navbar only</option>
+                                    <option value="footer_usefull_only" @if($active->where('page','blogs')->first()->appear_on == 'footer_usefull_only') selected @endif>Footer usefull only</option>
+                                    <option value="footer_helpers_only" @if($active->where('page','blogs')->first()->appear_on == 'footer_helpers_only') selected @endif>Footer helpers only</option>
+                                    <option value="navbar_footer_usefull" @if($active->where('page','blogs')->first()->appear_on == 'navbar_footer_usefull') selected @endif>Navbar footer usefull</option>
+                                    <option value="navbar_footer_helper" @if($active->where('page','blogs')->first()->appear_on == 'navbar_footer_helper') selected @endif>Navbar footer helper</option>
                                 </select>
                             </div>
                             <div class="col-md-2">
                                 <div class="switcher mb-0 d-flex ms-auto">
                                     <p class="sub-text m-0 feature-txt mx-2 mt-2"> Mark As Active </p>
                                     <div class="checkbox">
-                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox  switch"  route="{{ route('active.toggle',['activeLink' => 9]) }}" id="myonoffswitch_9" @if($active->where('page','blog')->first()->active) checked @endif>
+                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox  switch"  route="{{ route('active.toggle',['activeLink' => 9]) }}" id="myonoffswitch_9" @if($active->where('page','blogs')->first()->active) checked @endif>
                                         <label class="onoffswitch-label mb-0" for="myonoffswitch_9">
                                         <span class="onoffswitch-inner"></span>
                                     </div>
