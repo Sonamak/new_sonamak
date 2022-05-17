@@ -10,7 +10,7 @@
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <a href="{{route('destinations.tours',['destination' => $destination->id])}}" class="grid_item">
                     <figure>
-                        <img src="{{ asset('storage/destination/medium/'.$destination->thumbnail->name) }}" class="img-fluid" alt="">
+                        <img src="{{ asset('storage/destination/large/'.$destination->thumbnail->name) }}" class="img-fluid" alt="">
                         <div class="info">
                             <h3>{{ get_local($destination->country_name_en,$destination->country_name_fr) }}</h3>
                         </div>

@@ -16,7 +16,7 @@
                         id="slide-411-layer-01"
                         data-frames='[{"delay":200,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[-100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
                         data-type="text"
-                        data-whitespace="nowrap"
+                        data-whitespace="wrap"
                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
                         data-y="['middle','middle','middle','middle']" data-voffset="['-50','-50','-115','-65']" 
                         data-width="auto"

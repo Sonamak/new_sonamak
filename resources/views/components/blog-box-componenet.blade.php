@@ -1,7 +1,7 @@
 <div class="col-lg-6">
     <a class="box_news" href="{{ route('blog.front',['blog' => $blog->id]) }}">
         <figure>
-            <img src="{{ asset('storage/blog/small/'.$blog->thumbnail->name) }}" alt="">
+            <img src="{{ asset('storage/blog/large/'.$blog->thumbnail->name) }}" alt="">
             <figcaption><strong>{{ date('d',strtotime($blog->created_at)) }}</strong>{{ date('M',strtotime($blog->created_at)) }}</figcaption>
         </figure>
         <ul>

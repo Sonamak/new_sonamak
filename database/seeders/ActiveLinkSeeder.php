@@ -81,7 +81,7 @@ class ActiveLinkSeeder extends Seeder
         ActiveLink::updateOrCreate(
             ['id' => 9],
             [
-                'page' => 'blog',
+                'page' => 'blogs',
                 'active' => false
             ]
         );

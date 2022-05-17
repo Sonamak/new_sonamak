@@ -9,7 +9,7 @@
 					<li>
 						<i class="pe-7s-mail-open-file"></i>
 						<h4>Email address</h4>
-						<span>support@Panagea.com - info@Panagea.com<br><small>Monday to Friday 9am - 7pm</small></span>
+						<span>support@Sonamak.com - info@Sonamak.com<br><small>Monday to Friday 9am - 7pm</small></span>
 
 					</li>
 					<li>

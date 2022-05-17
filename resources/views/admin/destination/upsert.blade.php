@@ -40,10 +40,11 @@ $route = array_shift($route) .'.store';
 
                 <div class="row mb-4">
                     <div class="col-sm-12">
-                        <label>Caption</label>
-                        <textarea class="summernote" placeholder="Caption in English" name="caption_in_en">{{$destination->caption_in_en}}</textarea>
+                        <label>Caption In English</label>
+                        <input class="form-control" placeholder="Caption in English" name="caption_in_en"  value="{{$destination->caption_in_en}}">
                         <p class="error error_caption_in_en"></p>
-                        <textarea class="summernote" placeholder="Caption in French" name="caption_in_fr">{{$destination->caption_in_fr}}</textarea>
+                        <label>Caption In French</label>
+                        <input class="form-control" placeholder="Caption in French" name="caption_in_fr" value="{{$destination->caption_in_fr}}">
                         <p class="error error_caption_in_fr"></p>
                     </div>
                 </div>

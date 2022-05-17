@@ -27,7 +27,7 @@ class FooterComponenet extends Component
     {
         $socials = Social::all();
         $active_links = ActiveLink::where('active',1)->get();
-        $footer_usefull_links = $active_links->whereIn('appear_on',['navbar_footer_usefull','footer_usefull'])->where('active',1);
+        $footer_usefull_links = $active_links->whereIn('appear_on',['navbar_footer_usefull','footer_usefull_only'])->where('active',1);
         $footer_helper_links = $active_links->whereIn('appear_on',['navbar_footer_helper','footer_helpers_only'])->where('active',1);
         return view('components.footer-componenet',[
             'socials' => $socials,

@@ -31,4 +31,9 @@ class Category extends Model
         $this->delete();
         return $this->result('success',$this);
     }
+
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class);
+    }
 }

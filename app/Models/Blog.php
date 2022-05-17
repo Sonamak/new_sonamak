@@ -71,7 +71,17 @@ class Blog extends Authenticatable
 
     public function scopeFilter($query,$request)
     {
-        return $query;
+        if ( $request->name ) {
+            if ( app()->make('saved_cookie',['type' => 'language']) == 'en' ) {
+                $query->where('title_en','like',"%$request->name%");
+            } else {
+                $query->where('title_fr','like',"%$request->name%");
+            }
+        }
+
+        if ( $request->category ) {
+            $query->where('category_id',$request->category);
+        }
     }
 
     //Accessators

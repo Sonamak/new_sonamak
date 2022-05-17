@@ -3,7 +3,7 @@
 				<div class="wrapper">
 				<div class="container container-custom">
 					<small>Introducing</small>
-					<h3>Panagea Adventures</h3>
+					<h3>Sonamak Adventures</h3>
 					<p>Hosted journeys to extraordinary and unique places.</p>
 				</div>
 			</div>

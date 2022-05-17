@@ -5,7 +5,7 @@ return [
     'home' => 'Accueil',
     'destinations' => 'Destinations',
     'extra' => 'Circuit Extra',
-    'blog' => 'Blog',
+    'blogs' => 'Blog',
     'contact_us' => 'Contacter',
     'follow_us' => 'SUIVEZ NOUS',
     'about' => 'À Propos De Nous',
@@ -36,5 +36,12 @@ return [
     'discover_our_destinations' => 'Découvrez nos destinations',
     'point_your_next_great_adventure_with_us' => 'Pointez votre prochaine grande aventure avec nous',
     'view_details' => 'Voir les détails',
-    'discover' => 'Découvrez'
+    'discover' => 'Découvrez',
+    'our_last_blogs' => 'Nos derniers blogs',
+    'read_journeys_around_the_world' => 'Lire les voyages autour du monde',
+    'view_all' => 'Voir tout',
+    'view_all_news' => 'Afficher toutes les actualités',
+    'recent_posts' => 'Messages récents',
+    'tour_gallary' => 'Galerie de visites',
+    'read_reviews' => 'Lire les avis'
 ];

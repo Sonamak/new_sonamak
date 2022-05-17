@@ -10,9 +10,6 @@
 .price_tab {
     display: flex !important;
 }
-.price_tab li a {
-    padding: 20px 10px !important;
-}
 
 .nice-select  ul {
     display: flex;
@@ -62,8 +59,12 @@
 }
 
 .currency_symbol {
-    width: 20px;
+    width: 14px;
     color: #fff;
+}
+
+.dest_img {
+    height: 330px !important;    
 }
 
 .sub_menu {
@@ -139,3 +140,96 @@
 .wrapper_container {
     min-height: 50vh;
 }
+
+/* Video Container */
+.video-container{
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    position:relative;
+    overflow: hidden;
+}
+  
+  
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-container iframe {
+    pointer-events: none;
+}
+.video-container iframe{
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 120px);
+}
+.video-foreground{
+    pointer-events:none;
+}
+  
+/* Menu */
+.navbar_small {
+    width: 100%;
+    left: 0;
+    position: absolute;
+    top: 57px;
+    transition: all 0.35s ease-out !important;
+    visibility: hidden;
+    height: auto;
+    opacity: 0;
+    top: 80px;
+}
+
+.navbar_small.open {
+    visibility: visible;
+    opacity: 1;
+    top: 57px;
+}
+
+.navbar_small ul {
+    display: block;
+    width: 100%;
+    background: #f8f8f8;
+    top: 10px;
+    padding: 0;
+    left: 0;
+    padding: 17px;
+}
+
+.navbar_small ul li {
+    padding: 10px 0;
+}
+
+.navbar_small ul li a{
+    font-size: 11px;
+    font-weight: bold;
+    color: #333 !important;
+}
+
+header .dark {
+    display: none;
+}
+
+header.sticky .dark {
+    display: block;
+}
+
+header.sticky .light {
+    display: none;
+}
+
+/* Banner */
+.banner {
+    background-size: contain;
+    background-repeat: no-repeat !important;
+    background-position: 100% 100% !important;
+    background-size: cover !important;
+} 
+
+

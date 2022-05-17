@@ -235,6 +235,18 @@ $(function() {
         $('.ButtonBase__Ellipsis-sc-p43e7i-5').text(get_local('write_review'))
     });
 </script>
+<script>
+    $('.btn_mobile').on('click',function(){
+        $('.navbar_small').toggleClass('open');
+    });
+
+    $(window).on('resize',function(){
+        if ( $(this).innerWidth() >= 991) {
+            $('.navbar_small').removeClass('open')
+        }
+    });
+
+</script>
 <script src="https://apps.elfsight.com/p/platform.js" defer></script>
 
 <!-- elseif page is Contacts Page -->  

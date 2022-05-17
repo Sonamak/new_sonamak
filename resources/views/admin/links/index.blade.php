@@ -40,7 +40,7 @@
                                 <p class="h6">Discover Page</p>
                             </div>
                             <div class="col-md-4">
-                                <select class="select2 switch" route="{{ route('active.appear_on',['activeLink' => 1]) }}" name="appear_on">
+                                <select class="select2 switch" route="{{ route('active.appear_on',['activeLink' => 8]) }}" name="appear_on">
                                     <option value="navbar_only" @if($active->where('page','discover')->first()->appear_on == 'navbar_only') selected @endif>Navbar only</option>
                                     <option value="footer_usefull_only" @if($active->where('page','discover')->first()->appear_on == 'footer_usefull_only') selected @endif>Footer usefull only</option>
                                     <option value="footer_helpers_only" @if($active->where('page','discover')->first()->appear_on == 'footer_helpers_only') selected @endif>Footer helpers only</option>

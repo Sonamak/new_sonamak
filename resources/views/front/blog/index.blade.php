@@ -36,9 +36,7 @@
                 <!-- /post meta -->
                 <div class="post-content overflow-hidden">
                     <div class="dropcaps">
-                        <p>
-                            {!! get_local($blog->article_in_en,$blog->article_in_fr) !!}
-                        </p>
+                        {!! get_local($blog->article_in_en,$blog->article_in_fr) !!}
                     </div>
                 </div>
                 <!-- /post -->
@@ -49,6 +47,8 @@
         <!-- /col -->
 
         <aside class="col-lg-3">
+            <!-- /widget -->
+            <x-blog-search></x-blog-search>
             <!-- /widget -->
             <x-recent-blog></x-recent-blog>
         </aside>

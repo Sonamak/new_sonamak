@@ -71,6 +71,13 @@ class FrontController extends Controller
         ]);
     }
 
+    public function blogs(Request $request)
+    {
+        return view('front.blog.blogs',[
+            'blogs' => Blog::filter($request)->paginate(4)
+        ]);
+    }
+
     public function destinationAll()
     {
         return view('front.destination.destinations',[

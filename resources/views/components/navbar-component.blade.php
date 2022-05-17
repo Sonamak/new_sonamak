@@ -15,7 +15,8 @@
 </a>
 
 <ul class="info_menu me-3 d-flex  mx-4 " id="top_menu">
-    <li class="position-relative dropdown_nav" data-toggle="modal" data-target="#exampleModal"> 
+    <li></li>
+    <li class="position-relative dropdown_nav " data-toggle="modal" data-target="#exampleModal"> 
         <ion-icon name="earth-outline" style="font-size:20px"></ion-icon>
         @if(app()->make('saved_cookie',['type' => 'language']) == 'en')  
         <span class="positin-absolute uppercase local_title text-uppercase">en</span>
@@ -24,6 +25,7 @@
         <span class="positin-absolute uppercase local_title text-uppercase">fr</span>
         @endif
         <ul class="sub_menu">
+            <li></li>
             <li class="switch" type="language" value="en">
                 <a href="{{ route('language',['language' => 'en']) }}" class="d-flex">
                     <img src="{{ asset('storage/system/small/en.png') }}" alt="en" class="flag">
@@ -38,7 +40,7 @@
             </li>
         </ul>
     </li>
-    <li class="position-relative dropdown_nav">
+    <li class="position-relative dropdown_nav mt-1">
         @if(get_currency() == 'usd')
         <img src="{{ asset('storage/system/small/usd1.svg') }}" class="currency_symbol light">
         @elseif(get_currency() == 'eur')
@@ -90,3 +92,16 @@
     </ul>
 </nav>
 <!-- Nav Models -->
+
+<!-- Small Navbar -->
+<nav class="navbar_small">
+    <ul class="nav">
+        @foreach($navbar_links as $navbar_link)
+        <li>
+            <span>
+                <a href='{{ route("$navbar_link->page") }}'>{{ __('main.'.$navbar_link->page) }}</a>
+            </span>
+        </li>
+        @endforeach
+    </ul>
+</nav>

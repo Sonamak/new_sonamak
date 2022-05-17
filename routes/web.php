@@ -42,8 +42,13 @@ Route::group(['prefix' => 'tour'],function(){
 });
 
 Route::group(['prefix' => 'destination'],function(){
-    Route::get('/all',[FrontController::class,'destinationAll'])->name('destinations');
+    Route::get('/',[FrontController::class,'destinationAll'])->name('destinations');
     Route::get('/{destination}',[FrontController::class,'destinationTours'])->name('destinations.tours');
+});
+
+Route::group(['prefix' => 'blog'],function(){
+    Route::get('/',[FrontController::class,'blogs'])->name('blogs');
+    Route::get('/{blog}',[FrontController::class,'blog'])->name('blog.front');
 });
 
 Route::get('share/{provider}',[FrontController::class,'share'])->name('share');

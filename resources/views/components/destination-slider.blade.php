@@ -7,7 +7,7 @@
 <div id="reccomended_adventure" class="owl-carousel owl-theme ">
     @foreach($destinations as $destination)
     <div class="item">
-        <x-destination-box :destination="$destination"></x-destination-box>
+        <x-destination-large-box :destination="$destination"></x-destination-large-box>
     </div>
     @endforeach
 </div>
