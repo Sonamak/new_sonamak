@@ -74,7 +74,7 @@ class FrontController extends Controller
     public function blogs(Request $request)
     {
         return view('front.blog.blogs',[
-            'blogs' => Blog::filter($request)->paginate(4)
+            'blogs' => Blog::filter($request)->withLanguage()->paginate(4)
         ]);
     }
 

@@ -301,7 +301,7 @@ article.blog .post_info ul li:last-child {
   color: #fc5b62;
 }
 
-.dropcaps p:first-child::first-letter {
+/* .dropcaps p:first-child::first-letter {
   color: #fff;
   background-color: #0054a6;
   float: left;
@@ -310,7 +310,7 @@ article.blog .post_info ul li:last-child {
   line-height: 1;
   margin: 10px 15px 0 0 !important;
   padding: 12px;
-}
+} */
 
 #comments {
   padding: 10px 0 0px 0;

@@ -57,7 +57,6 @@
 				<!-- /col -->
 
 				<aside class="col-lg-3">
-					<!-- /widget -->
 					<x-blog-search></x-blog-search>
                     <x-recent-blog></x-recent-blog>
                     <x-category-blog></x-category-blog>

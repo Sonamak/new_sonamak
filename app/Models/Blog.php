@@ -40,16 +40,12 @@ class Blog extends Authenticatable
      */
     protected $hidden = [];
 
-    protected static function booted()
-    {
-        static::addGlobalScope('language', function (Builder $builder) {
-            $language = (Config::get('app.locale') == 'en') ? 'english' : 'french';
-            $builder->where('language','mixed')->orWhere('language',$language);
-        });
-    }
-
     static function upsertInstance($request)
     {
+        $request->merge([
+            'category_id' => ($request->category_id != 'Null') ? $request->category_id : null
+        ]);
+
         $blog = self::updateOrCreate(
             ['id' => $request->id],
             $request->all()
@@ -93,6 +89,15 @@ class Blog extends Authenticatable
         if ( $request->category ) {
             $query->where('category_id',$request->category);
         }
+    }
+
+    // Scope
+
+    public function scopeWithLanguage($query)
+    {
+        $language = (Config::get('app.locale') == 'en') ? 'english' : 'french';
+        $query->where('language','mixed')->orWhere('language',$language);
+        return $query;
     }
 
     //Accessators

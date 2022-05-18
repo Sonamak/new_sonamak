@@ -24,7 +24,7 @@ class RecentBlog extends Component
      */
     public function render()
     {
-        $blog = Blog::orderBy('created_at')->take(4)->get();
+        $blog = Blog::orderBy('created_at')->withLanguage()->take(4)->get();
         return view('components.recent-blog',[
             'blogs' => $blog
         ]);
