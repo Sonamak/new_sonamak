@@ -143,7 +143,7 @@ $route = array_shift($route) .'.store';
                                             <input type="text" class="form-control" value="{{$include->value_en}}"  name="include[{{$loop->index}}][value_en]" placeholder="Include English">
                                         </div>
                                         <div class="col-md-6 mb-2 d-flex align-items-center">
-                                            <input type="text" class="form-control" value="{{$include->value_en}}" name="include[{{$loop->index}}][value_fr]" placeholder="Include French"> 
+                                            <input type="text" class="form-control" value="{{$include->value_fr}}" name="include[{{$loop->index}}][value_fr]" placeholder="Include French"> 
                                         </div>
                                         <input type="hidden" name="include[{{$loop->index}}][type]" value="include">
                                         <input type="hidden" name="include[{{$loop->index}}][id]" value="{{$include->id}}">
@@ -172,7 +172,7 @@ $route = array_shift($route) .'.store';
                                                     <input type="text" class="form-control" value="{{$exclude->value_en}}"  name="exclude[{{$loop->index}}][value_en]" placeholder="Exclude English">
                                                 </div>
                                                 <div class="col-md-6 mb-2 d-flex align-items-center">
-                                                    <input type="text" class="form-control" value="{{$exclude->value_en}}" name="exclude[{{$loop->index}}][value_fr]" placeholder="Exclude French"> 
+                                                    <input type="text" class="form-control" value="{{$exclude->value_fr}}" name="exclude[{{$loop->index}}][value_fr]" placeholder="Exclude French"> 
                                                 </div>
                                                 <input type="hidden" name="exclude[{{$loop->index}}][type]" value="exclude">
                                                 <input type="hidden" name="exclude[{{$loop->index}}][id]" value="{{$exclude->id}}">
@@ -194,9 +194,9 @@ $route = array_shift($route) .'.store';
                         <div class="col-md-6">
                             <label>Tour Destination</label>
                             <select class="select2" name="destination_id">
-                                <option class="d-none"selected value="Null">Extra </option>
+                                <option class="d-none" @if(!$tour->destination_id) selected @endif value="Null">Extra </option>
                                 @foreach($destinations as $destination)
-                                <option value="{{$destination->id}}">
+                                <option value="{{$destination->id}}"  @if($tour->destination_id == $destination->id) selected @endif>
                                     {{$destination->country_name_en}}
                                 </option>
                                 @endforeach

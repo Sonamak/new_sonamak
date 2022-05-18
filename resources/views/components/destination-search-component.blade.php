@@ -2,7 +2,7 @@
     <div id="map" class="map"></div>
 </div>
 <!-- End Map -->
-<div class="filters_listing sticky_horizontal">
+<div class="filters_listing">
     <div class="container">
         <ul class="clearfix"></ul>
     </div>
@@ -52,7 +52,7 @@
 								</small>
 								@endif
 								<a href="{{ route('tour.details',['tour'=>$tour->id]) }}">
-									<img src="{{ asset('storage/tour/medium/'.$tour->thumbnail->name) }}" class="img-fluid" alt="" width="800" height="533">
+									<img src="{{ asset('storage/tour/large/'.$tour->thumbnail->name) }}" class="img-fluid" alt="" width="800" height="533">
 									<div class="read_more"><span>Read more</span></div></a>
 							</figure>
 						</div>

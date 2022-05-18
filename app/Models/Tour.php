@@ -147,7 +147,7 @@ class Tour extends Authenticatable
 
         if( $request->gallary ) {
 
-            $tour->dimintions(['large' => '1200x720','medium' => '500x500','small' => '261x164'])
+            $tour->dimintions(['large' => '1200x720','medium' => '451x301','small' => '261x164'])
                   ->resize()
                   ->files($request->gallary)
                   ->withSaveRelation('gallaries')
