@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Http\Services\ValidationService;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Config;
 
 class Blog extends Authenticatable
 {
@@ -28,6 +30,7 @@ class Blog extends Authenticatable
         'title_fr',
         'category_id'
     ];
+
     protected $root = 'storage/blog';
 
     /**
@@ -36,6 +39,14 @@ class Blog extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [];
+
+    protected static function booted()
+    {
+        static::addGlobalScope('language', function (Builder $builder) {
+            $language = (Config::get('app.locale') == 'en') ? 'english' : 'french';
+            $builder->where('language','mixed')->orWhere('language',$language);
+        });
+    }
 
     static function upsertInstance($request)
     {
@@ -85,13 +96,12 @@ class Blog extends Authenticatable
     }
 
     //Accessators
-
-
     public function getThumbnailAttribute()
     {
         return $this->gallaries()->where('use_for','thumbnail')->first();
     }
 
+    //Relations
     public function gallaries()
     {
         return $this->morphMany(Gallary::class,'imageable');
