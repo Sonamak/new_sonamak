@@ -1,3 +1,5 @@
+let pending = false;
+
 $.ajaxSetup({
 
     headers: {
@@ -55,7 +57,6 @@ $(document).on('click','#deleteModel .confirm_btn',function () {
         url: $(this).attr('delete-route'),
         method: 'post',
         success:  (e) => {
-            console.log($(this).attr('callback'))
             window[$(this).attr('callback')](e)
 
         }
@@ -66,71 +67,82 @@ $(document).on('click','#deleteModel .confirm_btn',function () {
 
 $(document).on('submit','.ajax-form',function(e) {
     e.preventDefault();
+    
 
-    $(this).find('.form_submit').addClass('active');
+    if ( ! pending ) {
+        console.log(pending)
+        pending = true;
+        $(this).find('.form_submit').addClass('active');
 
-    let formData;
+        let formData;
 
-    if( $(this).attr('methodAppend') ) {
-        formData = window[$(this).attr('methodAppend')]();
-    } else {
-        formData = new FormData(this);
-    }
-
-    if( $(this).attr('appendToData') ) {
-        
-        data = window[$(this).attr('appendToData')]();
-
-        for ( element in data ) {
-
-            formData.append(element,JSON.stringify(data[element]));
-
+        if( $(this).attr('methodAppend') ) {
+            formData = window[$(this).attr('methodAppend')]();
+        } else {
+            formData = new FormData(this);
         }
 
-    }
-
-    $.ajax({
-
-        url: $(this).attr('action'),
-
-        method: $(this).attr('method'),
-
-        processData: false,
-
-        contentType: false,
-
-        data: formData,
-
-        beforeSend: () => {
-
-            if( $(this).attr('beforeSend') )
-                window[$(this).attr('beforeSend')](e);
-
-            if ( $(this).attr('emptyContainer') )
-                $($(this).attr('emptyContainer')).html('');
-
-            $('.error').each(function() {
-                console.log($(this));
-                $(this).text('');
-            });
-
-        },
-        
-        
-        success: (e) => {
+        if( $(this).attr('appendToData') ) {
             
-            if( $(this).attr('callback') )
-                window[$(this).attr('callback')](e);
+            data = window[$(this).attr('appendToData')]();
 
-            if( $(this).attr('redirect') ) {
-                window.location.href = $(this).attr('redirect');
+            for ( element in data ) {
+
+                formData.append(element,JSON.stringify(data[element]));
+
             }
 
-            if( $(this).attr('resetAfterSend') != undefined) $(this).trigger('reset');
-
-            if( $(this).attr('refreshAfterSend') != undefined) location.reload();
         }
 
-    })
+        $.ajax({
+
+            url: $(this).attr('action'),
+
+            method: $(this).attr('method'),
+
+            processData: false,
+
+            contentType: false,
+
+            data: formData,
+
+            beforeSend: () => {
+
+                if( $(this).attr('beforeSend') )
+                    window[$(this).attr('beforeSend')](e);
+
+                if ( $(this).attr('emptyContainer') )
+                    $($(this).attr('emptyContainer')).html('');
+
+                $('.error').each(function() {
+                    $(this).text('');
+                });
+
+                $('.overlay_loader').addClass('d-flex').removeClass('d-none');
+
+            },
+
+            complete: () => {
+                pending = false;
+                $('.overlay_loader').addClass('d-none').removeClass('d-flex');
+            },  
+            
+            
+            success: (e) => {
+                
+                if( $(this).attr('callback') )
+                    window[$(this).attr('callback')](e);
+
+                if( $(this).attr('redirect') ) {
+                    window.location.href = $(this).attr('redirect');
+                }
+
+                if( $(this).attr('resetAfterSend') != undefined) $(this).trigger('reset');
+
+                if( $(this).attr('refreshAfterSend') != undefined) location.reload();
+            }
+
+        })
+    }
 });
 

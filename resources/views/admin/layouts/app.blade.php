@@ -108,12 +108,13 @@
 			<!-- Footer closed -->
 		</div>
 		<!-- End Page -->
-
-		
-		
+		<!-- Overlay -->
 		<!-- Back-to-top -->
 		<a href="#top" id="back-to-top"><i class="las la-arrow-up"></i></a>
         @include('admin.layouts.footer')
-
+		<div class="overlay_loader position-fixed top-0 left-0 w-100 h-100  justify-content-center align-items-center flex-column d-none">
+		<div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+		<p class="mt-4">We are fetching data, it maybe take few secounds</p>
+		</div>
 	</body>
 </html>
