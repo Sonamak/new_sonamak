@@ -7,6 +7,7 @@ $.ajaxSetup({
 
     beforeSend: () => {
         $('.error').each(function() {
+            console.log($(this));
             $(this).text('');
         });
 
@@ -20,7 +21,6 @@ $.ajaxSetup({
         for (error in errors ) {
             error_remove_dot = error.replace('.','_');
             $(`p.error_${error_remove_dot}`).text(errors[error]);
-            console.log($(`p.error_${error}`),`error_${error}`)
         }
         
         $('.form_submit').removeClass('active');
@@ -109,7 +109,13 @@ $(document).on('submit','.ajax-form',function(e) {
             if ( $(this).attr('emptyContainer') )
                 $($(this).attr('emptyContainer')).html('');
 
+            $('.error').each(function() {
+                console.log($(this));
+                $(this).text('');
+            });
+
         },
+        
         
         success: (e) => {
             
@@ -119,6 +125,8 @@ $(document).on('submit','.ajax-form',function(e) {
             if( $(this).attr('redirect') ) {
                 window.location.href = $(this).attr('redirect');
             }
+
+            if( $(this).attr('resetAfterSend') != undefined) $(this).trigger('reset');
 
             if( $(this).attr('refreshAfterSend') != undefined) location.reload();
         }

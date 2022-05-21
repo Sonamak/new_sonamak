@@ -232,4 +232,9 @@ header.sticky .light {
     background-size: cover !important;
 } 
 
+.error {
+    font-size: 10px;
+    margin-top: 10px;
+    color: #ff6c6c;
+}
 

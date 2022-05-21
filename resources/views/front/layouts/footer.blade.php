@@ -248,6 +248,27 @@ $(function() {
 
 </script>
 <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function hideInquiry() {
+        $('#inquiry').modal('hide');
+        const Toast = Swal.mixin({
+          
+            })
+
+            Toast.fire({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                icon: 'success',
+                title: 'Done'
+            })
+    }
+</script>
+
 
 <!-- elseif page is Contacts Page -->  
 

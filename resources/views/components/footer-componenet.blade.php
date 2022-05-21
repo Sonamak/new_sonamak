@@ -105,6 +105,11 @@
                             </select>
                         </div>
                     </li>
+                    <li>
+                        <div class="styled-select inquiry_btn " data-toggle="modal" data-target="#inquiry">
+                            <span class="ml-2">Submit Inquiry</span>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="col-lg-6">

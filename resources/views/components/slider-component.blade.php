@@ -51,7 +51,8 @@
                         data-lineheight="['28','14','23','20']"
                         data-letterspacing="['0.5','0.5','0.5','0.5']"
                         data-responsive="off"
-                        data-responsive_offset="on">Top rated tours, hotels and restaurants.
+                        data-responsive_offset="on">
+                        {{ $slider->get_local(description_en,description_fr) }}
                 </div>      
             </li>
             @endforeach

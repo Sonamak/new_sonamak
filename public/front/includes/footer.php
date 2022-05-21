@@ -76,6 +76,7 @@
                             </select>
                         </div>
                     </li>
+                    
                 </ul>
             </div>
             <div class="col-lg-6">
@@ -84,7 +85,6 @@
                     <li><a href="#0">Terms and conditions</a></li>
                     <li><a href="#0">Privacy</a></li>
                     <li><a href="faq.php">FAQ</a></li>
-                    
                 </ul>
             </div>
         </div>

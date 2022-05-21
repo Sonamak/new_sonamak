@@ -4,6 +4,7 @@ use App\Helpers\Sonamak;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\InquiryController;
 use App\Models\Tour;
 use Illuminate\Support\Facades\Route;
 /*
@@ -52,6 +53,10 @@ Route::group(['prefix' => 'blog'],function(){
 });
 
 Route::get('share/{provider}',[FrontController::class,'share'])->name('share');
+
+// Inquiry
+
+Route::post('inquiry',[InquiryController::class,'create'])->name('inquiry');
 
 Route::get('/test',function(){
 });

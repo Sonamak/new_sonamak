@@ -57,7 +57,7 @@ class Blog extends Authenticatable
                 $blog->deleteImagesWithIdsBelongsToRelation([$blog->thumbnail->id],'storage/destination','gallaries');
             }
 
-            $blog->dimintions(['medium' => '500x500','small' => '261x164'])
+            $blog->dimintions(['large' => '1200x720','medium' => '500x500','small' => '261x164'])
                 ->fit()
                 ->files($request->thumbnail)
                 ->withSaveRelation('gallaries')

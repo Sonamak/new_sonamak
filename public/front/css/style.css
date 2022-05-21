@@ -852,7 +852,7 @@ header {
   top: 0;
   width: 100%;
   padding: 20px 30px;
-  z-index: 99999999;
+  z-index: 100;
   border-bottom: 1px solid rgba(255, 255, 255, 0);
 }
 @media (max-width: 767px) {
@@ -1520,6 +1520,12 @@ footer #copy {
 #newsletter input[type='submit']:hover {
   background-color: #FFC107;
   color: #222;
+}
+
+.inquiry_btn {
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .follow_us {
@@ -8100,6 +8106,11 @@ ul.share-buttons li i {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+.modal_text {
+  font-size: 3.5vw;
+  font-weight: bold;
+}
+
 /*-------- 3.2 Accordion --------*/
 .accordion_2 .card {
   border: 0;
@@ -9611,4 +9622,56 @@ a:active,a:focus{background:transparent;}
   #style-switcher {
     display: none;
   }
+}
+
+/* Radio */
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #F87DA9;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
 }

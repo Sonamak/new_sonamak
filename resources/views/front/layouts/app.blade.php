@@ -9,7 +9,8 @@
     <!-- /header -->
     @yield('content')
     <x-trip-advisor></x-trip-advisor>
-    <div id="toTop"></div><!-- Back to top button -->
+    <div id="toTop"></div>
+    <x-models.inquiry></x-models.inquiry>
     <x-footer-componenet></x-footer-componenet>
     @include('front.layouts.footer')
     @yield('js')

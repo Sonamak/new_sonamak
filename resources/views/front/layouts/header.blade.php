@@ -47,6 +47,7 @@
 
     <!-- SPECIFIC CSS -->
     <link href="{{ asset('front/css/blog.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="sweetalert2.min.css">
     
     <style>
         #testimonials_widget-3 p {
