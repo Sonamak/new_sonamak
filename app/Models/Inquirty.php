@@ -12,7 +12,7 @@ class Inquirty extends Model
 
     protected $fillable = ['name','email','telephone','department','return','language','nationality','inquiry'];
 
-    public function createInstance($request)
+    static function createInstance($request)
     {
         $inquiry = self::create(
             $request->all()
