@@ -25,6 +25,7 @@ class BlogRequest extends FormRequest
     {
         return [
             'thumbnail' => ['required_without:id'],
+            'background' => ['required_without:id'],
             'article_in_en' => ['required'],
             'article_in_fr' => ['required'],
             'title_en' => ['required'],

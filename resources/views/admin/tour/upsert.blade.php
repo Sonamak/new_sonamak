@@ -59,7 +59,7 @@ $route = array_shift($route) .'.store';
                                 Enter Background of the tour and please add image in aspect ratio to get the best performance
                                 (Note:Recommended size 1870x556)
                             </p>
-                            <p class="error error_location"></p>
+                            <p class="error error_background"></p>
                         </div>
                     </div>
 

@@ -22,9 +22,23 @@ $route = array_shift($route) .'.store';
             <div class="mx-2 col-md-6">
                 <label for="Tumbnail">Tumbnail</label>
                 <p class="mt-2 sub-text">
-                    Enter Beautiful thumbnail to the tour and please add image in aspect ratio to get the best performance
+                    Enter Beautiful thumbnail to the blog and please add image in aspect ratio to get the best performance
                 </p>
                 <p class="error error_thumbnail"></p>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-sm-12 col-md-4 mg-t-10 mg-sm-t-0">
+                <input type="file" class="dropify" data-default-file="@if($blog->background) {{ asset('storage/blog/large/'.$blog->background->name) }} @endif" data-height="200"  name="background"/>
+            </div>
+            <div class="mx-2 col-md-6">
+                <label for="background">Background</label>
+                <p class="mt-2 sub-text">
+                    Enter Beautiful backgroud to the blog and please add image in aspect ratio to get the best performance
+                    (Note:Recommended size 1200x720)
+                </p>
+                <p class="error error_background"></p>
             </div>
         </div>
 

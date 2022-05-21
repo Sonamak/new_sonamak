@@ -57,11 +57,26 @@ class Blog extends Authenticatable
                 $blog->deleteImagesWithIdsBelongsToRelation([$blog->thumbnail->id],'storage/destination','gallaries');
             }
 
-            $blog->dimintions(['large' => '1200x720','medium' => '500x500','small' => '261x164'])
+            $blog->dimintions(['medium' => '500x500','small' => '261x164'])
                 ->fit()
                 ->files($request->thumbnail)
                 ->withSaveRelation('gallaries')
                 ->usefor('thumbnail')
+                ->compile();
+
+        }
+
+        if ( $request->background )  {
+
+            if( $blog->background ) {
+                $blog->deleteImagesWithIdsBelongsToRelation([$blog->background->id],'storage/blog','gallaries');
+            }
+
+            $blog->dimintions(['large' => '1200x720'])
+                ->fit()
+                ->files($request->background)
+                ->withSaveRelation('gallaries')
+                ->usefor('background')
                 ->compile();
 
         }
@@ -105,6 +120,12 @@ class Blog extends Authenticatable
     {
         return $this->gallaries()->where('use_for','thumbnail')->first();
     }
+
+    public function getBackgroundAttribute()
+    {
+        return $this->gallaries()->where('use_for','background')->first();
+    }
+
 
     //Relations
     public function gallaries()
