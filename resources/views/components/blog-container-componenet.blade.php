@@ -15,7 +15,7 @@
         </div>
         <!-- /row -->
         <p class="btn_home_align">
-            <a href="blog.php" class="btn_1 rounded">
+            <a href="{{ route('blogs') }}" class="btn_1 rounded">
                 {{ __('main.view_all_news') }}
             </a>
         </p>

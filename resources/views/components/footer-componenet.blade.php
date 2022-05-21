@@ -56,7 +56,7 @@
                 <ul class="links">
                     @foreach($footer_usefull_links as $footer_usefull_link) 
                     <li>
-                        <a href="index.php">{{ __('main.'.$footer_usefull_link->page) }}</a>
+                        <a href='{{ route("$footer_usefull_link->page") }}'>{{ __('main.'.$footer_usefull_link->page) }}</a>
                     </li>
                     @endforeach
                     
@@ -116,7 +116,7 @@
                 <ul id="additional_links">
                     @foreach($footer_helper_links as $footer_helper_link) 
                     <li>
-                        <a href="index.php">{{ __('main.'.$footer_helper_link->page) }}</a>
+                        <a href='{{ route("$footer_usefull_link->page") }}'>{{ __('main.'.$footer_usefull_link->page) }}</a>
                     </li>
                     @endforeach
                     

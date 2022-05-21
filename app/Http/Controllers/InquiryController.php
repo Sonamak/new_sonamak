@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class InquiryController extends Controller
 {
-    public function create(InquiryRequest $request)
+    static function create(InquiryRequest $request)
     {
         return Inquirty::createInstance($request);
     }
