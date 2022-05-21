@@ -52,7 +52,7 @@
                         data-letterspacing="['0.5','0.5','0.5','0.5']"
                         data-responsive="off"
                         data-responsive_offset="on">
-                        {{ $slider->get_local($slider->description_en,$slider->description_fr) }}
+                        {{ get_local($slider->description_en,$slider->description_fr) }}
                 </div>      
             </li>
             @endforeach
