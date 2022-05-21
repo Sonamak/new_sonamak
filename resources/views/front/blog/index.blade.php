@@ -3,7 +3,7 @@
 @section('title') Home @endsection
 
 @section('content')
-<section class="hero_in general start_bg_zoom" style="background: url({{ asset('storage/blog/large/'.$blog->thumbnail->name) }} ) center center no-repeat; background-size:cover">
+<section class="hero_in general start_bg_zoom" style="background: url({{ asset('storage/blog/large/'.$blog->background->name) }} ) center center no-repeat; background-size:cover">
     <div class="wrapper">
         <div class="container">
             <h1 class="fadeInUp animated"><span></span>{{ get_local($blog->title_en,$blog->title_fr) }}</h1>
