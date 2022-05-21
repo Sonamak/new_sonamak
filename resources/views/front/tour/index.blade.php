@@ -3,7 +3,7 @@
 @section('title') Home @endsection
 
 @section('content')
-    <section class="hero_in tours_detail start_bg_zoom" style="background: url({{ asset('storage/tour/large/'.$tour->thumbnail->name) }} ) center center no-repeat; background-size:cover">
+    <section class="hero_in tours_detail start_bg_zoom" style="background: url({{ asset('storage/tour/large/'.$tour->background->name) }} ) center center no-repeat; background-size:cover">
         <div class="wrapper">
             <div class="container">
                 <h1 class="fadeInUp animated">
