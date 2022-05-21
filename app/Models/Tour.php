@@ -165,11 +165,30 @@ class Tour extends Authenticatable
             }
 
 
-            $tour->dimintions(['large' => '1870x556','medium' => '334x210','small' => '261x164'])
+            $tour->dimintions(['medium' => '339x210','small' => '260x157'])
                   ->fit()
                   ->files($request->thumbnail)
                   ->withSaveRelation('gallaries')
                   ->usefor('thumbnail')
+                  ->compile();
+
+
+        }
+
+        if ( $request->background ) {
+
+            if (  $tour->background ) {
+
+                $tour->deleteImagesWithIdsBelongsToRelation([$tour->background->id],'storage/tour','gallaries');
+
+            }
+
+
+            $tour->dimintions(['large' => '1870x556'])
+                  ->fit()
+                  ->files($request->background)
+                  ->withSaveRelation('gallaries')
+                  ->usefor('background')
                   ->compile();
 
 
@@ -261,6 +280,11 @@ class Tour extends Authenticatable
     public function getLocationAttribute()
     {
         return $this->gallaries()->where('use_for','location')->first();
+    }
+
+    public function getBackgroundAttribute()
+    {
+        return $this->gallaries()->where('use_for','background')->first();
     }
 
     public function getIncludeAttribute()

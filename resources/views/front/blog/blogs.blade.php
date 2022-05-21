@@ -21,7 +21,7 @@
 						<div class="row no-gutters">
 							<div class="col-lg-7">
 								<figure>
-									<a href="blog-post.php">
+									<a href="{{ route('blog.front',['blog' => $blog->id]) }}">
                                         <img src="{{ asset('storage/blog/large/'.$blog->thumbnail->name) }}" alt="">
 										<div class="preview"><span>Read more</span></div>
 									</a>
