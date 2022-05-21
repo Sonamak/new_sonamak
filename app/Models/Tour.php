@@ -165,7 +165,7 @@ class Tour extends Authenticatable
             }
 
 
-            $tour->dimintions(['medium' => '339x210','small' => '260x157'])
+            $tour->dimintions(['large' => '448x309' ,'medium' => '339x210','small' => '260x157'])
                   ->fit()
                   ->files($request->thumbnail)
                   ->withSaveRelation('gallaries')
