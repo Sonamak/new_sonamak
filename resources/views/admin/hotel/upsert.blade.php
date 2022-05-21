@@ -48,7 +48,7 @@ $route = array_shift($route) .'.store';
                         </label>
                         <select class="select2" name="price_id">
                             @foreach($prices as $price)
-                                <option value="{{$price->id}}">{{ $price->name_en }}</option>
+                                <option value="{{$price->id}}" @if($price->id == $hotel->price_id) selected @endif>{{ $price->name_en }}</option>
                             @endforeach
                         </select>
                         <p class="error error_price_id"></p>
