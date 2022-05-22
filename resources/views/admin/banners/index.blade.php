@@ -23,5 +23,11 @@
    <div class="card mt-4">
       <x-admin.destiantion-video></x-admin.destiantion-video>
    </div>
+   <div class="card mt-4">
+      <x-admin.contact-banner></x-admin.contact-banner>
+   </div>
+   <div class="card mt-4">
+      <x-admin.contact-map></x-admin.contact-map>
+   </div>
 </div>
 @endsection
