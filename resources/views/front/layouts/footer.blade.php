@@ -160,8 +160,7 @@
 </script> -->
 
 <!-- elseif page is Tours Page -->   
-
-<!-- Map -->
+<script src="{{ asset('front/js/input_qty.js') }}"></script>
 <script src="{{ asset('front/js/markerclusterer.js') }}"></script>
 <script src="{{ asset('front/js/map_tours.js') }}"></script>
 <!-- <script src="{{ asset('front/js/infobox.js') }}"></script> -->
