@@ -56,5 +56,14 @@ return [
     'no_money_charged_in_this_step' => "Pas d'argent facturé à cette étape",
     'send_a_message' => 'Envoyer un message',
     'submit' => 'nous faire parvenir',
-    'message' => 'Message'
+    'message' => 'Message',
+    'send_your_inquires_to_us' => 'Envoyez-nous vos demandes',
+    'enter_your_name' => 'Entrez votre nom',
+    'enter_your_email' => 'entrer votre Email',
+    'enter_your_telephone' => 'Entrez votre téléphone',
+    'enter_department_date' => 'Entrez la date du département',
+    'enter_return_date' => 'Entrez la date de retour',
+    'enter_tour_language' => 'Entrez la langue de la visite',
+    'enter_your_nationality' => 'Entrez votre nationalité',
+    'enter_your_inquery' => 'Saisissez votre demande'
 ]; 

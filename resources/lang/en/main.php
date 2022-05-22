@@ -57,5 +57,14 @@ return [
     'name' => 'Nom',
     'send_a_message' => 'Envoyer un message',
     'submit' => 'submit',
-    'message' => 'Message'
+    'message' => 'Message',
+    'send_your_inquires_to_us' => 'Send your inquires to us',
+    'enter_your_name' => 'Enter your name',
+    'enter_your_email' => 'Enter your email',
+    'enter_your_telephone' => 'Enter your telephone',
+    'enter_department_date' => 'Enter department date',
+    'enter_return_date' => 'Enter return date',
+    'enter_tour_language' => 'Enter tour language',
+    'enter_your_nationality' => 'Enter your nationality',
+    'enter_your_inquery' => 'Enter your inquery'
 ];
