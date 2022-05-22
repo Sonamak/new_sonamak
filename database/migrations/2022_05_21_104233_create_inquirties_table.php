@@ -22,7 +22,7 @@ class CreateInquirtiesTable extends Migration
             $table->dateTime('return');
             $table->string('language');
             $table->string('nationality');
-            $table->string('inquiry');
+            $table->text('inquiry');
             $table->timestamps();
         });
     }
