@@ -18,11 +18,10 @@
     <li></li>
     <li class="position-relative dropdown_nav " data-toggle="modal" data-target="#exampleModal"> 
         <ion-icon name="earth-outline" style="font-size:20px"></ion-icon>
-        @if(app()->make('saved_cookie',['type' => 'language']) == 'en')  
-        <span class="positin-absolute uppercase local_title text-uppercase">en</span>
-        @endif
-        @if(app()->make('saved_cookie',['type' => 'language']) == 'fr')  
+        @if(Config::get('app.locale') == 'fr')  
         <span class="positin-absolute uppercase local_title text-uppercase">fr</span>
+        @else 
+        <span class="positin-absolute uppercase local_title text-uppercase">en</span>
         @endif
         <ul class="sub_menu">
             <li></li>
