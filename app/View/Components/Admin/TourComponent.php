@@ -23,7 +23,7 @@ class TourComponent extends Component
      */
     public function render()
     {
-        return view('components.admin.tour-component',[
+        return view('components.Admin.tour-component',[
             'info' => 'test'
         ]);
     }

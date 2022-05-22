@@ -1,4 +1,3 @@
-@if($banner)
 <form class="ajax-form" action="{{ route('banner.store') }}" method="post">
     <div class="card-header w-100 d-flex">
         <h4 class="card-title mb-1">Contact Page Banner</h4>
@@ -38,4 +37,3 @@
         <button class="btn-primary">Submit</button>
     </div>
 </form>
-@endif

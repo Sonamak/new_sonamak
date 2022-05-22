@@ -26,7 +26,7 @@ class FaqComponent extends Component
     {
         $info = Info::where('type','faq')->first();
 
-        return view('components.admin.faq-component',[
+        return view('components.Admin.faq-component',[
             'info' => $info
         ]);
     }

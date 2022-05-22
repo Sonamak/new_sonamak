@@ -25,7 +25,7 @@ class FeatureComponent extends Component
     public function render()
     {
         $banner = Banners::where('type','feature')->first();
-        return view('components.admin.feature-component',[
+        return view('components.Admin.feature-component',[
             'banner' => $banner
         ]);
     }

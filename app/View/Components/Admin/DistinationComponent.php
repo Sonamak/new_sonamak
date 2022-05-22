@@ -26,7 +26,7 @@ class DistinationComponent extends Component
     {
         $banner = Banners::where('type','distination')->first();
 
-        return view('components.admin.distination-component',[
+        return view('components.Admin.distination-component',[
             'banner' => $banner
         ]);
     }

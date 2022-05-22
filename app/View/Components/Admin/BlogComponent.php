@@ -27,7 +27,7 @@ class BlogComponent extends Component
     {
         $banner = Banners::where('type','blog')->first();
 
-        return view('components.admin.blog-component',[
+        return view('components.Admin.blog-component',[
             'banner' => $banner 
         ]);
     }

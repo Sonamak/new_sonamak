@@ -26,7 +26,7 @@ class AboutComponent extends Component
     {
         $banner = Banners::where('type','about')->first();
 
-        return view('components.admin.about-component',[
+        return view('components.Admin.about-component',[
             'banner' => $banner
         ]);
     }

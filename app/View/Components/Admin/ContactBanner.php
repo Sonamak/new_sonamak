@@ -26,7 +26,7 @@ class ContactBanner extends Component
     {
         $banner = Banners::where('type','contact_page')->first();
 
-        return view('components.admin.contact-banner',[
+        return view('components.Admin.contact-banner',[
             'banner' => $banner
         ]);
     }

@@ -25,7 +25,7 @@ class PrivacyComponent extends Component
     public function render()
     {
         $info = Info::where('type','privacy')->first();
-        return view('components.admin.privacy-component',[
+        return view('components.Admin.privacy-component',[
             'info' => $info
         ]);
     }
