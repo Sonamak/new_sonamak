@@ -1,6 +1,8 @@
 <?php
 
 use App\Helpers\Sonamak;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\ReservationController;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\FrontController;
@@ -54,9 +56,15 @@ Route::group(['prefix' => 'blog'],function(){
 
 Route::get('share/{provider}',[FrontController::class,'share'])->name('share');
 
-// Inquiry
+// Contacts
 
 Route::post('inquiry',[InquiryController::class,'create'])->name('inquiry');
+Route::post('reserved',[ReservationController::class,'create'])->name('reserved');
+
+Route::group(['prefix' => 'contact'],function(){
+    Route::get('/',[ContactController::class,'index']);
+    Route::post('/contact',[ContactController::class,'create'])->name('contact');
+});
 
 Route::get('/test',function(){
 });
