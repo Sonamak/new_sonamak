@@ -11,7 +11,9 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return view('front.contact.index');
+        return view('admin.contact.index',[
+            'contacts' => ContactUs::paginate(5)
+        ]);
     }
 
     public function create(ContactUsRequest $request)

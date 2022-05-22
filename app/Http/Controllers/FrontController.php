@@ -85,4 +85,9 @@ class FrontController extends Controller
         ]);
     }
 
+    public function contact()
+    {
+        return view('front.contact.index');
+    }
+
 }

@@ -62,7 +62,7 @@ Route::post('inquiry',[InquiryController::class,'create'])->name('inquiry');
 Route::post('reserved',[ReservationController::class,'create'])->name('reserved');
 
 Route::group(['prefix' => 'contact'],function(){
-    Route::get('/',[ContactController::class,'index']);
+    Route::get('/',[FrontController::class,'contact']);
     Route::post('/contact',[ContactController::class,'create'])->name('contact');
 });
 

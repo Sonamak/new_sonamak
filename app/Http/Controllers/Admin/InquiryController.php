@@ -9,7 +9,14 @@ use Illuminate\Http\Request;
 
 class InquiryController extends Controller
 {
-    static function create(InquiryRequest $request)
+    public function index()
+    {
+        return view('admin.inquirty.index',[
+            'inquirties' => Inquirty::paginate(5)
+        ]);
+    }
+
+    public function create(InquiryRequest $request)
     {
         return Inquirty::createInstance($request);
     }

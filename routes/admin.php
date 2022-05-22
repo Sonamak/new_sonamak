@@ -6,9 +6,13 @@ use App\Http\Controllers\Admin\SetupController;
 use App\Http\Controllers\Admin\SocialController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\InfoController;
+use App\Http\Controllers\Admin\InquiryController;
+use App\Http\Controllers\Admin\ReservationController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\ChartController;
+use App\Models\Inquirty;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +78,13 @@ Route::group(['prefix' => 'active_link'],function () {
 Route::group(['prefix' => 'info'],function () {
     Route::get('/',[InfoController::class,'index'])->name('info.index');
     Route::post('/store',[InfoController::class,'store'])->name('info.store');
+});
+
+
+Route::group(['prefix' => 'messages'],function () {
+    Route::get('/inquirty',[InquiryController::class,'index'])->name('inquirty.index');
+    Route::get('/contact',[ContactController::class,'index'])->name('contact.index');
+    Route::get('/reservation',[ReservationController::class,'index'])->name('reservation.index');
 });
 
 Route::get('/chart/{model}',[ChartController::class,'chart'])->name('chart');

@@ -44,6 +44,7 @@ class ReservationRequest extends FormRequest
             'nationality' => 'required',
             'name' => 'required',
             'telephone' => 'required',
+            'tour_id' => 'required'
         ];
     }
 }
