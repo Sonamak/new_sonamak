@@ -133,6 +133,18 @@ $(document).on('submit','.ajax-form',function(e) {
                 if( $(this).attr('callback') )
                     window[$(this).attr('callback')](e);
 
+                if( $(this).attr('swalOnSuccess') )  {
+                    Swal.fire({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        icon: 'success',
+                        title: $(this).attr('swalOnSuccess')
+                    })
+                }
+
                 if( $(this).attr('redirect') ) {
                     window.location.href = $(this).attr('redirect');
                 }
@@ -140,8 +152,7 @@ $(document).on('submit','.ajax-form',function(e) {
                 if( $(this).attr('resetAfterSend') != undefined) $(this).trigger('reset');
 
                 if( $(this).attr('refreshAfterSend') != undefined) location.reload();
-            }
-
+            },
         })
     }
 });
