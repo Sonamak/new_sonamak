@@ -10,7 +10,7 @@ class Reservation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['from','to','name','email','guests','nationality','telephone','requirments'];
+    protected $fillable = ['from','to','name','email','guests','nationality','telephone','requirments','tour_id'];
 
     static function createInstance($request)
     {
@@ -27,5 +27,12 @@ class Reservation extends Model
         );
 
         return $reservation;
+    }
+
+    //Relations 
+
+    public function tour()
+    {
+        return $this->belongsTo(Tour::class);
     }
 }

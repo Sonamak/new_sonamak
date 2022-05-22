@@ -42,5 +42,6 @@
             <li><a class="fb-share" href="{{ route('share',['provider' => 'facebook']) }}" target="__blank"><i class="social_facebook"></i> Share</a></li>
             <li><a class="twitter-share" href="{{ route('share',['provider' => 'twitter']) }}" target="__blank"><i class="social_twitter"></i> Tweet</a></li>
         </ul>
+        <input type="hidden" value="{{$tour->id}}" name="tour_id">
     </form> 
 </aside>

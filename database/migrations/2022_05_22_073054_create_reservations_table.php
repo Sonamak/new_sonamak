@@ -23,6 +23,7 @@ class CreateReservationsTable extends Migration
             $table->string('nationality');
             $table->string('telephone');
             $table->text('requirments')->nullable();
+            $table->foreignId('tour_id');
             $table->timestamps();
         });
     }
