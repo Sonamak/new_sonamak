@@ -26,7 +26,7 @@ class ContactComponent extends Component
     {
         $banner = Banners::where('type','contact')->first();
 
-        return view('components.admin.contact-component',[
+        return view('components.Admin.contact-component',[
             'banner' => $banner
         ]);
     }

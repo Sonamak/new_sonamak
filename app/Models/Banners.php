@@ -25,7 +25,7 @@ class Banners extends Model
             'type'
         ];
 
-    protected $root = 'storage/Banner';
+    protected $root = 'storage/banner';
 
     static function storeBanner($request)
     {

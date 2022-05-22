@@ -26,7 +26,7 @@ class ContactMap extends Component
     {
         $banner = Banners::where('type','map')->first();
 
-        return view('components.admin.contact-map',[
+        return view('components.Admin.contact-map',[
             'banner' => $banner
         ]);
     }

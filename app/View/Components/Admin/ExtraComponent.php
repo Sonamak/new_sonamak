@@ -23,6 +23,6 @@ class ExtraComponent extends Component
      */
     public function render()
     {
-        return view('components.admin.extra-component');
+        return view('components.Admin.extra-component');
     }
 }

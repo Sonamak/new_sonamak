@@ -25,7 +25,7 @@ class SearchTourComponent extends Component
     public function render()
     {
         $info = Banners::where('type','search-tour')->first();
-        return view('components.admin.search-tour-component',[
+        return view('components.Admin.search-tour-component',[
             'banner' => $info
         ]);
     }

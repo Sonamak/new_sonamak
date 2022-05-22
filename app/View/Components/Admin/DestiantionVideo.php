@@ -25,7 +25,7 @@ class DestiantionVideo extends Component
     public function render()
     {
         $banner = Banners::where('type','video')->first();
-        return view('components.admin.destiantion-video',[
+        return view('components.Admin.destiantion-video',[
             'banner' => $banner
         ]);
     }

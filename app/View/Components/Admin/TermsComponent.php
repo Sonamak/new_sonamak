@@ -25,7 +25,7 @@ class TermsComponent extends Component
     public function render()
     {
         $info = Info::where('type','terms')->first();
-        return view('components.admin.terms-component',[
+        return view('components.Admin.terms-component',[
             'info' => $info
         ]);
     }

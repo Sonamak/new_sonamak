@@ -25,7 +25,7 @@ class AboutInfoComponent extends Component
     public function render()
     {
         $info = Info::where('type','about')->first();
-        return view('components.admin.about-info-component',[
+        return view('components.Admin.about-info-component',[
             'info' => $info
         ]);
     }
