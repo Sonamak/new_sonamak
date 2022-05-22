@@ -51,7 +51,7 @@ return [
     'email' => 'Email',
     'nationality' => 'Nationality',
     'telephone' => 'Telephone',
-    'please_advise_your_tour_requirements' => 'Please_advise_your_tour_requirements',
+    'please_advise_your_tour_requirements' => 'Please advise your tour requirements',
     'submit_inquiry' => 'Submit inquiry',
     'no_money_charged_in_this_step' => 'No money charged in this step',
     'name' => 'Nom',
