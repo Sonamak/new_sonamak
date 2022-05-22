@@ -43,5 +43,18 @@ return [
     'view_all_news' => 'Afficher toutes les actualités',
     'recent_posts' => 'Messages récents',
     'tour_gallary' => 'Galerie de visites',
-    'read_reviews' => 'Lire les avis'
-];
+    'read_reviews' => 'Lire les avis',
+    'we_will_contact_you_soon' => 'Nous vous contacterons bientôt',
+    'when' => 'Lorsque',
+    'full_name' => 'Nom complet',
+    'guests' => 'Invités',
+    'email' => 'Email',
+    'nationality' => 'Nationalité',
+    'telephone' => 'Téléphone',
+    'please_advise_your_tour_requirements' => 'Veuillez indiquer vos exigences de visite',
+    'submit_inquiry' => 'Soumettre une demande',
+    'no_money_charged_in_this_step' => "Pas d'argent facturé à cette étape",
+    'send_a_message' => 'Envoyer un message',
+    'submit' => 'nous faire parvenir',
+    'message' => 'Message'
+]; 

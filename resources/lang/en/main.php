@@ -43,5 +43,19 @@ return [
     'view_all_news' => 'View All News',
     'recent_posts' => 'Recent Posts',
     'tour_gallary' => 'Tour Gallary',
-    'read_reviews' => 'Read Reviews'
+    'read_reviews' => 'Read Reviews',
+    'we_will_contact_you_soon' => 'We will contact you soon',
+    'when' => 'When',
+    'full_name' => 'Full Name',
+    'guests' => 'Guests',
+    'email' => 'Email',
+    'nationality' => 'Nationality',
+    'telephone' => 'Telephone',
+    'please_advise_your_tour_requirements' => 'Please_advise_your_tour_requirements',
+    'submit_inquiry' => 'Submit inquiry',
+    'no_money_charged_in_this_step' => 'No money charged in this step',
+    'name' => 'Nom',
+    'send_a_message' => 'Envoyer un message',
+    'submit' => 'submit',
+    'message' => 'Message'
 ];
