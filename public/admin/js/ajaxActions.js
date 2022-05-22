@@ -1,4 +1,4 @@
-let pending = false;
+var pending = false;
 
 $.ajaxSetup({
 
@@ -17,15 +17,19 @@ $.ajaxSetup({
     },
 
     error: (e) => {
-        let errors = e.responseJSON.errors;
-        $('.ajax-btn').removeClass('active');
-
-        for (error in errors ) {
-            error_remove_dot = error.replace('.','_');
-            $(`p.error_${error_remove_dot}`).text(errors[error]);
-        }
+        pending = false;
         
-        $('.form_submit').removeClass('active');
+        if (e.responseJSON) {
+            let errors = e.responseJSON.errors;
+            $('.ajax-btn').removeClass('active');
+
+            for (error in errors ) {
+                error_remove_dot = error.replace('.','_');
+                $(`p.error_${error_remove_dot}`).text(errors[error]);
+            }
+            
+            $('.form_submit').removeClass('active');
+        }
     }
 });
 
