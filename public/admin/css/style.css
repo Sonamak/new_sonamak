@@ -7702,6 +7702,10 @@ tr {
     top: 50%;
     margin-top: -6px; }
 
+  .linked {
+    color: #006ee6 !important;
+  }
+
 /* ######### Res-Tabs #########*/
 .tabs-style-1 .main-nav-line .nav-link {
   padding: 10px 18px 10px 18px;
