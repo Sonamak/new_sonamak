@@ -31,7 +31,7 @@
 								<div class="post_info">
 									<small>{{ date('d M Y',strtotime($blog->created_at)) }}</small>
 									<h3>
-                                        <a href="blog-post.php">
+                                        <a href="{{ route('blog.front',['blog' => $blog->id]) }}">
                                             {{ get_local($blog->title_en,$blog->title_fr) }}
                                         </a>
                                     </h3>
