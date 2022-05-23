@@ -34,9 +34,9 @@ class FrontController extends Controller
     public function share($provider)
     {
         if ( $provider == 'facebook' ) 
-            return redirect()->away(Share::currentPage()->facebook()->getRawLinks());
+            return redirect()->away(Share::page(url()->previous())->facebook()->getRawLinks());
         else if ( $provider == 'twitter' )
-            return redirect()->away(Share::currentPage()->twitter()->getRawLinks());
+            return redirect()->away(Share::page(url()->previous())->twitter()->getRawLinks());
 
     }
 
