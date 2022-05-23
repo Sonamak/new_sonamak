@@ -11,7 +11,7 @@ return [
     'about' => 'About',
     'terms' => 'Terms and conditions',
     'faq' => 'FAQ',
-    'privacy' => 'Privacy',
+    'policy' => 'Policy',
     'from' => 'From',
     'single_room' => 'Single Room',
     'double_room' => 'Double Room',

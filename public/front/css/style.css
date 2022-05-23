@@ -4104,6 +4104,10 @@ section#reviews {
   border-bottom: none;
 }
 
+.summer img {
+  margin: 0 20px;
+}
+
 #review_summary {
   text-align: center;
   background-color: #0054a6;

@@ -7,6 +7,7 @@ use App\Models\Banners;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Destination;
+use App\Models\Info;
 use App\Models\Tour;
 use Illuminate\Http\Request;
 use Share;
@@ -89,5 +90,34 @@ class FrontController extends Controller
     {
         return view('front.contact.index');
     }
+
+    public function about()
+    {
+        return view('front.info.about',[
+            'about' => Info::where('type','about')->first()
+        ]);
+    }
+
+    public function terms()
+    {
+        return view('front.info.terms',[
+            'about' => Info::where('type','terms')->first()
+        ]);
+    }
+
+    public function policy()
+    {
+        return view('front.info.policy',[
+            'about' => Info::where('type','policy')->first()
+        ]);
+    }
+
+    public function faq()
+    {
+        return view('front.info.faq',[
+            'about' => Info::where('type','faq')->first()
+        ]);
+    }
+
 
 }

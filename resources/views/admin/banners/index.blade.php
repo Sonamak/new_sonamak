@@ -29,5 +29,14 @@
    <div class="card mt-4">
       <x-admin.contact-map></x-admin.contact-map>
    </div>
+   <div class="card mt-4">
+      <x-admin.terms-banner></x-admin.terms-banner>
+   </div>
+   <div class="card mt-4">
+      <x-admin.policy-banner></x-admin.terms-banner>
+   </div>
+   <div class="card mt-4">
+      <x-admin.faq-banner></x-admin.terms-banner>
+   </div>
 </div>
 @endsection

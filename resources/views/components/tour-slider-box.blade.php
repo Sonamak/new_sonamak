@@ -1,7 +1,7 @@
 <div class="box_grid">
     <figure>
         <a href="{{ route('tour.details',['tour'=>$tour->id]) }}">
-            <img src="@if($tour->thumbnail){{ asset('storage/tour/medium/'.$tour->thumbnail->name)@endif }}" class="img-fluid" alt="" width="800" height="533">
+            <img src="@if($tour->thumbnail){{ asset('storage/tour/medium/'.$tour->thumbnail->name) }}@endif" class="img-fluid" alt="" width="800" height="533">
             <div class="read_more">
                 <span>{{__('main.view_details')}}</span>
             </div>

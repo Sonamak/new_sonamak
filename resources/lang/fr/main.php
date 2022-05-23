@@ -11,7 +11,7 @@ return [
     'about' => 'À Propos De Nous',
     'terms' => 'Termes et conditions',
     'faq' => 'FAQ',
-    'privacy' => 'Politique de Confidentialité',
+    'policy' => 'Politique',
     'from' => 'Depuis',
     'single_room' => 'Chambre simple',
     'double_room' => 'Chambre double',

@@ -2,7 +2,7 @@
     <div class="card-header w-100 d-flex">
         <h4 class="card-title mb-1">About Us</h4>
     </div>
-    <form class="ajax-form container-fluid" action="{{ route('info.store') }}" method="post">
+    <form class="ajax-form container-fluid" action="{{ route('info.store') }}" method="post" onFail="Too Big Data please use">
         <div class="form-group">
             <label>
                 About Us English

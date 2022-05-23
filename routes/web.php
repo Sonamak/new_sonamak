@@ -23,11 +23,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/',[FrontController::class,'home'])->name('home');
-Route::get('/terms',[FrontController::class,'terms'])->name('terms');
-Route::get('/extra',[FrontController::class,'terms'])->name('terms');
-Route::get('/about',[FrontController::class,'about'])->name('about');
-Route::get('/privacy',[FrontController::class,'privacy'])->name('privacy');
-Route::get('/faq',[FrontController::class,'faq'])->name('faq');
 
 
 
@@ -63,5 +58,13 @@ Route::post('reserved',[ReservationController::class,'create'])->name('reserved'
 
 Route::group(['prefix' => 'contact'],function(){
     Route::get('/',[FrontController::class,'contact']);
+    Route::post('/contact',[ContactController::class,'create'])->name('contact');
+});
+
+Route::group(['prefix' => 'info'],function(){
+    Route::get('/about',[FrontController::class,'about'])->name('about');
+    Route::get('/terms',[FrontController::class,'terms'])->name('terms');
+    Route::get('/policy',[FrontController::class,'policy'])->name('policy');
+    Route::get('/faq',[FrontController::class,'faq'])->name('faq');
     Route::post('/contact',[ContactController::class,'create'])->name('contact');
 });
