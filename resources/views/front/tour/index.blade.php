@@ -4,7 +4,7 @@
 
 @section('description') {{strip_tags(get_local($tour->description_en,$tour->description_fr)) }} @endsection
 
-@section('image') {{ asset('storage/tour/large/'.$tour->background->name) }} @endsection
+@section('image') {{ asset('storage/tour/medium/'.$tour->thumbnail->name) }} @endsection
 
 
 @section('content')
