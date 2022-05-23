@@ -49,7 +49,7 @@ class FrontController extends Controller
     {
         return view('front.tour.search',[
             'tours' => Tour::filter($request)->where('destination_id',null)->paginate(10),
-            'categories' => Category::all(),
+            'categories' => Category::where('type','tour_type')->get(),
             'banner' => Banners::where('type','search-tour')->first()
         ]);
     }
@@ -58,7 +58,7 @@ class FrontController extends Controller
     {
         return view('front.tour.discover',[
             'tours' => Tour::filter($request)->paginate(10),
-            'categories' => Category::all(),
+            'categories' => Category::where('type','tour_type')->get(),
             'destinations' => Destination::all(),
             'banner' => Banners::where('type','search-tour')->first()
         ]);

@@ -27,7 +27,7 @@ class DestinationSearchComponent extends Component
     public function render()
     {
         $tours = Tour::where('destination_id',$this->destination)->filter(request())->paginate(5);
-        $categories = Category::all();
+        $categories = Category::where('type','tour_type')->get();
         return view('components.destination-search-component',[
             'destination' => $this->destination,
             'categories' => $categories,
