@@ -15,7 +15,7 @@ class TourController extends Controller {
     public function index(Request $request)
     {
         return view('admin.tour.index',[
-            'tours' => Tour::filter($request)->paginate(2)
+            'tours' => Tour::filter($request)->paginate(10)
         ]);
     }
 
@@ -45,7 +45,7 @@ class TourController extends Controller {
 
     public function more(Request $request)
     {
-        return Tour::filter($request)->with('gallaries')->paginate(2);
+        return Tour::filter($request)->with('gallaries')->paginate(10);
     }
 
     public function get(Tour $tour)

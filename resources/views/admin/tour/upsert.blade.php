@@ -24,7 +24,7 @@ $route = array_shift($route) .'.store';
                         <label for="Tumbnail">Tumbnail</label>
                         <p class="mt-2 sub-text">
                             Enter Beautiful thumbnail to the tour and please add image in aspect ratio to get the best performance
-                            (Note:Recommended size 339x210)
+                            (Note:Recommended size 339x210 & max allowed size 500x500 with 800kb)
                         </p>
                         <p class="error error_thumbnail"></p>
                     </div>
@@ -40,6 +40,7 @@ $route = array_shift($route) .'.store';
                             <label for="Location">Location</label>
                             <p class="mt-2 sub-text">
                                 Enter Location of the tour and please add image in aspect ratio to get the best performance
+                                (Note:Recommended size 339x210 & max allowed size 500x500 with 800kb)
                             </p>
                             <p class="error error_location"></p>
                         </div>
@@ -57,7 +58,7 @@ $route = array_shift($route) .'.store';
                             <label for="Background">Background</label>
                             <p class="mt-2 sub-text">
                                 Enter Background of the tour and please add image in aspect ratio to get the best performance
-                                (Note:Recommended size 1870x556)
+                                (Note:Max allowed size 1870x556 with 800kb )
                             </p>
                             <p class="error error_background"></p>
                         </div>

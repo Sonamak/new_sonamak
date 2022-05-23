@@ -24,8 +24,8 @@ class BlogRequest extends FormRequest
     public function rules()
     {
         return [
-            'thumbnail' => ['required_without:id'],
-            'background' => ['required_without:id'],
+            'thumbnail' => ['required_without:id','dimensions:max_width=500,max_height=500','image','max:800'],
+            'background' => ['required_without:id','dimensions:max_width=1870,max_height=560','image','max:800'],
             'article_in_en' => ['required'],
             'article_in_fr' => ['required'],
             'title_en' => ['required'],

@@ -25,12 +25,19 @@ class HotelRequest extends FormRequest
     public function rules()
     {
         return [
-            'thumbnail' => ['required_without:id'],
+            'thumbnail' => ['required_without:id','image','max:800'],
             'description_en' => 'required',
             'description_fr' => 'required',
             'title_en' => 'required',
             'title_fr' => 'required',
             'price_id' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            '*.max' => 'This file is too big to handle it, please use image with size lower than 800'
         ];
     }
 }

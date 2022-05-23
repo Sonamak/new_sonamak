@@ -24,15 +24,16 @@ $('.insert_gallary').on({
             var fr = new FileReader();
             fr.readAsDataURL(file);
             fr.onload = () => {
-
+                let gallary_error_class = `error_gallary_${$('.appended_gallary').length}`
                 $(`${$(this).attr('data-container')} .row`).append(`
-                    <div class="col-md-3 gallary_image">
+                    <div class="col-md-3 gallary_image appended_gallary">
                         <div class="image_container d-flex justify-content-center w-100 p-2">
                             <img src="${fr.result}" alt="badget" id="${file.lastModified}" class="gallary_image">
                             <div class="overlay_image position-absolute w-100 h-100 d-flex justify-content-center align-items-center">
                                 <i class="fas fa-times remove_gallary_btn" data-append="${$(this).attr('data-append')}" rel="${file.lastModified}"></i>
                             </div>
                         </div>
+                        <p class="error ${gallary_error_class}"></p>
                     </div>
                 `)
             }
