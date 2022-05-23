@@ -6,7 +6,10 @@
     <meta name="author" content="Sonamak">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title> {{ app()->make('setup',['type' => 'website title'])[0]; }} -  @yield('title') </title>
-
+    <!-- Og Meta-->
+    <meta property="og:title" content="@yield('title')" />
+    <meta property="og:url" content="{{url()->current()}}" />
+    <meta property="og:image" content="@yield('image')" />
     <!-- Favicons-->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" type="image/x-icon" href="favicon.ico">
