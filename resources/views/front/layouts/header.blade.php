@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Sonamak - Premium site template for travel agencies, hotels and restaurant listing.">
+    <meta name="description" content="@yield('description', 'Discover your next destination with us')">
     <meta name="author" content="Sonamak">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title> {{ app()->make('setup',['type' => 'website title'])[0]; }} -  @yield('title') </title>
