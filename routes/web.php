@@ -65,6 +65,3 @@ Route::group(['prefix' => 'contact'],function(){
     Route::get('/',[FrontController::class,'contact']);
     Route::post('/contact',[ContactController::class,'create'])->name('contact');
 });
-
-Route::get('/test',function(){
-});
