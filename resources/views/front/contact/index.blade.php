@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 
-@section('title') Blogs @endsection
+@section('title') Contact Us @endsection
 
 @section('content')
 <x-contact-hero></x-contact-hero>
