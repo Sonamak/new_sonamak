@@ -39,8 +39,8 @@
             <div class="text-center"><small>{{__('main.no_money_charged_in_this_step')}}</small></div>
         </div>
         <ul class="share-buttons">
-            <li><a class="fb-share" href="{{ route('share',['provider' => 'facebook']) }}" target="__blank"><i class="social_facebook"></i> Share</a></li>
-            <li><a class="twitter-share" href="{{ route('share',['provider' => 'twitter']) }}" target="__blank"><i class="social_twitter"></i> Tweet</a></li>
+            <li><a class="fb-share" href="{{ route('share',['provider' => 'facebook','title' => get_local($tour->title_en,$tour->title_fr)]) }}" target="__blank"><i class="social_facebook"></i> Share</a></li>
+            <li><a class="twitter-share" href="{{ route('share',['provider' => 'twitter','title' => get_local($tour->title_en,$tour->title_fr)]) }}" target="__blank"><i class="social_twitter"></i> Tweet</a></li>
         </ul>
         <input type="hidden" value="{{$tour->id}}" name="tour_id">
     </form> 

@@ -31,12 +31,12 @@ class FrontController extends Controller
         ]);
     }
 
-    public function share($provider)
+    public function share(Request $request,$provider)
     {
         if ( $provider == 'facebook' ) 
             return redirect()->away(Share::page(url()->previous())->facebook()->getRawLinks());
         else if ( $provider == 'twitter' )
-            return redirect()->away(Share::page(url()->previous())->twitter()->getRawLinks());
+            return redirect()->away(Share::page(url()->previous(),$request->title)->twitter()->getRawLinks());
 
     }
 
