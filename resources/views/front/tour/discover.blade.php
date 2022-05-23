@@ -15,7 +15,7 @@
     <div id="map" class="map"></div>
 </div>
 <!-- End Map -->
-<div class="filters_listing sticky_horizontal">
+<div class="filters_listing">
     <div class="container">
         <ul class="clearfix"></ul>
     </div>
