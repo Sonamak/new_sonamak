@@ -8,7 +8,7 @@
                 <div class="box_1">
                     <h3>{{get_local($banner->header_text_in_english,$banner->header_text_in_french)}}</h3>
                     <p>{{get_local($banner->upper_text_in_english,$banner->upper_text_in_french)}}</p>
-                    <a href="contacts.php" class="btn_1 rounded">{{__('main.contact_us')}}</a>
+                    <a href="{{ route('contact.form') }}" class="btn_1 rounded">{{__('main.contact_us')}}</a>
                 </div>
             </div>
         </div>
