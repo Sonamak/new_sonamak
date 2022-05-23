@@ -1,6 +1,9 @@
 @extends('front.layouts.app')
 
-@section('title') Home @endsection
+@section('title') {{ get_local($tour->title_en,$tour->title_fr) }} @endsection
+
+@section('description') {{strip_tags(get_local($tour->description_en,$tour->description_fr)) }} @endsection
+
 
 @section('content')
     <section class="hero_in tours_detail start_bg_zoom" style="background: url({{ asset('storage/tour/large/'.$tour->background->name) }} ) center center no-repeat; background-size:cover">
