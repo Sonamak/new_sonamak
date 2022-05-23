@@ -51,6 +51,9 @@
     <!-- SPECIFIC CSS -->
     <link href="{{ asset('front/css/blog.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="sweetalert2.min.css">
+
+    <!-- FavIcon -->
+    <link rel="icon" href="@if(app()->make('setup',['type' => 'short logo'])[0])  {{ asset('storage/system/small/'.app()->make('setup',['type' => 'short logo'])[0]) }} @else {{ asset('admin/img/brand/favicon.png') }} @endif " type="image/x-icon"/>
     
     <style>
         #testimonials_widget-3 p {
