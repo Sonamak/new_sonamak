@@ -42,12 +42,12 @@
                                </div>
                                <div class="col-md-6">
                                     <p class="details_name w-25">
-                                            <span class="">
-                                                Package Numbers: 
-                                            </span>
-                                            <span>
-                                                {{ $price->packages->count() }}
-                                            </span>
+                                        <span class="">
+                                            Package Numbers: 
+                                        </span>
+                                        <span>
+                                            {{ $price->packages->count() }}
+                                        </span>
                                     </p>
                                </div>
                             </div>
@@ -58,16 +58,6 @@
                                 <button class="btn-secondary mx-2 delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModel"  route="{{ route('price.delete',['price'=>$price->id]) }}" delete_id="{{ $price->id }}" callback="deleteprice">
                                     Delete
                                 </button>
-
-                                <div class="switcher mb-0 d-flex ms-auto">
-                                    <p class="sub-text m-0 feature-txt mx-2 mt-2"> Mark As Best Selling </p>
-                                    <div class="checkbox">
-                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox feature feature_price_check switch" model_id="{{ $price->id }}" id="myonoffswitch_{{$price->id}}" route="{{ route('price.top',['price' => $price->id ]) }}" @if($price->best_selling) checked @endif>
-                                        <label class="onoffswitch-label mb-0" for="myonoffswitch_{{$price->id}}">
-                                        <span class="onoffswitch-inner"></span>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
@@ -115,21 +105,17 @@
                 type: 'post',
                 success: function (e) {
                     
-                    let payload = e.payload.data;
+                    let payload = e.data;
 
-                    console.log(e.payload.current_page , e.payload.total)
-
-                    if ( e.payload.current_page < e.payload.total ) 
+                    if ( e.current_page < e.last_page ) 
                         page++
                     else 
                         $('.load_more').addClass('d-none');
 
-
-                    console.log(page)
-
                     payload.forEach((item) => {
                         
-                        let thumbnail = item.gallaries.find(x => x.use_for == 'thumbnail');
+                        let tour = (item.tour) ? item.tour.title_en : 'Un attached';
+                        let packages = item.packages.length
 
                         $('.append-container').append(`
                         
@@ -137,10 +123,23 @@
                         <div class="row mt-4">
                                 <div class="col-md-9">
                                     <h3 class="section_title">
-                                        ${item.title_en}
+                                        ${item.name_en}
                                     </h3>
-                                    <p class="col-md-8 mx-0 px-0 sub-text">
-                                        ${item.description_en.replace(/<[^>]*>?/gm, '').substring(0,200)}
+                                    <p class="details_name w-25">
+                                        <span class="">
+                                            Tour: 
+                                        </span>
+                                        <span>
+                                        ${tour}
+                                        </span>
+                                    </p>
+                                    <p class="details_name w-25">
+                                        <span class="">
+                                            Package Numbers: 
+                                        </span>
+                                        <span>
+                                            ${packages}
+                                        </span>
                                     </p>
                                     <div class="d-flex align-items-center col-md-8 p-0">
                                         <a href="price/upsert/${item.id}">
@@ -149,15 +148,6 @@
                                         <button class="btn-secondary mx-2" delete_message="Slow Down Howdy! We Have to warn you that this action is irrevesable and this data will be permenantly delete" route="/price/delete/${item.id}" delete_id="${item.id}">
                                             Delete
                                         </button>
-
-                                        <div class="switcher mb-0 d-flex ms-auto">
-                                            <p class="sub-text m-0 feature-txt mx-2 mt-2"> Mark As Feature </p>
-                                            <div class="checkbox">
-                                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox feature feature_price_check" model_id="${item.id}" id="myonoffswitch_${item.id}" >
-                                                <label class="onoffswitch-label mb-0" for="myonoffswitch_${item.id}">
-                                                <span class="onoffswitch-inner"></span>
-                                            </div>
-                                        </div>
 
                                     </div>
                                 </div>

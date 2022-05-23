@@ -32,6 +32,8 @@ class Price extends Authenticatable
         ,'caption_fr'
     ];
 
+    protected $with = ['tour','packages'];
+
     /**
      * The attributes that should be hidden for serialization.
      *

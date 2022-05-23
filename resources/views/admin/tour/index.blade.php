@@ -95,15 +95,10 @@
                     
                     let payload = e.data;
 
-                    console.log(e.current_page , e.total)
-
-                    if ( e.current_page < e.total ) 
+                    if ( e.current_page < e.last_page ) 
                         page++
                     else 
                         $('.load_more').addClass('d-none');
-
-
-                    console.log(payload)
 
                     payload.forEach((item) => {
                         

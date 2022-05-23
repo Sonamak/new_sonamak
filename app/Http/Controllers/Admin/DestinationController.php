@@ -45,5 +45,10 @@ class DestinationController extends Controller {
         return $destination->togglePopular();
     }
 
+    public function more(Request $request)
+    {
+        return Destination::filter($request)->with('gallaries')->paginate(10);
+    }
+
 }
 

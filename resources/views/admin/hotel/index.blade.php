@@ -92,11 +92,9 @@
                 type: 'post',
                 success: function (e) {
                     
-                    let payload = e.payload.data;
+                    let payload = e.data;
 
-                    console.log(e.payload.current_page , e.payload.total)
-
-                    if ( e.payload.current_page < e.payload.total ) 
+                    if ( e.current_page < e.total ) 
                         page++
                     else 
                         $('.load_more').addClass('d-none');

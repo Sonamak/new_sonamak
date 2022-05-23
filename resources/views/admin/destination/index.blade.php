@@ -91,17 +91,12 @@
                 type: 'post',
                 success: function (e) {
                     
-                    let payload = e.payload.data;
+                    let payload = e.data;
 
-                    console.log(e.payload.current_page , e.payload.total)
-
-                    if ( e.payload.current_page < e.payload.total ) 
+                    if (  e.current_page < e.last_page ) 
                         page++
                     else 
                         $('.load_more').addClass('d-none');
-
-
-                    console.log(page)
 
                     payload.forEach((item) => {
                         
@@ -116,10 +111,10 @@
                                 </div>
                                 <div class="col-md-9">
                                     <h3 class="section_title">
-                                        ${item.title_en}
+                                        ${item.country_name_en}
                                     </h3>
                                     <p class="col-md-8 mx-0 px-0 sub-text">
-                                        ${item.description_en.replace(/<[^>]*>?/gm, '').substring(0,200)}
+                                        ${item.caption_in_en.replace(/<[^>]*>?/gm, '').substring(0,200)}
                                     </p>
                                     <div class="d-flex align-items-center col-md-8 p-0">
                                         <a href="destination/upsert/${item.id}">

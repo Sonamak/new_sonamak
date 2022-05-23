@@ -83,11 +83,10 @@
                 type: 'post',
                 success: function (e) {
                     
-                    let payload = e.payload.data;
+                    let payload = e.data;
 
-                    console.log(e.payload.current_page , e.payload.total)
 
-                    if ( e.payload.current_page < e.payload.total ) 
+                    if ( e.current_page < e.last_page ) 
                         page++
                     else 
                         $('.load_more').addClass('d-none');
@@ -111,7 +110,7 @@
                                         ${item.title_en}
                                     </h3>
                                     <p class="col-md-8 mx-0 px-0 sub-text">
-                                        ${item.description_en.replace(/<[^>]*>?/gm, '').substring(0,200)}
+                                        ${item.article_in_en.replace(/<[^>]*>?/gm, '').substring(0,200)}
                                     </p>
                                     <div class="d-flex align-items-center col-md-8 p-0">
                                         <a href="blog/upsert/${item.id}">

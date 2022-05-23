@@ -26,6 +26,11 @@ class HotelController extends Controller {
         ]);
     }
 
+    public function more(Request $request)
+    {
+        return Hotel::filter($request)->with('gallaries')->paginate(10);
+    }
+
     public function store(HotelRequest $request )
     {
         Hotel::upsertInstance($request);

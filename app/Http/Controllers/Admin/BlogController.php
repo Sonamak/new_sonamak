@@ -41,5 +41,10 @@ class BlogController extends Controller {
         return $blog;
     }
 
+    public function more(Request $request)
+    {
+        return Blog::filter($request)->with('gallaries')->paginate(10);
+    }
+
 }
 

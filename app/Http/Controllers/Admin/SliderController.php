@@ -40,5 +40,10 @@ class SliderController extends Controller {
         return $slider;
     }
 
+    public function more(Request $request)
+    {
+        return Slider::filter($request)->with('gallaries')->paginate(10);
+    }
+
 }
 

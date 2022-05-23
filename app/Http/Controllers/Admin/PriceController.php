@@ -46,5 +46,11 @@ class PriceController extends Controller {
         return $price;
     }
 
+    public function more(Request $request)
+    {
+        return Price::filter($request)->paginate(10);
+    }
+
+
 }
 
