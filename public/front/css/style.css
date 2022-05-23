@@ -3364,7 +3364,7 @@ a.box_feat h3 {
   padding: 10px 0 5px 0;
   background: #fff;
   border-bottom: 1px solid #ededed;
-  z-index: 999999 !important;
+  z-index: 99!important;
   position: relative;
 }
 .filters_listing ul {
@@ -4019,6 +4019,7 @@ a.boxed_list:hover i {
 .secondary_nav {
   background: #fff;
   border-bottom: 1px solid #ededed;
+  border-top: 1px solid #ededed;
   padding: 15px 0;
 }
 .secondary_nav.is_stuck {
