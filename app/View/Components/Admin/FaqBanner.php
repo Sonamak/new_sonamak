@@ -26,7 +26,7 @@ class FaqBanner extends Component
     {
         $banner = Banners::where('type','faq')->first();
     
-        return view('components.admin.faq-banner',[
+        return view('components.Admin.faq-banner',[
             'banner' => $banner
         ]);
     }
