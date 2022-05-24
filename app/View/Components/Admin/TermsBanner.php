@@ -26,7 +26,7 @@ class TermsBanner extends Component
     public function render()
     {
         $banner = Banners::where('type','terms')->first();
-        return view('components.admin.terms-banner',[
+        return view('components.Admin.terms-banner',[
             'banner' => $banner
         ]);
     }
