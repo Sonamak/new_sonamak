@@ -1,6 +1,6 @@
 <form class="ajax-form" action="{{ route('banner.store') }}" method="post">
     <div class="card-header w-100 d-flex">
-        <h4 class="card-title mb-1">Terms Banner</h4>
+        <h4 class="card-title mb-1">Faq Banner</h4>
     </div>
     <div class="form-group col-md-12">
         <label>
@@ -25,7 +25,7 @@
             <div class="mx-2 col-md-6">
                 <label for="Tumbnail">Background</label>
                 <p class="mt-2 sub-text">
-                    Enter Beautiful background to the tour and please add image in aspect ratio to get the best performance
+                    Enter Beautiful background to the faq and please add image in aspect ratio to get the best performance
                 </p>
                 <p class="error error_background"></p>
             </div>
