@@ -26,7 +26,7 @@ class PolicyBanner extends Component
     {
         $banner = Banners::where('type','policy')->first();
     
-        return view('components.admin.policy-banner',[
+        return view('components.Admin.policy-banner',[
             'banner' => $banner
         ]); 
     }
