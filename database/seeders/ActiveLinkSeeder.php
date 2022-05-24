@@ -47,14 +47,6 @@ class ActiveLinkSeeder extends Seeder
         );
 
         ActiveLink::updateOrCreate(
-            ['id' => 5],
-            [
-                'page' => 'privacy',
-                'active' => false
-            ]
-        );
-
-        ActiveLink::updateOrCreate(
             ['id' => 6],
             [
                 'page' => 'faq',
@@ -82,6 +74,22 @@ class ActiveLinkSeeder extends Seeder
             ['id' => 9],
             [
                 'page' => 'blogs',
+                'active' => false
+            ]
+        );
+
+        ActiveLink::updateOrCreate(
+            ['id' => 10],
+            [
+                'page' => 'contact',
+                'active' => false
+            ]
+        );
+
+        ActiveLink::updateOrCreate(
+            ['id' => 11],
+            [
+                'page' => 'policy',
                 'active' => false
             ]
         );

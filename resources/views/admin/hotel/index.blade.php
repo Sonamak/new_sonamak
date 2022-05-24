@@ -100,7 +100,6 @@
                         $('.load_more').addClass('d-none');
 
 
-                    console.log(page)
 
                     payload.forEach((item) => {
                         
@@ -109,7 +108,7 @@
                         $('.append-container').append(`
                         
 
-                        <div class="row mt-4">
+                        <div class="row mt-4" id="hotel_${item.id}">
                                 <div class="col-md-3">
                                     <img width="260px" height="161px" src="/storage/hotel/small/${thumbnail.name}" alt="">
                                 </div>
@@ -124,7 +123,7 @@
                                         <a href="hotel/upsert/${item.id}">
                                             <button class="btn btn-primary">Edit</button>
                                         </a>
-                                        <button class="btn-secondary mx-2" delete_message="Slow Down Howdy! We Have to warn you that this action is irrevesable and this data will be permenantly delete" route="/hotel/delete/${item.id}" delete_id="${item.id}">
+                                        <button class="btn-secondary mx-2 delete-btn"  delete_message="Slow Down Howdy! We Have to warn you that this action is irrevesable and this data will be permenantly delete"  callback="deletehotel" route="/admin-panal/hotel/delete/${item.id}" delete_id="${item.id}" data-bs-toggle="modal" data-bs-target="#deleteModel">
                                             Delete
                                         </button>
 
@@ -146,10 +145,6 @@
                         `);
 
                         if( item.feature ) $(`#myonoffswitch_${item.id}`).attr('checked','checked')
-;
-
-                        console.log($(`#myonoffswitch_${item.id}`),item.feature)
-
                     })
 
                 }   

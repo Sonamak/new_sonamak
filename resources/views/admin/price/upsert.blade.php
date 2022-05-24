@@ -12,7 +12,7 @@ $route = array_shift($route) .'.store';
         <div class="card-header w-100 d-flex">
             <h4 class="card-title mb-1">{{ $price->id ? 'Update Instance' : 'Add Instance' }}</h4>
         </div>
-        <form class="ajax-form" method="post" action="{{ route($route) }}" redirect="{{ route('price') }}">
+        <form class="ajax-form" method="post" action="{{ route($route) }}" redirect="{{ route('price') }}" swalOnfail="Some errors occure review your form for more information">
             <div class="card-body card-full">
 
                 <div class="form-group">
@@ -20,7 +20,7 @@ $route = array_shift($route) .'.store';
                         Price Name English
                     </label>
                     <input class="form-control" placeholder="Enter Price Name English" name="name_en" value="@if($price){{$price->name_en}}@endif">
-                    <p class="error error_name m-0"></p>
+                    <p class="error error_name_en m-0"></p>
                 </div>
 
                 <div class="form-group">
@@ -28,7 +28,7 @@ $route = array_shift($route) .'.store';
                         Price Name French
                     </label>
                     <input class="form-control" placeholder="Enter Price Name French" name="name_fr" value="@if($price){{$price->name_fr}}@endif">
-                    <p class="error error_name m-0"></p>
+                    <p class="error error_name_fr m-0"></p>
                 </div>
 
                 <div class="form-group">
@@ -36,7 +36,7 @@ $route = array_shift($route) .'.store';
                         Price Desciption Lower Season In English
                     </label>
                     <textarea class="form-control" name="description_lower_season_en">@if($price->description_lower_season_en){{$price->description_lower_season_en}}@endif</textarea>
-                    <p class="error error_descriotion_en m-0"></p>
+                    <p class="error error_description_lower_season_en m-0"></p>
                 </div>
 
                 <div class="form-group">
@@ -44,23 +44,23 @@ $route = array_shift($route) .'.store';
                         Price Desciption Lower Season In French
                     </label>
                     <textarea class="form-control" name="description_lower_season_fr">@if($price->description_lower_season_fr){{$price->description_lower_season_fr}}@endif</textarea>
-                    <p class="error error_descriotion_en m-0"></p>
+                    <p class="error error_description_lower_season_fr m-0"></p>
                 </div>
 
                 <div class="form-group">
                     <label>
                         Price Desciption Upper Season In English
                     </label>
-                    <textarea class="form-control" name="description_upper_season_en">@if($price->description_upper_season_en){{$price->description_upper_season_en}}@endif</textarea>
-                    <p class="error error_descriotion_en m-0"></p>
+                    <textarea class="form-control" name="description_peak_season_en">@if($price->description_peak_season_en){{$price->description_peak_season_en}}@endif</textarea>
+                    <p class="error error_description_peak_season_en m-0"></p>
                 </div>
 
                 <div class="form-group">
                     <label>
                         Price Desciption Upper Season In French
                     </label>
-                    <textarea class="form-control" name="description_upper_season_fr">@if($price->description_upper_season_fr){{$price->description_upper_season_fr}}@endif</textarea>
-                    <p class="error error_descriotion_en m-0"></p>
+                    <textarea class="form-control" name="description_peak_season_fr">@if($price->description_peak_season_fr){{$price->description_peak_season_fr}}@endif</textarea>
+                    <p class="error error_description_peak_season_fr m-0"></p>
                 </div>
 
                 <div class="row px-2">
@@ -77,7 +77,7 @@ $route = array_shift($route) .'.store';
                             @endforeach
 
                         </select>
-                        <p class="error error_tour m-0"></p>
+                        <p class="error error_tour_id m-0"></p>
                     </div>
 
                     <div class="form-group col-md-6 px-0 ps-2">

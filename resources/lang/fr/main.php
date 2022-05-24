@@ -65,5 +65,6 @@ return [
     'enter_return_date' => 'Entrez la date de retour',
     'enter_tour_language' => 'Entrez la langue de la visite',
     'enter_your_nationality' => 'Entrez votre nationalité',
-    'enter_your_inquery' => 'Saisissez votre demande'
+    'enter_your_inquery' => 'Saisissez votre demande',
+    'contact' => 'Contactor'
 ]; 

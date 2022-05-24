@@ -23,7 +23,6 @@ class TourSearch extends Component
 
         $tour = Tour::paginate($this->count);
 
-        dd($tour);
     }
 
     public function render()

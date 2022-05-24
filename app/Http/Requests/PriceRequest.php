@@ -26,15 +26,21 @@ class PriceRequest extends FormRequest
         return [
             'name_en' => ['required'],
             'name_fr' => ['required'],
+            'description_lower_season_en' => ['required'],
+            'description_lower_season_fr' => ['required'],
+            'description_peak_season_en' => ['required'],
+            'description_peak_season_fr' => ['required'],
             'package' => ['required'],
             'tour_id' => ['required','exists:tours,id'],
-            'package.*' => [function($attribute,$value,$fail){
+            'package' => [function($attribute,$value,$fail){
                 
-                if ( ! $value['usd_price'] || ! $value['cad_price'] || ! $value['eur_price'] || ! $value['season'])  {
-
-                    return $fail("fill all the inputs");
-
-                }
+                foreach ( $value as $single_value ) {
+                    foreach( $single_value as $key => $string ) {
+                     if ( ! $string  && $key != 'id') {
+                         return $fail('Please fill all input');
+                     }
+                    }
+                 }
 
             }]
         ];

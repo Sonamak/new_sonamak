@@ -267,10 +267,3 @@ $(function() {
             })
     }
 </script>
-
-
-<!-- elseif page is Contacts Page -->  
-
-<!-- SPECIFIC SCRIPTS -->
-<!-- <script src="{{ asset('front/js/mapmarker.jquery.js') }}"></script> -->
-<!-- <script src="{{ asset('js/mapmarker_func.jquery.js') }}"></script> -->

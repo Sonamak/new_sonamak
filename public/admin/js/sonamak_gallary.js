@@ -13,10 +13,10 @@ $('.insert_gallary').on({
         file = $(this)[0].files[0];
         let fileTypeExtention = file.type;
         let fileType = fileTypeExtention.split('/').shift();
-
+        let sizeOutRange = (file.size > 500000) ? true : false;
         $('.gallary_empty').addClass('d-none');
 
-        if( fileType == 'image' ) {
+        if( fileType == 'image' && ! sizeOutRange) {
             dataTransfere.items.add(file);
 
             $(`${$(this).attr('data-append')}`)[0].files = dataTransfere.files;
@@ -36,6 +36,17 @@ $('.insert_gallary').on({
                         <p class="error ${gallary_error_class}"></p>
                     </div>
                 `)
+            }
+
+        } else {
+            let gallary_error = document.querySelector('.error_gallary');
+            gallary_error.innerHTML = '';
+            if ( fileType != 'image' ) {
+                gallary_error.innerHTML += '<p>Please add image only</p>'
+            }
+
+            if ( sizeOutRange ) {
+                gallary_error.innerHTML += '<p>Please add image with size lower than 500kb</p>'
             }
 
         }

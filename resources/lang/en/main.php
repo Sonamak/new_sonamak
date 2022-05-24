@@ -54,8 +54,8 @@ return [
     'please_advise_your_tour_requirements' => 'Please advise your tour requirements',
     'submit_inquiry' => 'Submit inquiry',
     'no_money_charged_in_this_step' => 'No money charged in this step',
-    'name' => 'Nom',
-    'send_a_message' => 'Envoyer un message',
+    'name' => 'Name',
+    'send_a_message' => 'Send a message',
     'submit' => 'submit',
     'message' => 'Message',
     'send_your_inquires_to_us' => 'Send your inquires to us',
@@ -66,5 +66,6 @@ return [
     'enter_return_date' => 'Enter return date',
     'enter_tour_language' => 'Enter tour language',
     'enter_your_nationality' => 'Enter your nationality',
-    'enter_your_inquery' => 'Enter your inquery'
+    'enter_your_inquery' => 'Enter your inquery',
+    'contact' => 'Contact'
 ];

@@ -105,7 +105,7 @@
                         $('.append-container').append(`
                         
 
-                        <div class="row mt-4">
+                        <div class="row mt-4" id="destination_${item.id}">
                                 <div class="col-md-3">
                                     <img width="260px" height="161px" src="/storage/destination/small/${thumbnail.name}" alt="">
                                 </div>
@@ -120,7 +120,7 @@
                                         <a href="destination/upsert/${item.id}">
                                             <button class="btn btn-primary">Edit</button>
                                         </a>
-                                        <button class="btn-secondary mx-2" delete_message="Slow Down Howdy! We Have to warn you that this action is irrevesable and this data will be permenantly delete" route="/destination/delete/${item.id}" delete_id="${item.id}">
+                                        <button class="btn-secondary mx-2 delete-btn"  delete_message="Slow Down Howdy! We Have to warn you that this action is irrevesable and this data will be permenantly delete"  callback="deleteDestination" route="/admin-panal/destination/delete/${item.id}" delete_id="${item.id}" data-bs-toggle="modal" data-bs-target="#deleteModel">
                                             Delete
                                         </button>
 

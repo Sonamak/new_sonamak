@@ -16,7 +16,8 @@ class CreateActiveLinksTable extends Migration
         Schema::create('active_links', function (Blueprint $table) {
             $table->id();
             $table->string('page');
-            $table->boolean('active');
+            $table->boolean('active')->default(false);
+            $table->string('appear_on')->default('navbar_only');
             $table->timestamps();
         });
     }

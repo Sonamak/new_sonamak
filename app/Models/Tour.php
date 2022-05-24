@@ -224,7 +224,7 @@ class Tour extends Authenticatable
     {
         $this->delete();
         $this->tourPrefrences()->delete();
-        $this->deleteImagesWithIdsBelongsToRelation($this->gallaries->pluck('id'),$this->root,'gallaries');
+        // $this->deleteImagesWithIdsBelongsToRelation($this->gallaries->pluck('id'),$this->root,'gallaries');
         return $this->result('success',$this);
     }
 

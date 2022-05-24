@@ -30,23 +30,39 @@ class TourRequest extends FormRequest
             'title_fr' => ['required'],
             'description_en' => ['required','min:2'],
             'description_fr' => ['required','min:2'],
-            'itinerarires' => ['nullable'],
-            'thumbnail' => ['required_without:id','dimensions:max_width=500,max_height=500','image','max:800'],
-            'background' => ['required_without:id','dimensions:max_width=1870,max_height=560','image','max:800'],
-            'location' => ['required_without:id',':max_width=500,max_height=500','image','max:800'],
-            'include.*' => [function($attribute,$value,$fail){
-                if ( empty($value['value_en']) || empty($value['value_fr']) )  {
-                    return $fail('Fill all inputs');
+            'itinerary' => [function($attribute,$value,$fail){
+                foreach ( $value as $single_value ) {
+                   foreach( $single_value as $key => $string ) {
+                    if ( ! $string  && $key != 'id') {
+                        return $fail('Please fill all input');
+                    }
+                   }
                 }
+            }],
+            'thumbnail' => ['required_without:id','image','max:500'],
+            'background' => ['required_without:id','image','max:500'],
+            'location' => ['required_without:id','image','max:500'],
+            'include' => [function($attribute,$value,$fail){
+                foreach ( $value as $single_value ) {
+                    foreach( $single_value as $key => $string ) {
+                     if ( ! $string && $key != 'id' ) {
+                         return $fail('Please fill all input');
+                     }
+                    }
+                 }
             }] ,
 
             'gallary' => ['max:3'],
 
-            'gallary.*' => ['image','max:800','dimensions:max_width=500,max_height=500'],
+            'gallary.*' => ['image','max:500'],
 
-            'exclude.*' => [function($attribute,$value,$fail){
-                if ( empty($value['value_en']) || empty($value['value_fr']) )  {
-                    return $fail('Fill all inputs');
+            'exclude' => [function($attribute,$value,$fail){
+                foreach ( $value as $single_value ) {
+                    foreach( $single_value as $key => $string ) {
+                     if ( ! $string && $key != 'id' ) {
+                         return $fail('Please fill all input');
+                     }
+                    }
                 }
             }] 
         ];

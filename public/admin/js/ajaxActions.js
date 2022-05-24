@@ -34,8 +34,7 @@ $.ajaxSetup({
 });
 
 $(document).on('click','.delete-btn',function(e) {
-
-    console.log($(this).attr('route'))
+    console.log($(this).attr('callback'))
 
     $('.modal .confirm_btn').attr('delete-route',$(this).attr('route'))
     $('.modal .confirm_btn').attr('callback',$(this).attr('callback'))
@@ -157,6 +156,22 @@ $(document).on('submit','.ajax-form',function(e) {
 
                 if( $(this).attr('refreshAfterSend') != undefined) location.reload();
             },
+        }).fail(() => {
+            if( $(this).attr('swalOnFail') )  {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    width: '500',
+                    showConfirmButton: false,
+                    timer: 5000,
+                    background: '#383d52',
+                    color: '#fff',
+                    timerProgressBar: true,
+                    icon: 'error',
+                    title: 'Opps...',
+                    text: $(this).attr('swalOnFail')
+                })
+            }
         })
     }
 });

@@ -120,7 +120,7 @@
                         $('.append-container').append(`
                         
 
-                        <div class="row mt-4">
+                        <div class="row mt-4" id="price_${item.id}">
                                 <div class="col-md-9">
                                     <h3 class="section_title">
                                         ${item.name_en}
@@ -145,7 +145,7 @@
                                         <a href="price/upsert/${item.id}">
                                             <button class="btn btn-primary">Edit</button>
                                         </a>
-                                        <button class="btn-secondary mx-2" delete_message="Slow Down Howdy! We Have to warn you that this action is irrevesable and this data will be permenantly delete" route="/price/delete/${item.id}" delete_id="${item.id}">
+                                        <button class="btn-secondary mx-2 delete-btn"  delete_message="Slow Down Howdy! We Have to warn you that this action is irrevesable and this data will be permenantly delete"  callback="deleteprice" route="/admin-panal/price/delete/${item.id}" delete_id="${item.id}" data-bs-toggle="modal" data-bs-target="#deleteModel">
                                             Delete
                                         </button>
 

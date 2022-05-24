@@ -31,7 +31,7 @@ function Dropify(element, options) {
 
     var defaults = {
         defaultFile: '',
-        maxFileSize: 0,
+        maxFileSize: 500,
         minWidth: 0,
         maxWidth: 0,
         minHeight: 0,
@@ -474,7 +474,8 @@ Dropify.prototype.sizeToByte = function(size)
     var value = 0;
 
     if (size !== 0) {
-        var unit  = size.slice(-1).toUpperCase(),
+
+        var unit  = 'K',
             kb    = 1024,
             mb    = kb * 1024,
             gb    = mb * 1024;

@@ -24,7 +24,11 @@ class SliderRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'thumbnail' => 'required',
+            'title_en' => 'required',
+            'title_fr' => 'required',
+            'description_en' => 'required',
+            'description_fr' => 'required'
         ];
     }
 }

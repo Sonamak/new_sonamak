@@ -13,7 +13,7 @@ $route = array_shift($route) .'.store';
             <h4 class="card-title mb-1">{{ $tour ? 'Update Instance' : 'Add Instance' }}</h4>
         </div>
         <!-- appendToData="mergeTourRefrences" -->
-        <form class="ajax-form" method="post" action="{{ route($route) }}"  redirect="{{ route('tour') }}">
+        <form class="ajax-form" method="post" action="{{ route($route) }}"  redirect="{{ route('tour') }}" swalOnfail="Some errors occure review your form for more information">
             <div class="card-body card-full">
 
                 <div class="row mb-4">
@@ -24,7 +24,7 @@ $route = array_shift($route) .'.store';
                         <label for="Tumbnail">Tumbnail</label>
                         <p class="mt-2 sub-text">
                             Enter Beautiful thumbnail to the tour and please add image in aspect ratio to get the best performance
-                            (Note:Recommended size 339x210 & max allowed size 500x500 with 800kb)
+                            (Note:Recommended size 339x210)
                         </p>
                         <p class="error error_thumbnail"></p>
                     </div>
@@ -40,7 +40,7 @@ $route = array_shift($route) .'.store';
                             <label for="Location">Location</label>
                             <p class="mt-2 sub-text">
                                 Enter Location of the tour and please add image in aspect ratio to get the best performance
-                                (Note:Recommended size 339x210 & max allowed size 500x500 with 800kb)
+                                (Note:Recommended size 339x210)
                             </p>
                             <p class="error error_location"></p>
                         </div>
@@ -58,7 +58,7 @@ $route = array_shift($route) .'.store';
                             <label for="Background">Background</label>
                             <p class="mt-2 sub-text">
                                 Enter Background of the tour and please add image in aspect ratio to get the best performance
-                                (Note:Max allowed size 1870x556 with 800kb )
+                                (Note:Recommended  size 1870x556 )
                             </p>
                             <p class="error error_background"></p>
                         </div>
@@ -154,6 +154,9 @@ $route = array_shift($route) .'.store';
                                 </label>
                                 <i class="fa fa-plus mx-2 mt-1 remove_section extra_section" data-insert=".insert_gallary" data-container=".include_container" method-append="appendInclude"></i>
                             </div>
+
+                            <p class="error error_include"></p>
+
                             <div class="include_container mt-2">
                                 @if($tour->tourPrefrences)
                                     @foreach($tour->includes as $include)
@@ -182,6 +185,9 @@ $route = array_shift($route) .'.store';
                                 </label>
                                 <i class="fa fa-plus mx-2 mt-1 remove_section extra_section" data-insert=".insert_gallary" data-container=".exclude_container" method-append="appendExclude"></i>
                             </div>
+
+                            <p class="error error_exclude"></p>
+
                             <div class="align-items-center w-100">
                                 <div class="exclude_container mt-2">
                                     @if($tour->tourPrefrences)
@@ -258,6 +264,8 @@ $route = array_shift($route) .'.store';
                         <i class="fa fa-plus mx-2 mt-1 remove_section extra_section" data-insert=".insert_gallary" data-container=".itinerary_container" method-append="appendItinerary"></i>
                     </div>
 
+                    <p class="error error_itinerary"></p>
+
                     <div class="itinerary_container">
                         @foreach($tour->itinerarie as $itinerary) 
                         <div class="itinerarires_form section">
@@ -296,6 +304,7 @@ $route = array_shift($route) .'.store';
                         </label>
                         <i class="fa fa-plus mx-2 mt-1 remove_section gallary_btn" data-insert=".insert_gallary"></i>
                     </div>
+
                     <input type="file" class="insert_gallary gallary_input d-none" data-container=".gallary_container" data-append=".gallary_files">
                     <input type="file" class="gallary_files d-none" name="gallary[]" multiple>
                     @if( ! $tour->gallary->count()) <p class="gallary_empty w-100 text-center">No Image to display here</p> @endif

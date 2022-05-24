@@ -21,7 +21,7 @@ class TourForm extends Component
 
     public function submitTour()
     {
-        dd($this->all());
+
     }
 
     public function render()

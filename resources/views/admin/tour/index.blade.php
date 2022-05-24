@@ -71,7 +71,7 @@
 
     function deleteTour(e) {
 
-
+        
         $(`#tour_${e.payload.id}`).remove();
 
         if( ! $('.tour').length ) {
@@ -108,7 +108,7 @@
                         $('.append-container').append(`
                         
 
-                        <div class="row mt-4 tour">
+                        <div class="row mt-4 tour" id="tour_${item.id}">
                                 <div class="col-md-3">
                                     <img width="260px" height="161px" src="/storage/tour/small/${thumbnail.name}" alt="tour">
                                 </div>
@@ -123,7 +123,7 @@
                                         <a href="tour/upsert/${item.id}">
                                             <button class="btn btn-primary">Edit</button>
                                         </a>
-                                        <button class="btn-secondary mx-2" delete_message="Slow Down Howdy! We Have to warn you that this action is irrevesable and this data will be permenantly delete" route="/tour/delete/${item.id}" delete_id="${item.id}">
+                                        <button class="btn-secondary mx-2 delete-btn" delete_message="Slow Down Howdy! We Have to warn you that this action is irrevesable and this data will be permenantly delete" route="/admin-panal/tour/delete/${item.id}" delete_id="${item.id}" callback="deleteTour" data-bs-toggle="modal" data-bs-target="#deleteModel">
                                             Delete
                                         </button>
 

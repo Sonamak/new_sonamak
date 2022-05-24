@@ -79,6 +79,9 @@
 <script src="{{ asset('admin/plugins/summernote-editor/summernote1.js') }}"></script>
 <script src="{{ asset('admin/js/summernote.js') }}"></script>
 
+<!-- Sweet alert -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <!-- Internal Fileuploads js -->
 <script src="{{ asset('admin/plugins/fileuploads/js/fileupload.js') }}"></script>
 <script src="{{ asset('admin/plugins/fileuploads/js/file-upload.js') }}"></script>
