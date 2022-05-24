@@ -25,6 +25,7 @@ class AboutHero extends Component
     public function render()
     {
         $banner = Banners::where('type','about')->first();
+
         return view('components.about-hero',[
             'banner' => $banner
         ]);

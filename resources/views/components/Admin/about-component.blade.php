@@ -17,22 +17,22 @@
                 <p class="error error_header_text_in_french"></p>
             </div>
         </div>
-
+        
         <div class="row mb-4">
             <div class="col-sm-12 col-md-4 mg-t-10 mg-sm-t-0">
-                <input type="file" class="dropify" data-default-file="@if($banner->name)  {{ asset('storage/banner/large/'.$banner->background->name) }} @endif" data-height="200"  name="background"/>
+            <input type="file" class="dropify" data-default-file="@if($banner->background) {{ asset('storage/banner/large/'.$banner->background->name) }} @endif" data-height="200"  name="background"/>
             </div>
             <div class="mx-2 col-md-6">
                 <label for="Tumbnail">Background</label>
                 <p class="mt-2 sub-text">
-                    Enter Beautiful background to the tour and please add image in aspect ratio to get the best performance
+                    Enter Beautiful background to the about and please add image in aspect ratio to get the best performance
                 </p>
                 <p class="error error_background"></p>
             </div>
         </div>
         
 
-        <input type="hidden" name="type" value="About">
+        <input type="hidden" name="type" value="about">
 
         <button class="btn-primary">Submit</button>
     </div>

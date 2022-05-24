@@ -12,9 +12,6 @@
       <x-admin.about-component></x-admin.about-component>
    </div>
    <div class="card mt-4">
-      <x-admin.distination-component></x-admin.distination-component>
-   </div>
-   <div class="card mt-4">
       <x-admin.contact-component></x-admin.about-component>
    </div>
    <div class="card mt-4">
