@@ -208,7 +208,7 @@
                                 <p class="h6">Policy</p>
                             </div>
                             <div class="col-md-4">
-                                <select class="select2 switch" route="{{ route('active.appear_on',['activeLink' => 5]) }}" name="appear_on">
+                                <select class="select2 switch" route="{{ route('active.appear_on',['activeLink' => 11]) }}" name="appear_on">
                                     <option value="navbar_only"  @if($active->where('page','policy')->first()->appear_on == 'navbar_only') selected @endif>Navbar only</option>
                                     <option value="footer_usefull_only"  @if($active->where('page','policy')->first()->appear_on == 'footer_usefull_only') selected @endif>Footer usefull only</option>
                                     <option value="footer_helpers_only"  @if($active->where('page','policy')->first()->appear_on == 'footer_helpers_only') selected @endif>Footer helpers only</option>
@@ -220,8 +220,8 @@
                                 <div class="switcher mb-0 d-flex ms-auto">
                                     <p class="sub-text m-0 feature-txt mx-2 mt-2"> Mark As Active </p>
                                     <div class="checkbox">
-                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox  switch"  route="{{ route('active.toggle',['activeLink' => 5]) }}" id="myonoffswitch_5" @if($active->where('page','policy')->first()->active) checked @endif>
-                                        <label class="onoffswitch-label mb-0" for="myonoffswitch_5">
+                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox  switch"  route="{{ route('active.toggle',['activeLink' => 11]) }}" id="myonoffswitch_11" @if($active->where('page','policy')->first()->active) checked @endif>
+                                        <label class="onoffswitch-label mb-0" for="myonoffswitch_11">
                                         <span class="onoffswitch-inner"></span>
                                     </div>
                                 </div>
@@ -232,7 +232,7 @@
                                 <p class="h6">Contact</p>
                             </div>
                             <div class="col-md-4">
-                                <select class="select2 switch" route="{{ route('active.appear_on',['activeLink' => 5]) }}" name="appear_on">
+                                <select class="select2 switch" route="{{ route('active.appear_on',['activeLink' => 11]) }}" name="appear_on">
                                     <option value="navbar_only"  @if($active->where('page','contact')->first()->appear_on == 'navbar_only') selected @endif>Navbar only</option>
                                     <option value="footer_usefull_only"  @if($active->where('page','contact')->first()->appear_on == 'footer_usefull_only') selected @endif>Footer usefull only</option>
                                     <option value="footer_helpers_only"  @if($active->where('page','contact')->first()->appear_on == 'footer_helpers_only') selected @endif>Footer helpers only</option>
