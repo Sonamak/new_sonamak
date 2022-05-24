@@ -14,7 +14,7 @@ class SliderController extends Controller {
     public function index(Request $request)
     {
         return view('admin.slider.index',[
-            'sliders' => Slider::filter($request)->paginate(2)
+            'sliders' => Slider::filter($request)->paginate(10)
         ]);
     }
 
@@ -42,7 +42,7 @@ class SliderController extends Controller {
 
     public function more(Request $request)
     {
-        return Slider::filter($request)->with('gallaries')->paginate(2);
+        return Slider::filter($request)->with('gallaries')->paginate(10);
     }
 
 }
