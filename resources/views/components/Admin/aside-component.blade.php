@@ -54,24 +54,12 @@
                     <span class="side-menu__label">Social</span>
                 </a>
             </li>
-            <li class="slide">
-                <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('banner.index') }}">
-                    <i class="icon ion-md-laptop me-2"></i>
-                    <span class="side-menu__label">Banners</span>
-                </a>
-            </li>
-            <li class="slide">
-                <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('schedule.index') }}">
-                    <i class="far fa-calendar me-2" aria-hidden="true"></i>
-                    <span class="side-menu__label">Schedule</span>
-                </a>
-            </li>
-            <li class="slide">
+            <!-- <li class="slide">
                 <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('active.index') }}">
                     <i class="icon ion-ios-rocket me-2"></i>
                     <span class="side-menu__label">Active Links</span>
                 </a>
-            </li>
+            </li> -->
             <li class="slide">
                 <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('info.index') }}">
                     <i class="fas fa-exclamation me-2"></i>
@@ -81,13 +69,6 @@
         </ul>
         <ul class="side-menu">
             <li class="side-item side-item-category mt-2">Messages Center</li>
-           
-            <li class="slide">
-                <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('inquirty.index') }}">
-                    <i class="fa fa-umbrella me-2"></i>
-                    <span class="side-menu__label">Inquirty</span>
-                </a>
-            </li>
 
             <li class="slide">
                 <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('contact.index') }}">
@@ -96,13 +77,6 @@
                 </a>
             </li>
 
-
-            <li class="slide">
-                <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('reservation.index') }}">
-                    <i class="fab fa-modx me-2"></i>
-                    <span class="side-menu__label">Reservation</span>
-                </a>
-            </li>
         </ul>
 
     </div>
