@@ -13,3 +13,15 @@ git clone https://github.com/Neamix/PhinxCore.git
     <li>Create mysql database</li>
     <li>Import route.sql (you will find it in root)</li>
 </ol>
+
+3) Step 3
+
+<ul>
+    <li>Create .env</li>
+</ul>
+
+4) Step 3
+
+    ```
+    composer install
+    ```
