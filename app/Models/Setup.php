@@ -31,6 +31,18 @@ class Setup extends Model
 
         }
 
+        if ( $request->new_field )  {
+
+            self::updateOrCreate(
+                ['type' => 'new field'],
+                [
+                    'type'  => 'new field val',
+                    'value' => $request->new_field
+                ]
+            );
+
+        }
+
         if ( $request->website_description )  {
 
             self::updateOrCreate(
@@ -158,11 +170,29 @@ class Setup extends Model
             $setup->save();
 
         }
+
+        if ( $request->seo_keyword ) {
+
+            $setup = self::updateOrCreate(
+                ['type' => 'seo'],
+                [
+                    'type' => 'seo',
+                ]
+            );
+
+            Seo::createInstance($setup,$request->seo_keyword,'keywords');
+        }
     }
 
     static function getSetting( $type ) 
     {
         return self::where('type',$type)->pluck('value')->toArray();
+    }
+
+    //Relations
+    public function seo()
+    {
+        return $this->morphMany(Seo::class,'seo');
     }
     
 }

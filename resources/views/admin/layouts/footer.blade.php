@@ -93,6 +93,11 @@
 <script src="{{ asset('admin/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
 <script src="{{ asset('admin/plugins/fancyuploder/fancy-uploader.js') }}"></script>
 
+<!-- Tagify js -->
+<script src="{{ asset('admin/js/jQuery.tagify.min.js') }}"></script>
+<script src="{{ asset('admin/js/tagify.min.js') }}"></script>
+<script> $('.tag').tagify(); </script>
+
 @yield('component_script')
 
 <!-- custom js -->

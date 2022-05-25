@@ -1,7 +1,6 @@
 @extends('admin.layouts.app')
 
 @section('content')
-
 <div class="main-container container-fluid">
     <div class="card mt-4 card-full">
         <form class="ajax-form p-3" action="{{ route('setup.store') }}" method="post" refreshAfterSend>
@@ -16,14 +15,13 @@
                 <p class="error error_website_description"></p>
             </div>
             <div class="form-group">
-                <label>Website Footer Description English</label>
+                <label>Website Footer Description</label>
                 <textarea class="form-control" placeholder="Website Footer Description" name="website_footer_description_en">{{app()->make('setup',['type' => 'website footer description english'])[0]}}</textarea>
-                <p class="error error_website_footer_description"></p>
+                <p class="error error_website_footer_description_en"></p>
             </div>
             <div class="form-group">
-                <label>Website Footer Description French</label>
-                <textarea class="form-control" placeholder="Website Footer Description" name="website_footer_description_fr">{{app()->make('setup',['type' => 'website footer description french'])[0]}}</textarea>
-                <p class="error error_website_footer_description"></p>
+                <label>Website Default Seo</label>
+                <input name="seo_keyword" class="form-control tag" placeholder="Add seo keywords" value="{{ seo_default_keywords() }}">
             </div>
             <div class="header_logo mb-3 row">
                 <div class="col-sm-12 col-md-4 mg-t-10 mg-sm-t-0">

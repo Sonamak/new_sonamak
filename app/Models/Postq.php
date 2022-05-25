@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Http\Services\ValidationService;
 
-class Post extends Authenticatable
+class Postq extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable,ValidationService;
 
@@ -29,12 +29,12 @@ class Post extends Authenticatable
 
     static function upsertInstance($request)
     {
-        $post = self::updateOrCreate(
+        $postq = self::updateOrCreate(
             ['id' => $request->id],
             $request->all()
         );
 
-        return (new self)->result($post,'success');
+        return (new self)->result($postq,'success');
     }
 
     public function deleteInstance()

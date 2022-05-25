@@ -54,7 +54,7 @@ class SonamakCrud extends Command
             'controller' =>  $controller_name,
             'model' => $capitalized_name,
             'request' => $request_name,
-            'migration' => "create_".$plural."_table",
+            'migration' => "create_".strtolower($plural)."_table",
             'index' => "index",
             'upsert' => "upsert"
         ];
@@ -212,6 +212,7 @@ class SonamakCrud extends Command
         $get_crud_array = $this->getCrudsArray();
 
         $migration_name = $get_crud_array['migration'];
+        dd("make:migration $migration_name");
         $request_name   = $get_crud_array['request'];
 
         Artisan::call("make:request $request_name");
