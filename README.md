@@ -20,8 +20,10 @@ git clone https://github.com/Neamix/PhinxCore.git
     <li>Create .env</li>
 </ul>
 
-4) Step 3
+4) Step 4
 
     ```
     composer install
+    php artisan migrate
+    php artisan db:seed
     ```
