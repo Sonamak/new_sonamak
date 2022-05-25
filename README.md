@@ -77,5 +77,19 @@ and after that you will be able to retrive it by using this command
 <h2>Helpers</h2>
     
 you can create a new helper file in app/http/Helpers after create it you need to require it in App\Http\Helpers\Kernal.php
-    
+
+
+<h2>Create Crud</h2>
+
+```
+php artisan phinx:crud Post
+```
+
+after you hit that command he will ask you for type and icon you can get icons from fontawesome version 4.7 or you can add in header layout higher version and use it 
+
+go to admin/post/index.blade.php added your structure in 
+
+```div.append-container```
+
+and go to admin/post/upsert.blade.php added your inputs (Each input must have a name) after that you can go to PostRequest in case you want to validate creation and update finally go to Post model and add the name of your inputs in fillable
 
