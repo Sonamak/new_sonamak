@@ -41,3 +41,25 @@ Retrive it by
 ```
 <title> {{ app()->make('setup',['type' => 'website title'])[0]; }} -  Adminpanal </title>
 ```
+by default you will get  Website Seo Title, Website Seo Description, Website Footer Description,header logo , footer logo ,fav logo but u can add another field by simple add the input and give a name to it then add validation to it in SetupRequest and add it's insertion in setup model like that
+
+```
+if ( $request->website_description )  {
+
+            self::updateOrCreate(
+                ['type' => 'new field'],
+                [
+                    'type'  => 'new field val',
+                    'value' => $request->field_name
+                ]
+            );
+
+        }
+
+```
+
+and after that you will be able to retrive it by using this command
+
+```
+{{ app()->make('setup',['type' => 'new field'])[0]; }}
+```
