@@ -43,6 +43,16 @@ Retrive it by
 ```
 by default you will get  Website Seo Title, Website Seo Description, Website Footer Description,header logo , footer logo ,fav logo but u can add another field by simple add the input and give a name to it then add validation to it in SetupRequest and add it's insertion in setup model like that
 
+in setup/index
+
+```
+  <div class="form-group">
+                <label>new field</label>
+                <textarea class="form-control" placeholder="Website Footer Description" name="website_footer_description_en">{{app()->make('setup',['type' => 'website footer description english'])[0]}}</textarea>
+                <p class="error error_website_footer_description"></p>
+            </div>
+```
+
 ```
 if ( $request->website_description )  {
 
