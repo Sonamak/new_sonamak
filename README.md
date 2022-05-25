@@ -1,6 +1,6 @@
 <h1>Phinx Core</h1> 
 
-#Installation Steps
+<h2>Installation Steps</h2>
 
 1) step 1
 ```
