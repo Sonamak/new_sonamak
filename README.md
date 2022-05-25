@@ -73,3 +73,9 @@ and after that you will be able to retrive it by using this command
 ```
 {{ app()->make('setup',['type' => 'new field'])[0]; }}
 ```
+
+<h2>Helpers<h2>
+    
+you can create a new helper file in app/http/Helpers after create it you need to require it in App\Http\Helpers\Kernal.php
+    
+
