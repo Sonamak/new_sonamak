@@ -1,4 +1,4 @@
-##Phinx Core 
+###Phinx Core 
 
 #Installation Steps
 
