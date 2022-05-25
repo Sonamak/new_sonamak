@@ -26,11 +26,14 @@ git clone https://github.com/Neamix/PhinxCore.git
     composer install
     php artisan migrate
     php artisan db:seed
+    php artisan storage:link
     ```
     
 <h2>Setup</h2>
 
 In setup page you can add the main information of the website and they can be retrive by using laravel service container
+
+to start to use it create in public/storage system file and inside it add large,medium,small folders
 
 <h3>Website Seo Title</h3>
 Retrive it by
