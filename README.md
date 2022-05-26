@@ -278,12 +278,16 @@ After that you can simple use it as following
         <td>
            the file/files that you want to resize 
         </td>
+      </tr>
+      <tr>
          <td>
             use_for
         </td>
         <td>
            think at this key as a hooker that you can use to get this image
         </td>
+    </tr>
+    <tr>
          <td>
             withSaveRelation
          </td>
