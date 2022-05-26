@@ -151,4 +151,14 @@ Phinx Core contain powerfull ajax form that you will be able to send your data w
     </tr>
 </table>
 
+Example on form
+
+```
+<form class="ajax-form" method="post" action="{{ route('info.store') }}" swalOnSuccess="Data saved successfully">
+    <input name="test" placeholder="test placeholder" value="test">
+</form>
+```
+
+Now by looking of the upper form after submit this form will send ajax request contain formData contain field called test  with value test
+
 
