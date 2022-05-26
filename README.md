@@ -280,4 +280,20 @@ After that you can simple use it as following
          </td>
     </tr>
   </table>
+  
+  
+  To declare where the resize image should added the created images  use variable root in your model
+  
+  ```
+  protected $root ="/path/to/save"
+  ```
+  
+  in case you want to delete image with all it's sizes 
+  
+  ```
+     $hotel->deleteImagesWithIdsBelongsToRelation([$hotel->thumbnail->id],$this->root,'gallaries');
+  ```
+  
+  it will use the path that u identify in root and search in all the files for image with name like you provided and delete it
+ 
 
