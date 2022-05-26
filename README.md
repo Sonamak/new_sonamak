@@ -213,4 +213,83 @@ function appendInclude()
 
 By using extra section you append multi value for same name input[]  you have to add method return the html of sections and added it to method-append
 
+<h2>Error Handling</h2>
+
+Each crud create Form Request with it so after create your crud add all your validation in it and to catch the error you can simply use error handler 
+
+Example 
+
+```
+<input type="text" name="test">
+<p class="error error_test"></p>
+```
+so any validation error happend on key test error_test will catch it and show it
+
+
+<h2>Image Service</h2>
+
+In case that you want to deal with image image service will save alot of time for you as you can manipulate your images very easy  first you have to use it in your model after that use it as trait 
+
+Example
+
+```
+use App\Http\Services\ImageService;
+
+class User {
+    use ImageService;
+}
+
+```
+
+After that you can simple use it as following 
+
+```
+     $hotel = Hotel::find(1);
+     $hotel->dimintions(['large' => '1602x1067','small' => '261x164'])
+            ->resize()
+            ->files($request->thumbnail)
+            ->withSaveRelation('gallaries')
+            ->usefor('thumbnail')
+            ->compile();
+  ```
+  
+  <table>
+    <tr>
+        <th>
+            Key
+        </th>
+        <th>
+            Value
+        </th>
+    </tr>
+    
+    <tr>
+        <td>
+            dimintions
+        </td>
+        <td>
+            You can use it to resize image multi time and get diffrent size of it 
+        </td>
+    </tr>
+     <tr>
+        <td>
+            files
+        </td>
+        <td>
+           the file/files that you want to resize 
+        </td>
+         <td>
+            use_for
+        </td>
+        <td>
+           think at this key as a hooker that you can use to get this image
+        </td>
+         <td>
+            withSaveRelation
+         </td>
+         <td>
+            if you want to save the name of image in your database you can easliy use withSaveRelation to save it (Note the table must contain name,use_for column)
+         </td>
+    </tr>
+  </table>
 
