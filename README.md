@@ -93,3 +93,62 @@ go to admin/post/index.blade.php added your structure in
 
 and go to admin/post/upsert.blade.php added your inputs (Each input must have a name) after that you can go to PostRequest in case you want to validate creation and update finally go to Post model and add the name of your inputs in fillable
 
+in case you have simple crud and want to create index and upsert in same page use 
+
+```
+php artisan phinx:crud Name --type=single
+```
+
+in case you want upsert page and index page
+
+```
+php artisan phinx:crud Name --type=multi
+```
+
+
+<h2>Form Ajax</h2>
+
+Phinx Core contain powerfull ajax form that you will be able to send your data without write any js line 
+
+<h3>Form Attributes</h3>
+
+<table>
+    <td>
+        <th>Name</th>
+        <th>Job</th>
+    </td>
+    <td>
+        <th>swalOnSuccess</th>
+        <th>Throw success swal if the form accepted</th>
+    </td>
+    <td>
+        <th>swalOnFail</th>
+        <th>Throw error swal if the form rejected</th>
+    </td>
+     <td>
+        <th>refreshAfterSend</th>
+        <th>Refresh the current page if the form accepted</th>
+    </td>
+     <td>
+        <th>callback</th>
+        <th>call a function if the form accepted</th>
+    </td>
+    <td>
+        <th>beforeSend</th>
+        <th>call a function before send the form</th>
+    </td>
+    <td>
+        <th>beforeSend</th>
+        <th>call a function before send the form</th>
+    </td>
+    <td>
+        <th>methodAppend</th>
+        <th>reject the form data that come from form and send the form data that return from method of append </th>
+    </td>
+    <td>
+        <th>appendToData</th>
+        <th>add to form data that come from the form the form data that return from appendToData method</th>
+    </td>
+</table>
+
+
