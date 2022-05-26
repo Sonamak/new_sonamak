@@ -113,42 +113,42 @@ Phinx Core contain powerfull ajax form that you will be able to send your data w
 <h3>Form Attributes</h3>
 
 <table>
-    <td>
+    <tr>
         <th>Name</th>
         <th>Job</th>
-    </td>
-    <td>
-        <th>swalOnSuccess</th>
-        <th>Throw success swal if the form accepted</th>
-    </td>
-    <td>
-        <th>swalOnFail</th>
-        <th>Throw error swal if the form rejected</th>
-    </td>
-     <td>
-        <th>refreshAfterSend</th>
-        <th>Refresh the current page if the form accepted</th>
-    </td>
-     <td>
-        <th>callback</th>
-        <th>call a function if the form accepted</th>
-    </td>
-    <td>
-        <th>beforeSend</th>
-        <th>call a function before send the form</th>
-    </td>
-    <td>
-        <th>beforeSend</th>
-        <th>call a function before send the form</th>
-    </td>
-    <td>
-        <th>methodAppend</th>
-        <th>reject the form data that come from form and send the form data that return from method of append </th>
-    </td>
-    <td>
-        <th>appendToData</th>
-        <th>add to form data that come from the form the form data that return from appendToData method</th>
-    </td>
+    </tr>
+    <tr>
+        <td>swalOnSuccess</td>
+        <td>Throw success swal if the form accepted</td>
+    </tr>
+    <tr>
+        <td>swalOnFail</td>
+        <td>Throw error swal if the form rejected</td>
+    </tr>
+     <tr>
+        <td>refreshAfterSend</td>
+        <td>Refresh the current page if the form accepted</td>
+    </tr>
+     <tr>
+        <td>callback</td>
+        <td>call a function if the form accepted</td>
+    </tr>
+    <tr>
+        <td>beforeSend</td>
+        <td>call a function before send the form</td>
+    </tr>
+    <tr>
+        <td>beforeSend</td>
+        <td>call a function before send the form</td>
+    </tr>
+    <tr>
+        <td>methodAppend</td>
+        <td>reject the form data that come from form and send the form data that return from method of append </td>
+    </tr>
+    <tr>
+        <td>appendToData</td>
+        <td>add to form data that come from the form the form data that return from appendToData method</td>
+    </tr>
 </table>
 
 
