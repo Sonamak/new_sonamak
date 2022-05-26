@@ -49,18 +49,6 @@
                 </a>
             </li>
             <li class="slide">
-                <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('social.index') }}">
-                    <i class="icon ion-md-send me-2"></i>
-                    <span class="side-menu__label">Social</span>
-                </a>
-            </li>
-            <!-- <li class="slide">
-                <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('active.index') }}">
-                    <i class="icon ion-ios-rocket me-2"></i>
-                    <span class="side-menu__label">Active Links</span>
-                </a>
-            </li> -->
-            <li class="slide">
                 <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('info.index') }}">
                     <i class="fas fa-exclamation me-2"></i>
                     <span class="side-menu__label">Website Info</span>

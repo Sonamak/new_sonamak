@@ -43,6 +43,7 @@
 
     <!-- INTERNAL Select2 css -->
     <link href="{{ asset('admin/plugins/select2/css/select2.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/css/sumoselect.min.css') }}" rel="stylesheet" />
 
     <!-- Tagify -->
     <link href="{{ asset('admin/css/tagify.css') }}" rel="stylesheet" />

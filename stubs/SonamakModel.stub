@@ -8,10 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Http\Services\ValidationService;
+use App\Http\Services\ImageService;
 
 class $model extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,ValidationService;
+    use HasApiTokens, HasFactory, Notifiable,ValidationService,ImageService;
 
     /**
      * The attributes that are mass assignable.
@@ -46,6 +47,21 @@ class $model extends Authenticatable
     public function scopeFilter($query,$request)
     {
         return $query;
+    }
+
+    //Accessator 
+
+    public function getThumbnailAttribute()
+    {
+        return $this->gallaries()->where('use_for','thumbnail')->first();
+    }
+
+
+    //Relations
+
+    public function gallaries()
+    {
+        return $this->morphMany(Gallary::class,'imageable');
     }
 
 

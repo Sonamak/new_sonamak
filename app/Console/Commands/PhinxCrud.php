@@ -72,11 +72,17 @@ class PhinxCrud extends Command
 
         } else if ( $value == 'index' ) {
 
-            $file_content = file_get_contents($main_directory.'index.stub');
+            if ( $this->option('type') == 'multi') {
+                $file_content = file_get_contents($main_directory.'index.stub');
+            } else {
+                $file_content = file_get_contents($main_directory.'index-single.stub');
+            }
 
         } else if ( $value == 'upsert' ) {
-
-            $file_content = file_get_contents($main_directory.'upsert.stub');
+            if ( $this->option('type') == 'multi')
+                $file_content = file_get_contents($main_directory.'upsert.stub');
+            else 
+                $file_content = '';
 
         } else {
 

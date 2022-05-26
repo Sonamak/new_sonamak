@@ -49,29 +49,10 @@ Route::group(['prefix' => 'social'],function () {
 });
 
 
-Route::group(['prefix' => 'banner'],function () {
-
-    Route::get('/',[BannerController::class,'index'])->name('banner.index');
-    Route::post('/store',[BannerController::class,'store'])->name('banner.store');
-
-});
-
 Route::group(['prefix' => 'category'],function () {
     Route::get('/',[CategoryController::class,'index'])->name('category.index');
     Route::post('/store',[CategoryController::class,'create'])->name('category.store');
     Route::post('/delete/{category}',[CategoryController::class,'delete'])->name('category.delete');
-});
-
-Route::group(['prefix' => 'schedule'],function () {
-    Route::get('/',[ScheduleController::class,'index'])->name('schedule.index');
-    Route::post('/store',[ScheduleController::class,'create'])->name('schedule.store');
-    Route::post('/holiday/{schedule}',[ScheduleController::class,'holiday'])->name('schedule.holiday');
-});
-
-Route::group(['prefix' => 'active_link'],function () {
-    Route::get('/',[ActiveLinkController::class,'index'])->name('active.index');
-    Route::post('/toggle/{activeLink}',[ActiveLinkController::class,'toggleActive'])->name('active.toggle');
-    Route::post('/appear/{activeLink}',[ActiveLinkController::class,'appearOn'])->name('active.appear_on');
 });
 
 

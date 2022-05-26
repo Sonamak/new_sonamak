@@ -2,6 +2,9 @@
 <!-- JQuery min js -->
 <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>
 
+<!-- Ajax Actions -->
+<script src="{{ asset('admin/js/ajaxActions.js') }}"></script>
+
 <!-- Bootstrap js -->
 <script src="{{ asset('admin/plugins/bootstrap/js/popper.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -45,8 +48,7 @@
 <!-- Sticky js -->
 <script src="{{ asset('admin/js/sticky.js') }}"></script>
 
-<!-- Ajax Actions -->
-<script src="{{ asset('admin/js/ajaxActions.js') }}"></script>
+
 
 <!--Internal  index js -->
 <script src="{{ asset('admin/js/index1.js') }}"></script>
@@ -63,6 +65,8 @@
 
 <!-- INTERNAL Select2 js -->
 <script src="{{ asset('admin/plugins/select2/js/select2.full.min.js') }}"></script>
+<script src="{{ asset('admin/js/sumoselect.min.js') }}"></script>
+<script src="{{ asset('admin/js/advanced-form-elements.js') }}"></script>
 <script src="{{ asset('admin/js/select2.js') }}"></script>
 
 <!-- Theme Color js -->

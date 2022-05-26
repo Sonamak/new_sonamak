@@ -1,7 +1,7 @@
 var pending = false;
+var pending = false;
 
 $.ajaxSetup({
-
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
         'Accept': "application/json"
@@ -144,6 +144,8 @@ $(document).on('submit','.ajax-form',function(e) {
                         timer: 3000,
                         timerProgressBar: true,
                         icon: 'success',
+                        background:'#4a4a69',
+                        color: '#fff',
                         title: $(this).attr('swalOnSuccess')
                     })
                 }
@@ -164,7 +166,7 @@ $(document).on('submit','.ajax-form',function(e) {
                     width: '500',
                     showConfirmButton: false,
                     timer: 5000,
-                    background: '#383d52',
+                    background:'#4a4a69',
                     color: '#fff',
                     timerProgressBar: true,
                     icon: 'error',
