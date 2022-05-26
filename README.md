@@ -178,6 +178,22 @@ Multi select box
 </select> 
 ```
 
+
+Select Box
+```
+ <select name="type" class="form-control form-select select2" data-bs-placeholder="Select Country" readonly>
+    <option value="facebook">Facebook</option>
+    <option value="twitter">Twitter</option>
+    <option value="instgram">Instgram</option>
+    <option value="whatsapp" selected>What's App</option>
+    <option value="phone" selected>Phone</option>
+    <option value="email" selected>Email</option>
+    <option value="location" selected>Location</option>
+</select>
+```
+
+
+
 Extra section
 
 ```
