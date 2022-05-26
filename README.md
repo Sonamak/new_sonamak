@@ -159,6 +159,27 @@ Example on form
 </form>
 ```
 
-Now by looking of the upper form after submit this form will send ajax request contain formData contain field called test  with value test
+Now by looking of the upper form after submit this form will send ajax request contain formData contain field called test  with value test to the route info.store with method post after send it swal success will work
+
+<h2>Form Inputs</h2>
+
+<ul>
+    <li>
+    Summernote
+    ```<textarea class="summernote w-100" name="value"> </textarea>```
+    </li>
+    <li>
+    Multi select box
+    ```
+     <select multiple="multiple" class="testselect2" name="test[]">
+        <option selected value="eg1">eg1</option>
+        <option value="saab">Saab</option>
+        <option value="eg2">eg2</option>
+        <option value="eg3">eg3</option>
+    </select> 
+    ```
+        
+    </li>
+</ul>
 
 
