@@ -178,4 +178,23 @@ Multi select box
 </select> 
 ```
 
+Extra section
+
+```
+ <div class="d-flex">
+    <label for="title">
+        Includes
+    </label>
+    <i class="fa fa-plus mx-2 mt-1 remove_section extra_section" data-insert=".insert_gallary" data-container=".include_container" method-append="appendInclude"></i>
+</div>
+function appendInclude()
+{
+    let index = $('.include_container').children().length;
+
+    return `<input class="include" name="include['value'][${index}]">`
+}
+```
+
+By using extra section you append multi value for same name input[]  you have to add method return the html of sections and added it to method-append
+
 
