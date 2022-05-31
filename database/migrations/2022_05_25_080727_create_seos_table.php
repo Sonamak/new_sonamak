@@ -17,7 +17,7 @@ class CreateSeosTable extends Migration
             $table->id();
             $table->string('type');
             $table->string('value');
-            $table->morphs('seo');
+            $table->morphs('seoable');
             $table->timestamps();
         });
     }

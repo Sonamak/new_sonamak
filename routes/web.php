@@ -1,13 +1,6 @@
 <?php
 
-use App\Helpers\Sonamak;
-use App\Http\Controllers\Admin\ContactController;
-use App\Http\Controllers\Admin\ReservationController;
-use App\Http\Controllers\Admin\TourController;
-use App\Http\Controllers\CookieController;
 use App\Http\Controllers\FrontController;
-use App\Http\Controllers\InquiryController;
-use App\Models\Tour;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/projects',[FrontController::class,'project'])->name('projects.all');
+Route::get('/project/{project}',[FrontController::class,'singleProject'])->name('project.show');
+Route::get('/',[FrontController::class,'home'])->name('home');
 
 Auth::routes();

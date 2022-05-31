@@ -106,7 +106,12 @@ trait ImageService {
                 }
 
             } else {
-                move_uploaded_file($file->getRealPath(),$root.'/small/'.$unique_name);
+                foreach( $this->dimintionsArray as $size => $dimintion ) {
+                    move_uploaded_file($file->getRealPath(),$root.'/'.$size.'/'.$unique_name);
+                    
+                    
+                }
+                
                 // $file->storeAs($root,$unique_name,'public');
             }
 

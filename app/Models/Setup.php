@@ -179,6 +179,7 @@ class Setup extends Model
                     'type' => 'seo',
                 ]
             );
+            
 
             Seo::createInstance($setup,$request->seo_keyword,'keywords');
         }

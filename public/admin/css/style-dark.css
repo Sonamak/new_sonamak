@@ -104,6 +104,12 @@ body.dark-theme {
     color: var(--primary-bg-color);
 }
 
+.dark-theme .card {
+    background-color: #2a2e3f !important;
+    border: 1px solid #2a2e3f !important;
+    box-shadow: 0 0 10px rgb(28 39 60 / 10%);
+}
+
 .dark-theme .ql-snow.ql-toolbar button:hover .ql-fill,
 .dark-theme .ql-snow .ql-toolbar button:hover .ql-fill,
 .dark-theme .ql-snow.ql-toolbar button:focus .ql-fill,

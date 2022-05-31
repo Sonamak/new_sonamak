@@ -47,6 +47,10 @@ $(document).on('change','.switch',function () {
     let val = $(this).val();
 
     $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Accept': "application/json"
+        },
         url: route,
         method: 'post',
         data: {value:$(this).val()}

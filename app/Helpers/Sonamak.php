@@ -23,16 +23,16 @@ class Sonamak {
 
                 $uppername = ucwords($name);
                 $controller = "Admin\\".$uppername."Controller";
-
                 Route::get("/","$controller@index")->name("$lowername");
                 Route::post("/store","$controller@store")->name("$lowername.store");
                 Route::post("/more","$controller@more")->name("$lowername.more");
                 Route::post('/delete/'.'{'.$lowername.'}',"$controller@delete")->name("$lowername.delete");
-                
+
 
                 if ( $type == 'multi' ) {
                     Route::get('/upsert/'.'{'.$lowername.'?}',"$controller@upsert")->name("$lowername.upsert");
                 }
+
                 
             });
 

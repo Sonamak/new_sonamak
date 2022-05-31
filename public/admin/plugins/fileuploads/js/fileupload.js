@@ -31,7 +31,7 @@ function Dropify(element, options) {
 
     var defaults = {
         defaultFile: '',
-        maxFileSize: 500,
+        maxFileSize: 1000,
         minWidth: 0,
         maxWidth: 0,
         minHeight: 0,
