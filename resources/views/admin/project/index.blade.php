@@ -17,7 +17,7 @@
                 @foreach($projects as $project)
                 
 
-                    <div class="row mt-4 $projects" id="project{{$project->id}}">
+                    <div class="row mt-4 $projects" id="project_{{$project->id}}">
                         <div class="col-md-3">
                             <img width="260px" height="161px" src="@if($project->thumbnail) {{ asset('storage/project/small/'.$project->thumbnail->name) }} @else @endif" alt="{{ $project->tite_en }}">
                         </div>

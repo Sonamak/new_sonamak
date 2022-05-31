@@ -61,6 +61,10 @@ $(document).on('change','.switch',function () {
 $(document).on('click','#deleteModel .confirm_btn',function () {
 
     $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Accept': "application/json"
+        },
         url: $(this).attr('delete-route'),
         method: 'post',
         success:  (e) => {
