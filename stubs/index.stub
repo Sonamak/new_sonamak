@@ -17,7 +17,7 @@
                 @foreach($plurals as $single)
 
 
-                    <div class="row mt-4 $plurals" id="$string{{$$string->id}}">
+                    <div class="row mt-4 $plurals" id="$string_{{$$string->id}}">
                         <div class="col-md-3">
                             <img width="260px" height="161px" src="@if($$string->thumbnail) {{ asset('storage/$string/small/'.$$string->thumbnail->name) }} @else @endif" alt="{{ $$string->tite_en }}">
                         </div>
