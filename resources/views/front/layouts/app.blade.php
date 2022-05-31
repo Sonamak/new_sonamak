@@ -53,6 +53,9 @@
                                         <li>
                                             <a href="{{ route('projects.all') }}">Our Portfolio</a>
                                         </li>
+                                        <li>
+                                            <a href="{{ route('contact.us') }}">Contact Us</a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -67,6 +70,7 @@
             @yield('content')
         </div>
     </div>
+    <x-front.footer-component></x-front.footer-component>
     <!-- end: Body Inner -->
     <!-- Scroll top -->
     <a id="scrollTop" aria-label="scroll" href="#"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>

@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Badget;
 use Illuminate\View\Component;
 
 class FooterComponent extends Component
@@ -23,6 +24,9 @@ class FooterComponent extends Component
      */
     public function render()
     {
-        return view('components.footer-component');
+        return view('components.footer-component',[
+            'clush' => Badget::where('type','clush')->first(),
+            'contacts' => Social::whereIn('type',['phone','location','email','whatsapp'])->get(),
+        ]);
     }
 }

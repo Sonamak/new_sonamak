@@ -27,10 +27,8 @@ class ProjectRequest extends FormRequest
         return [
             'title' => ['required'],
             'article' => ['required'],
-            'article' => ['required'],
             'tecnology' => ['required'],
             'coders' => ['required','exists:coders,id'],
-            'mockup' => Rule::requiredIf( ! $this->id ),
             'thumbnail' => Rule::requiredIf( ! $this->id ),
             'banner' => Rule::requiredIf( ! $this->id ),
             'background' => ['required'],

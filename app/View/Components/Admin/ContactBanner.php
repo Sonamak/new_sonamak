@@ -2,7 +2,7 @@
 
 namespace App\View\Components\admin;
 
-use App\Models\Banners;
+use App\Models\Banner;
 use Illuminate\View\Component;
 
 class ContactBanner extends Component
@@ -24,7 +24,7 @@ class ContactBanner extends Component
      */
     public function render()
     {
-        $banner = Banners::where('type','contact_page')->first();
+        $banner = Banner::where('type','contact')->first();
 
         return view('components.Admin.contact-banner',[
             'banner' => $banner

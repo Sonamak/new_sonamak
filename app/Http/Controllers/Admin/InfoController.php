@@ -12,7 +12,8 @@ class InfoController extends Controller
     public function index() 
     {
         return view('admin.info.index',[
-            'info' => Info::all()
+            'contact' => Info::where('type','contact')->first(),
+            'about' => Info::where('type','about')->first()
         ]);
     }
 

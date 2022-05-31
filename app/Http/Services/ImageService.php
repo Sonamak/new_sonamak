@@ -71,6 +71,7 @@ trait ImageService {
 
             $unique_name  = time() . uniqid() . '.' . $file->extension();
 
+
             array_push($names,$unique_name);
 
             if ( $file->extension() !== 'svg' )  {
@@ -120,7 +121,6 @@ trait ImageService {
             if( $this->relation ) {
 
                 $relation = $this->relation;
-
                 $this->$relation()->create(['name' => $unique_name,'use_for' => $this->use_for]);
 
             }

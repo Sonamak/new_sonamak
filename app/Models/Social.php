@@ -19,7 +19,7 @@ class Social extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['id'];
+    protected $fillable = ['id','value','type'];
 
     /**
      * The attributes that should be hidden for serialization.

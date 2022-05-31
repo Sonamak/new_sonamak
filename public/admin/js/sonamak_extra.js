@@ -30,7 +30,7 @@ $('.add_prefrence').on({
 $(document).on('click','.remove_section',function(){
     let container = $(this).attr('data-container');
     let removed_name = $(this).attr('name');
-
+    console.log($(this).closest('.section'));
     $(this).closest('.section').remove();
 
     console.log($(this).closest('.section'))

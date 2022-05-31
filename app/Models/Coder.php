@@ -37,12 +37,19 @@ class Coder extends Authenticatable
             $request->all()
         );
 
-        $coder->dimintions(['small' => '261x164'])
-            ->resize()
-            ->files($request->thumbnail)
-            ->withSaveRelation('gallaries')
-            ->usefor('thumbnail')
-            ->compile();
+        if($request->thumbnail) {
+
+            if($coder->thumbnail)
+                $coder->deleteImagesWithIdsBelongsToRelation([$coder->thumbnail->id],$coder->root,'gallaries');
+
+
+            $coder->dimintions(['small' => '261x164'])
+                ->resize()
+                ->files($request->thumbnail)
+                ->withSaveRelation('gallaries')
+                ->usefor('thumbnail')
+                ->compile();
+        }
 
         return (new self)->result($coder,'success');
     }

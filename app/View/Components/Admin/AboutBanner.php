@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\admin;
 
-use App\Models\Banner;
-use App\Models\Banners;
+use App\Models\Extra;
+use App\Models\Info;
 use Illuminate\View\Component;
 
-class ContactUs extends Component
+class AboutBanner extends Component
 {
     /**
      * Create a new component instance.
@@ -25,10 +25,9 @@ class ContactUs extends Component
      */
     public function render()
     {
-        $banner = Banner::where('type','contact')->first();
-        
-        return view('components.contact-us',[
-            'banner' => $contact
+        return view('components.admin.about-banner',[
+            'extras' => Extra::where('type','about')->get(),
+            'info' => Info::where('type','about')->first()
         ]);
     }
 }

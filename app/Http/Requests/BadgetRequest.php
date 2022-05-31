@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Badget;
 use Illuminate\Foundation\Http\FormRequest;
 
 class BadgetRequest extends FormRequest
@@ -24,7 +25,17 @@ class BadgetRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'type' => [function($attribute,$value,$fail){
+
+                if ( $value == 'clush' ) {
+
+                    $clush_is_not_unique = Badget::where('type','clush')->count();
+
+                    if ( $clush_is_not_unique ) 
+                        return $fail('Remove old clush first');
+                }
+
+            }]
         ];
     }
 }

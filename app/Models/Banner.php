@@ -30,7 +30,7 @@ class Banner extends Model
         );
         
        if ( $request->background ) {
-
+            
             if ( $banner->background ) {
                 $banner->deleteImagesWithIdsBelongsToRelation([$banner->background->id],'storage/banner','gallaries');
             }

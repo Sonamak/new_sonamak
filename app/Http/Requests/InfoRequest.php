@@ -24,8 +24,7 @@ class InfoRequest extends FormRequest
     public function rules()
     {
         return [
-            'value' => 'required',
-            'type'  => 'required'
+           
         ];
     }
 }

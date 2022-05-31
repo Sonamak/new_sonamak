@@ -19,7 +19,7 @@ class Contact extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['id','type','value'];
+    protected $fillable = ['id','email','phone','content','name'];
 
     /**
      * The attributes that should be hidden for serialization.

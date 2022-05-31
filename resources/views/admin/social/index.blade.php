@@ -17,13 +17,22 @@
                     <div class="form-group mb-0">
                         <div class="row">
                             <div class="col-md-6">
-                                <input class="form-control" id="name" type="text" placeholder="Name" name="name">
-                                <p class="error error_name pt-2 mb-2"></p>
+                                <select name="type" class="form-control form-select select2" data-bs-placeholder="Select Country" readonly>
+                                    <option value="facebook">Facebook</option>
+                                    <option value="twitter">Twitter</option>
+                                    <option value="instgram">Instgram</option>
+                                    <option value="whatsapp" selected>What's App</option>
+                                    <option value="phone" selected>Phone</option>
+                                    <option value="email" selected>Email</option>
+                                    <option value="location" selected>Location</option>
+                                </select>
+                                <p class="error error_type"></p>
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control" id="image" type="file" name="thumbnail">
-                                <p class="error error_image pt-2 mb-2"></p>
+                                <input class="form-control" id="name" type="text" placeholder="Name" name="value">
+                                <p class="error error_value pt-2 mb-2"></p>
                             </div>
+                           
                         </div>
                     </div>
                     <button class="btn btn-primary  justify-content-center align-items-center ms-auto next_form form_btn ajax-btn">
@@ -40,14 +49,15 @@
         @foreach($socials as $social)
         <div class="card wide-card w-100 d-flex align-items-center p-4" id="social_{{$social->id}}">
             <div class="row w-100 h-100">
-                <div class="col-md-1">
-                    <img src="@if($social->thumbnail){{ asset('storage/social/small/'.$social->thumbnail->name) }}@endif" alt="logo">
-                </div>
-                <div class="col-md-7">
+                <div class="col-md-8">
                     <div class="card-content w-100 d-flex" >
                         <div class="card-collection ps-4 mb-0">
                             <p class="title">Name</p>
-                            <p class="content">{{ $social->name }}</p>
+                            <p class="content">{{ $social->value }}</p>
+                        </div>
+                        <div class="card-collection ps-4 mb-0">
+                            <p class="title">Type</p>
+                            <p class="content">{{ $social->type }}</p>
                         </div>
                         <div class="card-collection ps-5 mb-0">
                             <p class="title">Add date:</p>

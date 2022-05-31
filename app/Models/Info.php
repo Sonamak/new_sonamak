@@ -25,6 +25,27 @@ class Info extends Model
             ]
         );
 
+        if ($request->extra) {
+            $extra = collect($request->extra)->map(function($item) use ($info){
+                $item['info_id'] = $info->id;
+                return $item;
+            })->all();
+
+            // dd($includes);
+
+            $info->extra()->upsert(
+                $extra,
+                ['id'],
+                ['type','value']
+            );
+
+        }
+
         return $info->result('success',$info);
+    }
+
+    public function extra()
+    {
+        return $this->hasMany(Extra::class);
     }
 }

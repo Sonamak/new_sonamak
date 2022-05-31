@@ -24,7 +24,8 @@ class SocialRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'type' => 'unique:socials|required',
+            'value' => 'required'
         ];
     }
 }
