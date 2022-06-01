@@ -49,7 +49,7 @@ class Banner extends Model
                 $banner->deleteImagesWithIdsBelongsToRelation([$banner->background->id],'storage/banner','gallaries');
             }
 
-            $banner->dimintions(['large' => '494x224'])
+            $banner->dimintions(['large' => '497x244'])
             ->resize()
             ->files($request->hero)
             ->withSaveRelation('gallaries')

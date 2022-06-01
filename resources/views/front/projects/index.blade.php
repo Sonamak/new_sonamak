@@ -78,9 +78,6 @@ Projects
                         </a>
                         @else
                         <div class="portfolio-description d-flex justify-content-center" data-lightbox="gallery">
-                            <a title="Photoshop Mock-up!" data-lightbox="gallery-image" href="{{ asset('storage/project/large/'.$gallary->name) }}"> 
-                                <i class="fa-solid fa-display"></i>
-                            </a>
                             <a href="{{ route('project.show',['project'=>$project->id]) }}">
                                 <i class="fa-solid fa-link"></i>
                             </a>

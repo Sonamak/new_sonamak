@@ -70,7 +70,7 @@
             @yield('content')
         </div>
     </div>
-    <x-front.footer-component></x-front.footer-component>
+    <x-Front.footer-component></x-Front.footer-component>
     <!-- end: Body Inner -->
     <!-- Scroll top -->
     <a id="scrollTop" aria-label="scroll" href="#"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
