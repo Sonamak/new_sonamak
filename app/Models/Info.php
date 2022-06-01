@@ -33,11 +33,9 @@ class Info extends Model
 
             // dd($includes);
 
-            $info->extra()->upsert(
-                $extra,
-                ['id'],
-                ['type','value']
-            );
+            $info->extra()->delete();
+
+            $info->extra()->createMany($request->extra);
 
         }
 

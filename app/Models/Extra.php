@@ -10,7 +10,7 @@ class Extra extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = ['value','title','type','info_id'];
 
     public function infos()
     {

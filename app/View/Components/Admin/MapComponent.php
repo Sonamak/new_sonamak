@@ -5,7 +5,7 @@ namespace App\View\Components\admin;
 use App\Models\Banner;
 use Illuminate\View\Component;
 
-class map extends Component
+class MapComponent extends Component
 {
     /**
      * Create a new component instance.
@@ -25,7 +25,8 @@ class map extends Component
     public function render()
     {
         $banner = Banner::where('type','map')->first();
-        return view('components.Admin.map',[
+        dd('asd');
+        return view('components.Admin.map-component',[
             'banner' => $banner
         ]);
     }

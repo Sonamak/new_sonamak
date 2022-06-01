@@ -14,16 +14,17 @@
     return `
         <div class="row section">
             <div class="col-md-12 mb-2 mt-2">
-                <input type="text" class="form-control" name="extra[index][title]" placeholder="Enter Title">
+                <input type="text" class="form-control" name="extra[${index}][title]" placeholder="Enter Title">
             </div>
             <div class="col-md-12">
-                <textarea type="text" class="form-control" name="extra[index][value]" placeholder="Enter Description"></textarea>
+                <textarea type="text" class="form-control" name="extra[${index}][value]" placeholder="Enter Description"></textarea>
             </div>
             <div class="removed_section col-md-12">
                 <i class="fa fa-minus mx-2 remove_section mx-3"></i>
             </div>
+            <input type="hidden" class="form-control" name="extra[${index}][type]" value="about">
         </div>
-        <input type="hidden" class="form-control" name="extra[index][type]" value="about">
+        
     `
     }
 </script>
