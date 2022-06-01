@@ -25,7 +25,7 @@ class MapComponent extends Component
     public function render()
     {
         $banner = Banner::where('type','map')->first();
-        dd('asd');
+
         return view('components.Admin.map-component',[
             'banner' => $banner
         ]);
