@@ -33,10 +33,12 @@
 									<img src="{{ asset('admin/img/brand/logo-white.png') }}" class="mobile-logo dark-logo-1" alt="logo">
 								</a>
 							</div>
-							<div class="main-header-center ms-4 d-sm-none d-md-none d-lg-block form-group">
-								<input class="form-control" placeholder="Search..." type="search">
-								<button class="btn"><i class="fas fa-search"></i></button>
-							</div>
+							<form action="{{ route('project') }}">
+								<div class="main-header-center ms-4 d-sm-none d-md-none d-lg-block form-group">
+									<input class="form-control" placeholder="Search..." type="search" name="title">
+									<button class="btn"><i class="fas fa-search"></i></button>
+								</div>
+							</form>
 						</div>
 						<div class="main-header-right">
 							<button class="navbar-toggler navresponsive-toggler d-md-none ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">

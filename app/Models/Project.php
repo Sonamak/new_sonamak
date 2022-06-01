@@ -115,6 +115,10 @@ class Project extends Authenticatable
 
     public function scopeFilter($query,$request)
     {
+        if ( $request->title ) {
+            $query->where('title','like',"%".$request->title."%");
+        }
+
         return $query;
     }
 
