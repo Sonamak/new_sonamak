@@ -36,7 +36,7 @@ Home
                             </div>
                             @if($banner->background)
                             <img src="{{ asset('storage/banner/large/'.$banner->background->name) }}"
-                                alt="graphic_design" class="w-100" width="497" height="233">
+                                alt="graphic_design" class="w-100" width="497" height="363">
                             @endif
                         </div>
                     </div>
