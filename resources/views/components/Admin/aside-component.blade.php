@@ -48,13 +48,12 @@
                     <span class="side-menu__label">Website Info</span>
                 </a>
             </li>
+            <li class="slide">
+                <a class="side-menu__item py-2" data-bs-toggle="slide" href="{{ route('banner.index') }}">
+                    <i class="fab fa-drupal me-2"></i>
+                    <span class="side-menu__label">Banners</span>
+                </a>
+            </li>
         </ul>
-        <ul class="side-menu">
-            <li class="side-item side-item-category mt-2">Messages Center</li>
-
-
-
-        </ul>
-
     </div>
 </aside>
