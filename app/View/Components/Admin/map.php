@@ -25,7 +25,7 @@ class map extends Component
     public function render()
     {
         $banner = Banner::where('type','map')->first();
-        return view('components.admin.map',[
+        return view('components.Admin.map',[
             'banner' => $banner
         ]);
     }
