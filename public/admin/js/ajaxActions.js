@@ -1,4 +1,5 @@
 var pending = false;
+var pending = false;
 
 $.ajaxSetup({
     headers: {

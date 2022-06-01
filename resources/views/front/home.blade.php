@@ -136,7 +136,6 @@ Home
     </div>
 </div>
 <!-- End: Partners -->
-<x-front.contact-us></x-front.contact-us>
 
 </section>
 </div>

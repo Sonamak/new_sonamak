@@ -6,8 +6,6 @@
 
 @section('content')
 <div class="container-fluid mt-2">
-    <x-admin.hero-banner></x-admin.hero-banner>
-    <x-admin.map></x-admin.map>
-    <x-admin.contact-banner></x-admin.contact-banner>
+     <x-admin.hero-banner></x-admin.hero-banner>
 </div>
 @endsection
