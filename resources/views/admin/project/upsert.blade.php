@@ -12,7 +12,7 @@ $route = array_shift($route) .'.store';
             <h4 class="card-title mb-1">{{ $project->id ? 'Update Instance' : 'Add Instance' }}</h4>
         </div>
         <form class="ajax-form" method="post" action="{{ route($route) }}" appendToData="mergeModelRefrences"
-            redirect="{{ route('project') }}">
+            redirect="{{ route('project') }}" swalOnFail="We are human and make mistakes">
             <div class="card-body card-full">
 
                 <div class="row">
@@ -60,6 +60,7 @@ $route = array_shift($route) .'.store';
                     <div class="col-md-12">
                         <label>Project Title</label>
                         <input type="title" class="form-control" placeholder="Enter Project title" name="title" value="@if($project->title) {{ $project->title }} @endif">
+                        <p class="error error_title"></p>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -92,6 +93,7 @@ $route = array_shift($route) .'.store';
                             <option value="{{$service->id}}" @if($project->service_id == $service->id) selected @endif>{{$service->name}}</option>
                             @endforeach
                         </select>
+                        <p class="error error_service"></p>
                     </div>
                     <div class="col-md-12 mt-3">
                         <div class="form-group mt">
@@ -103,6 +105,7 @@ $route = array_shift($route) .'.store';
                     <div class="col-md-12 mt-2">
                         <label>Article</label>
                         <textarea class="form-control summernote" placeholder="Enter Article" name="article">@if($project){{$project->article}}@endif</textarea>
+                        <p class="error error_article"></p>
                     </div>
                     <div class="col-md-6 mt-3">
                         <label>Style</label>
@@ -112,6 +115,7 @@ $route = array_shift($route) .'.store';
                             <option value="one_layer" @if($project->style == 'one_layer') selected @endif>One Layer</option>
                             <option value="feature" @if($project->style == 'feature') selected @endif>Feature</option>
                         </select>
+                        <p class="error error_style"></p>
                     </div>
                     <div class="col-md-6 mt-3">
                         <label class="d-block">Coders</label>

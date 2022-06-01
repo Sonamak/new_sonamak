@@ -30,6 +30,7 @@ $.ajaxSetup({
             
             $('.form_submit').removeClass('active');
         }
+        
     }
 });
 
@@ -167,6 +168,7 @@ $(document).on('submit','.ajax-form',function(e) {
                 if( $(this).attr('refreshAfterSend') != undefined) location.reload();
             },
         }).fail(() => {
+
             if( $(this).attr('swalOnFail') )  {
                 Swal.fire({
                     toast: true,
