@@ -25,7 +25,7 @@ class ContactBanner extends Component
     public function render()
     {
         $banner = Banner::where('type','contact')->first();
-        return view('components.front.contact-banner',[
+        return view('components.Front.contact-banner',[
             'banner' => $banner
         ]);
     }

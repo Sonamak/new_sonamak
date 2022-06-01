@@ -25,7 +25,7 @@ class MySliderComponent extends Component
     public function render()
     {
         $banner = Banner::where('type','hero')->first();
-        return view('components.front.my-slider-component',[
+        return view('components.Front.my-slider-component',[
             'banner' => $banner
         ]);
     }

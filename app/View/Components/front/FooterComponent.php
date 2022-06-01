@@ -26,7 +26,7 @@ class FooterComponent extends Component
     public function render()
     {
         
-        return view('components.front.footer-component', [
+        return view('components.Front.footer-component', [
             'clush' => Badget::where('type','clush')->first(),
             'contacts' => Social::whereIn('type',['phone','location','email','whatsapp'])->get(),
         ]);

@@ -25,7 +25,7 @@ class PartnerComponent extends Component
     public function render()
     {
         $partner = Partner::all();
-        return view('components.front.partner-component',[
+        return view('components.Front.partner-component',[
             'partners' => $partner
         ]);
     }

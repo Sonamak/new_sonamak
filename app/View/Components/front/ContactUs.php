@@ -27,7 +27,7 @@ class ContactUs extends Component
     public function render()
     {
         $banner = Banner::where('type','contact')->get();
-        return view('components.front.contact-us',[
+        return view('components.Front.contact-us',[
             'socials' => Social::whereIn('type',['phone','location','email','whatsapp'])->get(),
             'banner' => $banner
         ]);

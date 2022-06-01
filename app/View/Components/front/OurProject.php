@@ -25,7 +25,7 @@ class OurProject extends Component
     public function render()
     {
         $projects = Project::where('feature',true)->get();
-        return view('components.front.our-project',[
+        return view('components.Front.our-project',[
             'projects' => $projects
         ]);
     }

@@ -25,7 +25,7 @@ class staticalComponent extends Component
     public function render()
     {
         $statical = Statical::take(3)->get();
-        return view('components.front.statical-component',[
+        return view('components.Front.statical-component',[
             'staticals' => $statical
         ]);
     }
