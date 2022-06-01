@@ -49,7 +49,7 @@
 
 				<!-- main-sidebar -->
 				<div class="sticky">
-                    <x-admin.aside-component></x-aside-component>
+                    <x-admin.aside-component/>
 				</div>
 				<!-- main-sidebar -->
 			</div>

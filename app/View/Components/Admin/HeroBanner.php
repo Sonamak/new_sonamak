@@ -25,7 +25,7 @@ class HeroBanner extends Component
     public function render()
     {
         $banner = Banner::where('type','hero')->first();
-        return view('components.admin.hero-banner',[
+        return view('components.Admin.hero-banner',[
             'banner' => $banner
         ]);
     }
