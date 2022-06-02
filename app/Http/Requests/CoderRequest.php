@@ -24,7 +24,8 @@ class CoderRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'thumbnail' => 'required'
         ];
     }
 }

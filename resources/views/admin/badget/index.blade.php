@@ -13,7 +13,7 @@
                 <h2 class="card-title">Add badget</h2>
             </div>
             <div>
-                <form class="form badget-form ajax-form" action="{{ route('badget.store') }}" method="post" refreshAfterSend>
+                <form class="form badget-form ajax-form" action="{{ route('badget.store') }}" method="post" refreshAfterSend swalOnFail="Howdy, you made some errors">
                     <div class="form-group mb-0">
                         <div class="row">
                             <div class="col-md-6">
@@ -24,8 +24,8 @@
                             <p class="error error_type pt-2 mb-2"></p>
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control" id="image" type="file" name="thumbnail">
-                                <p class="error error_image pt-2 mb-2"></p>
+                                <input class="form-control" id="thumbnail" type="file" name="thumbnail">
+                                <p class="error error_thumbnail pt-2 mb-2"></p>
                             </div>
                         </div>
                     </div>

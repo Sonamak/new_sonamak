@@ -56,6 +56,9 @@
                                         <li>
                                             <a href="{{ route('contact.us') }}">Contact Us</a>
                                         </li>
+                                        <li>
+                                            <a href="{{ route('about') }}">About Us</a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>

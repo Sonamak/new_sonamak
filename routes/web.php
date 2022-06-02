@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -17,5 +18,6 @@ Route::get('/projects',[FrontController::class,'project'])->name('projects.all')
 Route::get('/project/{project}',[FrontController::class,'singleProject'])->name('project.show');
 Route::get('/contact',[FrontController::class,'contact'])->name('contact.us');
 Route::get('/',[FrontController::class,'home'])->name('home');
-
+Route::get('/about',[FrontController::class,'about'])->name('about');
+Route::post('/contact/store',[ContactController::class,'store'])->name('store.contact');
 Auth::routes();

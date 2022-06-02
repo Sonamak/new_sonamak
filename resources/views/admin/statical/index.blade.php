@@ -13,7 +13,7 @@
                 <h2 class="card-title">Add statical</h2>
             </div>
             <div>
-                <form class="form statical-form ajax-form" action="{{ route('statical.store') }}" method="post" refreshAfterSend>
+                <form class="form statical-form ajax-form" action="{{ route('statical.store') }}" method="post" refreshAfterSend swalOnFail="Howdy, you made some errors">
                     <div class="form-group mb-0">
                         <div class="row">
                             <div class="col-md-6">

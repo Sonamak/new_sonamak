@@ -32,7 +32,7 @@
 
             <h2 class="mb-5">Fill the form Now. <br> It's easy.</h2>
 
-            <form class="border-right pr-5 mb-5 ajax-form" action="{{ route('contact.store') }}" method="post" id="contactForm" swalOnSuccess="We Will contact you soon">
+            <form class="border-right pr-5 mb-5 ajax-form" action="{{ route('store.contact') }}" method="post" id="contactForm" swalOnSuccess="We Will contact you soon" resetAfterSend>
                 <div class="row">
                     <div class="col-md-6 form-group">
                         <input type="text" class="form-control" name="name" id="fname" placeholder="Full Name">

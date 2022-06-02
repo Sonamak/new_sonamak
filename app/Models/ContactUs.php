@@ -14,6 +14,7 @@ class ContactUs extends Model
 
     static function createInstance($request)
     {
+        dd('here');
         self::create([
             'name' => $request->name,
             'email' => $request->email,

@@ -25,7 +25,7 @@ class BadgetRequest extends FormRequest
     public function rules()
     {
         return [
-            'type' => [function($attribute,$value,$fail){
+            'type' => ['required',function($attribute,$value,$fail){
 
                 if ( $value == 'clush' ) {
 
@@ -35,7 +35,8 @@ class BadgetRequest extends FormRequest
                         return $fail('Remove old clush first');
                 }
 
-            }]
+            }],
+            'thumbnail' => 'required'
         ];
     }
 }

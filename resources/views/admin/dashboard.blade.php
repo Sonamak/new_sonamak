@@ -6,46 +6,70 @@
     <div class="col-md-12">
       <div class="card mt-4">
         <div class="card-header w-100 d-flex">
-            <h4 class="card-title mb-1">Tour</h4>
+            <h4 class="card-title mb-1">Projects</h4>
         </div>
         <div class="card-content">
-          <div class="tour container">
+          <div class="projects container">
 
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
       <div class="card mt-4">
         <div class="card-header w-100 d-flex">
-            <h4 class="card-title mb-1">Destination</h4>
+            <h4 class="card-title mb-1">Badget</h4>
         </div>
         <div class="card-content">
-          <div class="destination container">
+          <div class="badget container">
 
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
       <div class="card mt-4">
         <div class="card-header w-100 d-flex">
-            <h4 class="card-title mb-1">Hotel</h4>
+            <h4 class="card-title mb-1">Staticals</h4>
         </div>
         <div class="card-content">
-          <div class="hotel container">
+          <div class="staticals container">
 
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
       <div class="card mt-4">
         <div class="card-header w-100 d-flex">
-            <h4 class="card-title mb-1">Blog</h4>
+            <h4 class="card-title mb-1">Partners</h4>
         </div>
         <div class="card-content">
-          <div class="blog container">
+          <div class="partner container">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card mt-4">
+        <div class="card-header w-100 d-flex">
+            <h4 class="card-title mb-1">Coders</h4>
+        </div>
+        <div class="card-content">
+          <div class="coders container">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card mt-4">
+        <div class="card-header w-100 d-flex">
+            <h4 class="card-title mb-1">Socials</h4>
+        </div>
+        <div class="card-content">
+          <div class="socials container">
 
           </div>
         </div>
@@ -58,9 +82,12 @@
 @section('component_script')
 <script src="{{ asset('admin/js/charts.js') }}"></script>
 <script>
-  charts('.tour','Tour',null,'area')
-  charts('.hotel','Hotel',200)
-  charts('.destination','Destination',200)
-  charts('.blog','Blog',200)
+  charts('.projects','Project',null,'area')
+  charts('.badget','Badget',200)
+  charts('.staticals','Statical',200)
+  charts('.partner','Partner',200)
+  charts('.social','Social',200)
+  charts('.coders','Coder',200)
+  charts('.socials','Social',200)
 </script>
 @endsection

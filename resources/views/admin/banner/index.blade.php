@@ -9,5 +9,6 @@
     <x-admin.hero-banner></x-admin.hero-banner>
     <x-admin.map-component></x-admin.map-component>
     <x-admin.contact-banner></x-admin.contact-banner>
+    <x-admin.about-hero></x-admin.about-hero>
 </div>
 @endsection

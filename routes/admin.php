@@ -1,19 +1,11 @@
 <?php
 
 use App\Helpers\Sonamak;
-use App\Http\Controllers\Admin\ActiveLinkController;
 use App\Http\Controllers\Admin\SetupController;
-use App\Http\Controllers\Admin\SocialController;
 use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\ChartController;
 use App\Http\Controllers\Admin\InfoController;
-use App\Http\Controllers\Admin\InquiryController;
 use App\Http\Controllers\Admin\ProjectController;
-use App\Http\Controllers\Admin\ReservationController;
-use App\Http\Controllers\Admin\ScheduleController;
-use App\Http\Controllers\ChartController;
-use App\Models\Inquirty;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +43,6 @@ Route::group(['prefix' => 'banner'],function () {
     Route::post('/store',[BannerController::class,'store'])->name('banner.store');
 });
 
-// Route::get('/chart/{model}',[ChartController::class,'chart'])->name('chart');
+Route::get('/chart/{model}',[ChartController::class,'chart'])->name('chart');
 
 

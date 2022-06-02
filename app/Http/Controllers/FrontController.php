@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Badget;
 use App\Models\Banner;
 use App\Models\Contact;
+use App\Models\Extra;
+use App\Models\Info;
 use App\Models\Partner;
 use App\Models\Project;
 use App\Models\Service;
@@ -45,5 +47,15 @@ class FrontController extends Controller
     public function contact()
     {
         return view('front.contact.index');
+    }
+
+    public function about()
+    {
+        return view('front.about.index',[
+            'description' => Info::where('type','about')->first(),
+            'extras' => Extra::where('type','about')->get(),
+            'badgets' => Badget::where('type','!=','clush')->get(),
+            'banner' => Banner::where('type','about')->first()
+        ]);
     }
 }

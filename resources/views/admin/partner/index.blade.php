@@ -13,7 +13,7 @@
                 <h2 class="card-title">Add partner</h2>
             </div>
             <div>
-                <form class="form partner-form ajax-form" action="{{ route('partner.store') }}" method="post" refreshAfterSend>
+                <form class="form partner-form ajax-form" action="{{ route('partner.store') }}" method="post" refreshAfterSend swalOnFail="Howdy, you made some errors">
                     <div class="form-group mb-0">
                         <div class="row">
                             <div class="col-md-6">
@@ -22,7 +22,7 @@
                             </div>
                             <div class="col-md-6">
                                 <input class="form-control" id="image" type="file" name="thumbnail">
-                                <p class="error error_image pt-2 mb-2"></p>
+                                <p class="error error_thumbnail pt-2 mb-2"></p>
                             </div>
                         </div>
                     </div>
